@@ -1,9 +1,9 @@
 //
-//  PMVideoManager.cpp
+//  PMArtNetRecorder.cpp
 //  ArtNet-player
 //
 //  Created by Eduard Frigola on 04/03/16.
 //
 //
 
-#include "PMVideoManager.h"
+#include "PMArtNetRecorder.h"
