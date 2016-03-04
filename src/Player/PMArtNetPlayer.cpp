@@ -7,3 +7,12 @@
 //
 
 #include "PMArtNetPlayer.h"
+
+
+bool PMArtNetPlayer::setup(string videoFilename){
+    video.setup(videoFilename, OF_LOOP_NONE);
+}
+
+void PMArtNetPlayer::update(){
+    video.getFramePixels();
+}

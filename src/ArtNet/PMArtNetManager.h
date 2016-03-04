@@ -26,6 +26,8 @@ public:
     bool setup(pmArtnetFunction _function);
     void receiveData(ofxArtNetDmxData &data){data = dmxData;};
     bool sendDmx();
+    bool sendDmx(ofPixels pixels);
+    void setFromPixels(ofPixels pixels);
     
 private:
     pmArtnetFunction function;

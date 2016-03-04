@@ -16,3 +16,16 @@ bool PMArtNetManager::setup(pmArtnetFunction _function)
         
     }
 }
+
+void PMArtNetManager::setFromPixels(ofPixels pixels){
+    dmxData.data = pixels;
+}
+
+bool PMArtNetManager::sendDmx(){
+    artnet.sendDmx(dmxData);
+}
+
+bool PMArtNetManager::sendDmx(ofPixels pixels){
+    setFromPixels(pixels);
+    sendDmx();
+}

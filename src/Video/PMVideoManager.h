@@ -17,13 +17,13 @@ public:
     PMVideoManager(){};
     ~PMVideoManager(){};
     
-    void setup(string filename);
-    ofPixels getFrame();
-    
+    bool setup(string filename, ofLoopType loopType);
+    void update();
+    void draw(int x, int y, int width, int height);
+    ofPixels getFramePixels();
     
 private:
     ofVideoPlayer videoPlayer;
-    
     
 };
 

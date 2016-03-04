@@ -20,6 +20,7 @@ public:
     ~PMArtNetPlayer(){};
     
     bool setup(string videoFilename);
+    void update();
     int getVideoFrameRate();
     
 private:
