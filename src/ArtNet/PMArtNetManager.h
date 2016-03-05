@@ -23,7 +23,7 @@ public:
     PMArtNetManager(){};
     ~PMArtNetManager(){};
     
-    bool setup(pmArtnetFunction _function);
+    bool setup(pmArtnetFunction _function, const char* machineIP);
     void start();
     void setFromPixels(ofPixels &pixels);
     bool sendDmx();

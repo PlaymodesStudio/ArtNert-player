@@ -2,7 +2,10 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    player.setup("artnettestProres.mov", "192.168.1.112");
+    if(ofGetTargetPlatform() == OF_TARGET_OSX)
+        player.setup("artnettestProres.mov", "192.168.1.105", "192.168.1.112");
+    else
+        player.setup("artnettest.mov", "192.168.1.112", "192.168.1.105");
 }
 
 //--------------------------------------------------------------

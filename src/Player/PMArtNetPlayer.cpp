@@ -9,9 +9,9 @@
 #include "PMArtNetPlayer.h"
 
 
-bool PMArtNetPlayer::setup(string videoFilename, const char* targetIP){
+bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const char* targetIP){
     video.setup(videoFilename, OF_LOOP_NORMAL);
-    artnet.setup(PM_ARTNET_PLAYER);
+    artnet.setup(PM_ARTNET_PLAYER, machineIP);
     artnet.setIp(targetIP);
     artnet.start();
     video.start();
