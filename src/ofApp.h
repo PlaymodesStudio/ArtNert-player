@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "PMArtNetPlayer.h"
+#include "PMArtNetRecorder.h"
 
 class ofApp : public ofBaseApp{
 
@@ -21,4 +23,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+private:
+    PMArtNetPlayer player;
 };

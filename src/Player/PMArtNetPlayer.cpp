@@ -9,10 +9,19 @@
 #include "PMArtNetPlayer.h"
 
 
-bool PMArtNetPlayer::setup(string videoFilename){
-    video.setup(videoFilename, OF_LOOP_NONE);
+bool PMArtNetPlayer::setup(string videoFilename, const char* targetIP){
+    video.setup(videoFilename, OF_LOOP_NORMAL);
+    artnet.setup(PM_ARTNET_PLAYER);
+    artnet.setIp(targetIP);
+    artnet.start();
+    video.start();
 }
 
 void PMArtNetPlayer::update(){
-    video.getFramePixels();
+    video.update();
+    artnet.sendDmx(video.getFramePixels());
+}
+
+void PMArtNetPlayer::draw(int x, int y, int w, int h){
+    video.draw(x, y, w, h);
 }

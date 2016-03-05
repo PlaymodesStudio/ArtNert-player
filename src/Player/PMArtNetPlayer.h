@@ -19,8 +19,9 @@ public:
     PMArtNetPlayer(){};
     ~PMArtNetPlayer(){};
     
-    bool setup(string videoFilename);
+    bool setup(string videoFilename, const char* targetIP);
     void update();
+    void draw(int x, int y, int w, int h);
     int getVideoFrameRate();
     
 private:

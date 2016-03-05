@@ -24,10 +24,13 @@ public:
     ~PMArtNetManager(){};
     
     bool setup(pmArtnetFunction _function);
-    void receiveData(ofxArtNetDmxData &data){data = dmxData;};
+    void start();
+    void setFromPixels(ofPixels &pixels);
     bool sendDmx();
-    bool sendDmx(ofPixels pixels);
-    void setFromPixels(ofPixels pixels);
+    bool sendDmx(ofPixels &pixels);
+    void setIp(const char* ip){dmxData.ipTarget = ip;};
+    unsigned char* getData(){return dmxData.data;};
+    void receiveData(ofxArtNetDmxData &data){data = dmxData;};
     
 private:
     pmArtnetFunction function;

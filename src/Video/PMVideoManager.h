@@ -18,9 +18,10 @@ public:
     ~PMVideoManager(){};
     
     bool setup(string filename, ofLoopType loopType);
+    void start(){videoPlayer.play();};
     void update();
     void draw(int x, int y, int width, int height);
-    ofPixels getFramePixels();
+    ofPixels& getFramePixels();
     
 private:
     ofVideoPlayer videoPlayer;
