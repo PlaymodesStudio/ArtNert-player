@@ -10,6 +10,12 @@
 #define PMVideoManager_h
 
 #include "ofMain.h"
+#include "ofxVideoRecorder.h"
+
+enum pmVideoFunction {
+    PM_VIDEO_RECORDER,
+    PM_VIDEO_PLAYER
+};
 
 class PMVideoManager{
     
@@ -17,7 +23,7 @@ public:
     PMVideoManager(){};
     ~PMVideoManager(){};
     
-    bool setup(string filename, ofLoopType loopType);
+    bool setup(pmVideoFunction _function, string filename, ofLoopType loopType);
     void start(){videoPlayer.play();};
     void update();
     void draw(int x, int y, int width, int height);
@@ -25,6 +31,7 @@ public:
     
 private:
     ofVideoPlayer videoPlayer;
+    ofxVideoRecorder videoRecorder;
     
 };
 

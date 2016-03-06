@@ -26,6 +26,7 @@ public:
     
 private:
     PMVideoManager video;
+    ofVideoPlayer videoPlayer;
     PMArtNetManager artnet;
 };
 

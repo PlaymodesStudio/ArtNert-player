@@ -8,12 +8,15 @@
 
 #include "PMVideoManager.h"
 
-bool PMVideoManager::setup(string filename, ofLoopType loopType){
+bool PMVideoManager::setup(pmVideoFunction _function, string filename, ofLoopType loopType){
     
-    videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
-    videoPlayer.load(filename);  //load Video
-    
-    videoPlayer.setLoopState(loopType);
+    if(_function == PM_VIDEO_PLAYER){
+        videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
+        videoPlayer.load(filename);  //load Video
+        videoPlayer.setLoopState(loopType);
+    }else{
+        videoRecorder.setFfmpegLocation(ofFilePath::getAbsolutePath("ffmpeg"));
+    }
     
     return true;
 }
