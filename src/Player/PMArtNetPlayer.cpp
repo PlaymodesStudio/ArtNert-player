@@ -17,7 +17,6 @@ bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const ch
     artnet.setup(PM_ARTNET_PLAYER, machineIP);
     artnet.setIp(targetIP);
     artnet.start();
-    video.start();
 }
 
 void PMArtNetPlayer::update(){

@@ -28,6 +28,8 @@ public:
 private:
     ofxVideoRecorder vidRecorder;
     string vidFilename;
+    bool isRecording;
+    ofImage frame;
     
     PMArtNetManager artnet;
 };

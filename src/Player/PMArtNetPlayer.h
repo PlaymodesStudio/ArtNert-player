@@ -11,7 +11,6 @@
 
 #include "ofMain.h"
 #include "PMArtNetManager.h"
-#include "PMVideoManager.h"
 
 class PMArtNetPlayer{
     
@@ -25,7 +24,6 @@ public:
     int getVideoFrameRate();
     
 private:
-    PMVideoManager video;
     ofVideoPlayer videoPlayer;
     PMArtNetManager artnet;
 };
