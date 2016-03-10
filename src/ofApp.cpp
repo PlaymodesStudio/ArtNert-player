@@ -4,37 +4,37 @@
 void ofApp::setup(){
     ofSetFrameRate(24);
     
-    if(ofGetTargetPlatform() == OF_TARGET_OSX)
-        player.setup("artnettestProres.mov", "192.168.1.105", "192.168.1.112");
-    else
-        player.setup("artnettest.mov", "192.168.1.112", "192.168.1.105");
-    player.play();
-    
 //    if(ofGetTargetPlatform() == OF_TARGET_OSX)
-//        recorder.setup("test.mov", "192.168.1.105");
+//        player.setup("artnettestProres.mov", "192.168.1.105", "192.168.1.112");
 //    else
-//        recorder.setup("test.mov", "192.168.1.112");
-//    
-//    soundStream.setup(this, 0, 2, 48000, 256, 4);
+//        player.setup("artnettest.mov", "192.168.1.112", "192.168.1.105");
+//    player.play();
+    
+    if(ofGetTargetPlatform() == OF_TARGET_OSX)
+        recorder.setup("test.mov", "192.168.1.105");
+    else
+        recorder.setup("test.mov", "192.168.1.112");
+    
+    soundStream.setup(this, 0, 2, 48000, 256, 4);
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    player.update();
-//    recorder.update();
+//    player.update();
+    recorder.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    player.draw(0, 0, ofGetWidth(), ofGetHeight());
-//    recorder.draw(0, 0, ofGetWidth(), ofGetHeight());
+//    player.draw(0, 0, ofGetWidth(), ofGetHeight());
+    recorder.draw(0, 0, ofGetWidth(), ofGetHeight());
     ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
 }
 
 //--------------------------------------------------------------
 void ofApp::audioIn(float *input, int bufferSize, int nChannels){
-//    recorder.addAudioBuffer(input, bufferSize, nChannels);
+    recorder.addAudioBuffer(input, bufferSize, nChannels);
 }
 
 //--------------------------------------------------------------
