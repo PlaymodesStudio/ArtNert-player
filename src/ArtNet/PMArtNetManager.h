@@ -28,15 +28,17 @@ public:
     void setFromPixels(ofPixels &pixels);
     bool sendDmx();
     bool sendDmx(ofPixels &pixels);
-    void setIp(const char* ip){dmxData.ipTarget = ip;};
-    unsigned char* getData(){return dmxData.data;};
-    void receiveData(ofxArtNetDmxData &data){data = dmxData;};
+    void setIp(const char* ip){dmxDataPacket.ipTarget = ip;};
+    unsigned char* getData(){return dmxDataPacket.data;};
+    void receiveData(ofxArtNetDmxData &data){dmxDataPacket = data;};
+    
+    int getUniverses(){return 1;};
     
 private:
     pmArtnetFunction function;
     ofxArtNet artnet;
     int nUniverses;
-    ofxArtNetDmxData dmxData;
+    ofxArtNetDmxData dmxDataPacket;
     
 };
 

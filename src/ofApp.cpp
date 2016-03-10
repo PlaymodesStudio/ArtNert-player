@@ -2,30 +2,51 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    ofSetFrameRate(24);
+    
+//    if(ofGetTargetPlatform() == OF_TARGET_OSX)
+//        player.setup("artnettestProres.mov", "192.168.1.105", "192.168.1.112");
+//    else
+//        player.setup("artnettest.mov", "192.168.1.112", "192.168.1.105");
+    
+    
     if(ofGetTargetPlatform() == OF_TARGET_OSX)
-        player.setup("artnettestProres.mov", "192.168.1.105", "192.168.1.112");
+        recorder.setup("test.mov", "192.168.1.105");
     else
-        player.setup("artnettest.mov", "192.168.1.112", "192.168.1.105");
+        recorder.setup("test.mov", "192.168.1.112");
+    
+    soundStream.setup(this, 0, 2, 48000, 256, 4);
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    player.update();
+    //player.update();
+    recorder.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    player.draw(0, 0, ofGetWidth(), ofGetHeight());
+    //player.draw(0, 0, ofGetWidth(), ofGetHeight());
+    recorder.draw(0, 0, ofGetWidth(), ofGetHeight());
+    ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
+}
+
+//--------------------------------------------------------------
+void ofApp::audioIn(float *input, int bufferSize, int nChannels){
+    recorder.addAudioBuffer(input, bufferSize, nChannels);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if (key == 'r')
+        recorder.start();
+    else
+        recorder.stop();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
 }
 
 //--------------------------------------------------------------

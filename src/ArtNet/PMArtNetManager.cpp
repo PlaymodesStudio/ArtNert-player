@@ -24,7 +24,7 @@ bool PMArtNetManager::setup(pmArtnetFunction _function, const char* machineIp)
         artnet.setPortAddress(0, ARTNET_PORT_OUTPUT, 0);
         ofAddListener(artnet.dmxData, this, &PMArtNetManager::receiveData);
     }
-    //artnet.sendPoll("192.168.1.112");
+    artnet.sendPoll("192.168.1.112");
 }
 
 void PMArtNetManager::start(){
@@ -32,14 +32,14 @@ void PMArtNetManager::start(){
 }
 
 void PMArtNetManager::setFromPixels(ofPixels &pixels){
-    dmxData.data = pixels;
+    dmxDataPacket.data = pixels;
 //    for (int i=0; i<512; i++){
 //        dmxData.data[i] = ofRandom(255);
 //    }
 }
 
 bool PMArtNetManager::sendDmx(){
-    artnet.sendDmx(dmxData);
+    artnet.sendDmx(dmxDataPacket);
 }
 
 bool PMArtNetManager::sendDmx(ofPixels &pixels){

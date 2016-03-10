@@ -20,10 +20,13 @@ public:
     PMArtNetRecorder(){};
     ~PMArtNetRecorder(){};
     
-    bool setup(string videoFilename, const char* machineIP, const char* targetIP);
+    bool setup(string videoFilename, const char* machineIP);
     void update();
     void draw(int x, int y, int w, int h);
-    int getVideoFrameRate();
+    
+    void start();
+    void stop();
+    void addAudioBuffer(float *input, int bufferSize, int nChannels);
     
 private:
     ofxVideoRecorder vidRecorder;
