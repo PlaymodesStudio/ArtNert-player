@@ -21,7 +21,8 @@ public:
     bool setup(string videoFilename, const char* machineIP, const char* targetIP);
     void update();
     void draw(int x, int y, int w, int h);
-    int getVideoFrameRate();
+    
+    void play(){videoPlayer.play();};
     
 private:
     ofVideoPlayer videoPlayer;
