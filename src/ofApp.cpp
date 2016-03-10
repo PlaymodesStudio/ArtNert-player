@@ -4,45 +4,58 @@
 void ofApp::setup(){
     ofSetFrameRate(24);
     
-//    if(ofGetTargetPlatform() == OF_TARGET_OSX)
-//        player.setup("artnettestProres.mov", "192.168.1.105", "192.168.1.112");
-//    else
-//        player.setup("artnettest.mov", "192.168.1.112", "192.168.1.105");
-//    player.play();
+    isPlayer = true;
     
-    if(ofGetTargetPlatform() == OF_TARGET_OSX)
-        recorder.setup("test.mov", "192.168.1.105");
-    else
-        recorder.setup("test.mov", "192.168.1.112");
+    if(isPlayer){
+        if(ofGetTargetPlatform() == OF_TARGET_OSX)
+            player.setup("artnettestProres.mov", "192.168.1.105", "192.168.1.112");
+        else
+            player.setup("artnettest.mov", "192.168.1.112", "192.168.1.105");
+        player.play();
+    }
+    else{
+        if(ofGetTargetPlatform() == OF_TARGET_OSX)
+            recorder.setup("test.mov", "192.168.1.105");
+        else
+            recorder.setup("test.mov", "192.168.1.112");
     
-    soundStream.setup(this, 0, 2, 48000, 256, 4);
+        soundStream.setup(this, 0, 2, 48000, 256, 4);
+    }
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-//    player.update();
-    recorder.update();
+    if(isPlayer)
+        player.update();
+    else
+        recorder.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-//    player.draw(0, 0, ofGetWidth(), ofGetHeight());
+    if(isPlayer)
+        player.draw(0, 0, ofGetWidth(), ofGetHeight());
+    else
     recorder.draw(0, 0, ofGetWidth(), ofGetHeight());
+    
     ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
 }
 
 //--------------------------------------------------------------
 void ofApp::audioIn(float *input, int bufferSize, int nChannels){
+    if (!isPlayer)
     recorder.addAudioBuffer(input, bufferSize, nChannels);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if (key == 'r')
-        recorder.start();
-    else
-        recorder.stop();
+    if(isPlayer){
+        if (key == 'r')
+            recorder.start();
+        else
+            recorder.stop();
+    }
 }
 
 //--------------------------------------------------------------

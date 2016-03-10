@@ -29,4 +29,6 @@ private:
     PMArtNetPlayer player;
     PMArtNetRecorder recorder;
     ofSoundStream soundStream;
+    
+    bool isPlayer;
 };
