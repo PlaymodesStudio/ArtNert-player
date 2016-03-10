@@ -11,10 +11,6 @@
 
 bool PMArtNetRecorder::setup(string videoFilename, const char* machineIP){
     this->vidFilename = videoFilename;
-    if(ofGetTargetPlatform() == OF_TARGET_OSX)
-        vidRecorder.setFfmpegLocation(ofFilePath::getAbsolutePath("ffmpeg_mac"));
-    else
-        vidRecorder.setFfmpegLocation(ofFilePath::getAbsolutePath("ffmpeg_linux"));
     
     vidRecorder.setPixelFormat("rgb24");
     vidRecorder.setVideoCodec("png");
