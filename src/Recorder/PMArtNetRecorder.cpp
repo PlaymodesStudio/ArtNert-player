@@ -34,8 +34,11 @@ void PMArtNetRecorder::draw(int x, int y, int w, int h){
 }
 
 void PMArtNetRecorder::start(){
-    vidRecorder.setup(vidFilename, 171, artnet.getUniverses(), 24, 48000, 2);
-    //vidRecorder.setup(vidFilename, 171, artnet.getUniverses(), 24);
+    if(ofGetTargetPlatform() == OF_TARGET_OSX)
+        vidRecorder.setup(vidFilename, 171, artnet.getUniverses(), 24, 48000, 2);
+    else
+        vidRecorder.setup(vidFilename, 171, artnet.getUniverses(), 24);
+    
 //    artnet.start();
     vidRecorder.start();
 }
