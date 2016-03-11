@@ -50,7 +50,7 @@ void ofApp::audioIn(float *input, int bufferSize, int nChannels){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if(isPlayer){
+    if(!isPlayer){
         if (key == 'r')
             recorder.start();
         else
