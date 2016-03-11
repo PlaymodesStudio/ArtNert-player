@@ -10,9 +10,10 @@
 #define PMArtNetPlayer_h
 
 #include "ofMain.h"
+#include "PMArtNetScreenRenderer.h"
 #include "PMArtNetManager.h"
 
-class PMArtNetPlayer{
+class PMArtNetPlayer : public PMArtNetScreenRenderer{
     
 public:
     PMArtNetPlayer(){};

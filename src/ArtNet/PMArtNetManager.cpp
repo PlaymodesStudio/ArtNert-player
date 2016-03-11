@@ -10,11 +10,13 @@
 
 bool PMArtNetManager::setup(pmArtnetFunction _function, const char* machineIp)
 {
-    artnet.init(machineIp);
+    auto ip = artnet.getIP();
+    artnet.init(ip);
     if(_function == PM_ARTNET_PLAYER){
         artnet.setSubNet(0);
         artnet.setPortType(0, ARTNET_PORT_ENABLE_INPUT, ARTNET_DATA_DMX);
         artnet.setPortAddress(0, ARTNET_PORT_INPUT, 0);
+        
     }else{
         artnet.setShortName("Artnet receive");
         artnet.setLongName("Artnet Mac receiver");

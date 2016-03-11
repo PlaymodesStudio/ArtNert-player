@@ -10,11 +10,12 @@
 #define PMArtNetRecorder_h
 
 #include "ofMain.h"
+#include "PMArtNetScreenRenderer.h"
 #include "PMArtNetManager.h"
 #include "ofxVideoRecorder.h"
 
 
-class PMArtNetRecorder{
+class PMArtNetRecorder : public PMArtNetScreenRenderer{
     
 public:
     PMArtNetRecorder(){};
