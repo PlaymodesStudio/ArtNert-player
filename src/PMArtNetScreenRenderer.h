@@ -13,7 +13,11 @@
 
 class PMArtNetScreenRenderer{
 protected:
+    void setupBase();
     void drawBasicLayout();
+    
+    ofRectangle screenContainer;
+    string fileName;
 };
 
 #endif /* PMArtNetScreenRenderer_h */

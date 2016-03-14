@@ -5,25 +5,6 @@ void ofApp::setup(){
     ofSetFrameRate(24);
     state = STATE_SETUP;
     setupScreen.setup();
-    
-    isPlayer = true;
-    
-//    if(isPlayer){
-//        if(ofGetTargetPlatform() == OF_TARGET_OSX)
-//            player.setup("artnettestProres.mov", "192.168.1.105", "192.168.1.112");
-//        else
-//            player.setup("artnettest.mov", "192.168.1.112", "192.168.1.105");
-//        player.play();
-//    }
-//    else{
-//        if(ofGetTargetPlatform() == OF_TARGET_OSX)
-//            recorder.setup("test.mov", "192.168.1.105");
-//        else
-//            recorder.setup("test.mov", "192.168.1.112");
-//    
-//        soundStream.setup(this, 0, 2, 48000, 256, 4);
-//    }
-    
 }
 
 //--------------------------------------------------------------

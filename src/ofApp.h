@@ -40,6 +40,4 @@ private:
     ofSoundStream soundStream;
     appState state;
     
-    
-    bool isPlayer;
 };

@@ -10,7 +10,7 @@
 
 
 bool PMArtNetRecorder::setup(string videoFilename, const char* machineIP){
-    this->vidFilename = videoFilename;
+    this->fileName = videoFilename;
     
     vidRecorder.setPixelFormat("rgb24");
     vidRecorder.setVideoCodec("png");
@@ -19,7 +19,6 @@ bool PMArtNetRecorder::setup(string videoFilename, const char* machineIP){
     isRecording = false;
     frame.allocate(171,1,OF_IMAGE_COLOR);
 
-    
     artnet.setup(PM_ARTNET_RECORDER, machineIP);
     artnet.start();
 }
@@ -35,9 +34,9 @@ void PMArtNetRecorder::draw(int x, int y, int w, int h){
 
 void PMArtNetRecorder::start(){
     if(ofGetTargetPlatform() == OF_TARGET_OSX)
-        vidRecorder.setup(vidFilename, 171, artnet.getUniverses(), 24, 48000, 2);
+        vidRecorder.setup(fileName, 171, artnet.getUniverses(), 24, 48000, 2);
     else
-        vidRecorder.setup(vidFilename, 171, artnet.getUniverses(), 24);
+        vidRecorder.setup(fileName, 171, artnet.getUniverses(), 24);
     
 //    artnet.start();
     vidRecorder.start();
