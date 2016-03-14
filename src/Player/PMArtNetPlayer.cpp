@@ -26,4 +26,5 @@ void PMArtNetPlayer::update(){
 
 void PMArtNetPlayer::draw(int x, int y, int w, int h){
     videoPlayer.draw(x, y, w, h);
+    drawBasicLayout();
 }

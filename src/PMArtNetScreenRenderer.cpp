@@ -9,5 +9,5 @@
 #include "PMArtNetScreenRenderer.h"
 
 void PMArtNetScreenRenderer::drawBasicLayout(){
-    
+    ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
 }

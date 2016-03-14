@@ -15,9 +15,9 @@
 		8A231283D31A46A796730807 /* receive.c in Sources */ = {isa = PBXBuildFile; fileRef = 566765C2F49884233EE6073D /* receive.c */; };
 		956CF63633047A3EAD98DD6B /* artnet.c in Sources */ = {isa = PBXBuildFile; fileRef = DCD389AF5601BEB7DFC8347A /* artnet.c */; };
 		9F9830FB1C8A170400CF843C /* PMArtNetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F9830F91C8A170400CF843C /* PMArtNetManager.cpp */; };
-		9F9830FE1C8A171A00CF843C /* PMVideoManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F9830FC1C8A171A00CF843C /* PMVideoManager.cpp */; };
 		9F9831021C8A2EE600CF843C /* PMArtNetPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F9831001C8A2EE600CF843C /* PMArtNetPlayer.cpp */; };
 		9F9831051C8A2EFE00CF843C /* PMArtNetRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F9831031C8A2EFE00CF843C /* PMArtNetRecorder.cpp */; };
+		9FB9A40C1C96CA3B00B01812 /* PMArtNetSetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9A40A1C96CA3B00B01812 /* PMArtNetSetup.cpp */; };
 		9FD280F01C932E3500A18790 /* PMArtNetScreenRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FD280EE1C932E3500A18790 /* PMArtNetScreenRenderer.cpp */; };
 		AFCD3AF3E225232FD1C29D70 /* ofxArtNetDmxData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB3594DD72C61A24879F817F /* ofxArtNetDmxData.cpp */; };
 		BD53C476A333DDFCFE13D752 /* ofxArtNetNodeEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3181C391A928D1249647940B /* ofxArtNetNodeEntry.cpp */; };
@@ -71,13 +71,12 @@
 		8B64CE3352997CAE525FC092 /* unistd_d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = unistd_d.h; path = ../../../addons/ofxArtNet/libs/artnet/include/unistd_d.h; sourceTree = SOURCE_ROOT; };
 		9F9830F91C8A170400CF843C /* PMArtNetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMArtNetManager.cpp; path = ArtNet/PMArtNetManager.cpp; sourceTree = "<group>"; };
 		9F9830FA1C8A170400CF843C /* PMArtNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMArtNetManager.h; path = ArtNet/PMArtNetManager.h; sourceTree = "<group>"; };
-		9F9830FC1C8A171A00CF843C /* PMVideoManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMVideoManager.cpp; path = Video/PMVideoManager.cpp; sourceTree = "<group>"; };
-		9F9830FD1C8A171A00CF843C /* PMVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMVideoManager.h; path = Video/PMVideoManager.h; sourceTree = "<group>"; };
-		9F9830FF1C8A1C3B00CF843C /* Defaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defaults.h; sourceTree = "<group>"; };
 		9F9831001C8A2EE600CF843C /* PMArtNetPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMArtNetPlayer.cpp; path = Player/PMArtNetPlayer.cpp; sourceTree = "<group>"; };
 		9F9831011C8A2EE600CF843C /* PMArtNetPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMArtNetPlayer.h; path = Player/PMArtNetPlayer.h; sourceTree = "<group>"; };
 		9F9831031C8A2EFE00CF843C /* PMArtNetRecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMArtNetRecorder.cpp; path = Recorder/PMArtNetRecorder.cpp; sourceTree = "<group>"; };
 		9F9831041C8A2EFE00CF843C /* PMArtNetRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMArtNetRecorder.h; path = Recorder/PMArtNetRecorder.h; sourceTree = "<group>"; };
+		9FB9A40A1C96CA3B00B01812 /* PMArtNetSetup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PMArtNetSetup.cpp; sourceTree = "<group>"; };
+		9FB9A40B1C96CA3B00B01812 /* PMArtNetSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMArtNetSetup.h; sourceTree = "<group>"; };
 		9FD280EC1C9323F400A18790 /* LocalAddressGrabber_Mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocalAddressGrabber_Mac.h; path = ../../../addons/ofxArtNet/src/LocalAddressGrabber_Mac.h; sourceTree = "<group>"; };
 		9FD280ED1C9325C700A18790 /* LocalAddressGrabber_Linux.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocalAddressGrabber_Linux.h; path = ../../../addons/ofxArtNet/src/LocalAddressGrabber_Linux.h; sourceTree = "<group>"; };
 		9FD280EE1C932E3500A18790 /* PMArtNetScreenRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PMArtNetScreenRenderer.cpp; sourceTree = "<group>"; };
@@ -241,11 +240,10 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				9FB9A40A1C96CA3B00B01812 /* PMArtNetSetup.cpp */,
+				9FB9A40B1C96CA3B00B01812 /* PMArtNetSetup.h */,
 				9F9830F91C8A170400CF843C /* PMArtNetManager.cpp */,
 				9F9830FA1C8A170400CF843C /* PMArtNetManager.h */,
-				9F9830FC1C8A171A00CF843C /* PMVideoManager.cpp */,
-				9F9830FD1C8A171A00CF843C /* PMVideoManager.h */,
-				9F9830FF1C8A1C3B00CF843C /* Defaults.h */,
 				9F9831001C8A2EE600CF843C /* PMArtNetPlayer.cpp */,
 				9F9831011C8A2EE600CF843C /* PMArtNetPlayer.h */,
 				9F9831031C8A2EFE00CF843C /* PMArtNetRecorder.cpp */,
@@ -361,7 +359,7 @@
 				956CF63633047A3EAD98DD6B /* artnet.c in Sources */,
 				9FD280F01C932E3500A18790 /* PMArtNetScreenRenderer.cpp in Sources */,
 				0302D18489150FC1B75EE86A /* misc.c in Sources */,
-				9F9830FE1C8A171A00CF843C /* PMVideoManager.cpp in Sources */,
+				9FB9A40C1C96CA3B00B01812 /* PMArtNetSetup.cpp in Sources */,
 				9F9830FB1C8A170400CF843C /* PMArtNetManager.cpp in Sources */,
 				052155D469378A23A81F5CA7 /* network.c in Sources */,
 				9F9831021C8A2EE600CF843C /* PMArtNetPlayer.cpp in Sources */,

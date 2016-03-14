@@ -12,7 +12,7 @@
 #include "ofMain.h"
 
 class PMArtNetScreenRenderer{
-private:
+protected:
     void drawBasicLayout();
 };
 

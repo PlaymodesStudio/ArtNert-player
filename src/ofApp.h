@@ -1,8 +1,15 @@
 #pragma once
 
 #include "ofMain.h"
+#include "PMArtNetSetup.h"
 #include "PMArtNetPlayer.h"
 #include "PMArtNetRecorder.h"
+
+enum appState{
+    STATE_SETUP,
+    STATE_PLAYER,
+    STATE_RECORDER
+};
 
 class ofApp : public ofBaseApp{
 
@@ -12,6 +19,7 @@ class ofApp : public ofBaseApp{
 		void draw();
     
         void audioIn(float *input, int bufferSize, int nChannels);
+        void changeToScene(appState scene);
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -26,9 +34,12 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
 private:
+    PMArtNetSetup setupScreen;
     PMArtNetPlayer player;
     PMArtNetRecorder recorder;
     ofSoundStream soundStream;
+    appState state;
+    
     
     bool isPlayer;
 };
