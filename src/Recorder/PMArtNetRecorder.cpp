@@ -9,8 +9,9 @@
 #include "PMArtNetRecorder.h"
 
 
-bool PMArtNetRecorder::setup(string videoFilename, const char* machineIP){
-    this->fileName = videoFilename;
+bool PMArtNetRecorder::setup(const char* machineIP){
+    setupBase();
+    this->fileName = "Artnet_Recording"+ofGetTimestampString()+".mov";
     
     vidRecorder.setPixelFormat("rgb24");
     vidRecorder.setVideoCodec("png");
@@ -21,6 +22,10 @@ bool PMArtNetRecorder::setup(string videoFilename, const char* machineIP){
 
     artnet.setup(PM_ARTNET_RECORDER, machineIP);
     artnet.start();
+    
+    soundStream.setDeviceID(0);
+    soundStream.setup(0, 2, 48000, 256, 4);
+    soundStream.setInput(this);
 }
 
 void PMArtNetRecorder::update(){
@@ -29,7 +34,7 @@ void PMArtNetRecorder::update(){
 }
 
 void PMArtNetRecorder::draw(int x, int y, int w, int h){
-    frame.draw(x, y, w, h);
+    frame.draw(vidImageContainer);
 }
 
 void PMArtNetRecorder::start(){
@@ -38,7 +43,6 @@ void PMArtNetRecorder::start(){
     else
         vidRecorder.setup(fileName, 171, artnet.getUniverses(), 24);
     
-//    artnet.start();
     vidRecorder.start();
 }
 
@@ -46,6 +50,7 @@ void PMArtNetRecorder::stop(){
     vidRecorder.close();
 }
 
-void PMArtNetRecorder::addAudioBuffer(float *input, int bufferSize, int nChannels){
-     vidRecorder.addAudioSamples(input, bufferSize, nChannels);
+//--------------------------------------------------------------
+void PMArtNetRecorder::audioIn(float *input, int bufferSize, int nChannels){
+    vidRecorder.addAudioSamples(input, bufferSize, nChannels);
 }

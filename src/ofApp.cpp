@@ -37,11 +37,7 @@ void ofApp::draw(){
     }
 }
 
-//--------------------------------------------------------------
-void ofApp::audioIn(float *input, int bufferSize, int nChannels){
-    if (state == STATE_RECORDER)
-        recorder.addAudioBuffer(input, bufferSize, nChannels);
-}
+
 
 //--------------------------------------------------------------
 void ofApp::changeToScene(appState _state){
@@ -57,11 +53,9 @@ void ofApp::changeToScene(appState _state){
             break;
         case STATE_RECORDER:
             if(ofGetTargetPlatform() == OF_TARGET_OSX)
-                recorder.setup("test.mov", "192.168.1.105");
+                recorder.setup("192.168.1.105");
             else
-                recorder.setup("test.mov", "192.168.1.112");
-            
-            soundStream.setup(this, 0, 2, 48000, 256, 4);
+                recorder.setup("192.168.1.112");
             break;
         default:
             break;

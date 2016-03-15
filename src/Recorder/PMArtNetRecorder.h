@@ -15,24 +15,26 @@
 #include "ofxVideoRecorder.h"
 
 
-class PMArtNetRecorder : public PMArtNetScreenRenderer{
+class PMArtNetRecorder : public PMArtNetScreenRenderer, ofBaseSoundInput{
     
 public:
     PMArtNetRecorder(){};
     ~PMArtNetRecorder(){};
     
-    bool setup(string videoFilename, const char* machineIP);
+    bool setup(const char* machineIP);
     void update();
     void draw(int x, int y, int w, int h);
     
     void start();
     void stop();
     void addAudioBuffer(float *input, int bufferSize, int nChannels);
+    void audioIn(float *input, int bufferSize, int nChannels);
     
 private:
     ofxVideoRecorder vidRecorder;
     bool isRecording;
     ofImage frame;
+    ofSoundStream soundStream;
     
     PMArtNetManager artnet;
 };

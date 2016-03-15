@@ -9,7 +9,7 @@
 #include "PMArtNetScreenRenderer.h"
 
 void PMArtNetScreenRenderer::setupBase(){
-    screenContainer.set(0,0,ofGetWidth()/2, ofGetHeight()/2);
+    vidImageContainer.set(0,0,ofGetWidth()/2, ofGetHeight()/2);
 }
 
 void PMArtNetScreenRenderer::drawBasicLayout(){

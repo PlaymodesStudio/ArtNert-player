@@ -10,6 +10,7 @@
 
 
 bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const char* targetIP){
+    setupBase();
     videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
     videoPlayer.load(videoFilename);  //load Video
     videoPlayer.setLoopState(OF_LOOP_NORMAL);
@@ -17,6 +18,7 @@ bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const ch
     artnet.setup(PM_ARTNET_PLAYER, machineIP);
     artnet.setIp(targetIP);
     artnet.start();
+
 }
 
 void PMArtNetPlayer::update(){
@@ -25,6 +27,6 @@ void PMArtNetPlayer::update(){
 }
 
 void PMArtNetPlayer::draw(int x, int y, int w, int h){
-    videoPlayer.draw(x, y, w, h);
+    videoPlayer.draw(vidImageContainer);
     drawBasicLayout();
 }

@@ -16,7 +16,7 @@ protected:
     void setupBase();
     void drawBasicLayout();
     
-    ofRectangle screenContainer;
+    ofRectangle vidImageContainer;
     string fileName;
 };
 

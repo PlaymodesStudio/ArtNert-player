@@ -18,7 +18,6 @@ class ofApp : public ofBaseApp{
 		void update();
 		void draw();
     
-        void audioIn(float *input, int bufferSize, int nChannels);
         void changeToScene(appState scene);
 
 		void keyPressed(int key);
@@ -37,7 +36,6 @@ private:
     PMArtNetSetup setupScreen;
     PMArtNetPlayer player;
     PMArtNetRecorder recorder;
-    ofSoundStream soundStream;
     appState state;
     
 };
