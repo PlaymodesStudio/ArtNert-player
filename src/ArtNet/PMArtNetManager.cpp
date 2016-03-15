@@ -10,6 +10,9 @@
 
 bool PMArtNetManager::setup(pmArtnetFunction _function, const char* machineIp)
 {
+    auto ippairs = artnet.getIfacesIps();
+    for (auto ippair : ippairs)
+        cout<<ippair.first<<"   "<<ippair.second<<endl;
     auto ip = artnet.getIP();
     artnet.init(ip);
     if(_function == PM_ARTNET_PLAYER){
@@ -35,9 +38,6 @@ void PMArtNetManager::start(){
 
 void PMArtNetManager::setFromPixels(ofPixels &pixels){
     dmxDataPacket.data = pixels;
-//    for (int i=0; i<512; i++){
-//        dmxData.data[i] = ofRandom(255);
-//    }
 }
 
 bool PMArtNetManager::sendDmx(){

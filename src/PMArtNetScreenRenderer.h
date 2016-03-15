@@ -10,14 +10,25 @@
 #define PMArtNetScreenRenderer_h
 
 #include "ofMain.h"
+#include "ofxGui.h"
+#include "XBDeviceParams.h"
 
 class PMArtNetScreenRenderer{
 protected:
     void setupBase();
     void drawBasicLayout();
+    void buildInputDevicesPanel();
+    void buildOutputDevicesPanel();
     
     ofRectangle vidImageContainer;
     string fileName;
+    
+    // Audio device selector
+    ofxPanel                guiDevices;
+    vector<XBDeviceParams>  deviceParams;
+    ofxButton               btnStartAnalysis;
+    ofxLabel                lblStatus;
+
 };
 
 #endif /* PMArtNetScreenRenderer_h */
