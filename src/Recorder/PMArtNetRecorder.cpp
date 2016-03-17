@@ -11,6 +11,7 @@
 
 bool PMArtNetRecorder::setup(const char* machineIP){
     setupBase();
+    buildInputDevicesPanel();
     this->fileName = "Artnet_Recording"+ofGetTimestampString()+".mov";
     
     vidRecorder.setPixelFormat("rgb24");
@@ -20,7 +21,7 @@ bool PMArtNetRecorder::setup(const char* machineIP){
     isRecording = false;
     frame.allocate(171,1,OF_IMAGE_COLOR);
 
-    artnet.setup(PM_ARTNET_RECORDER, machineIP);
+    artnet.setup(PM_ARTNET_RECORDER);
     artnet.start();
     
     soundStream.setDeviceID(0);
@@ -35,6 +36,7 @@ void PMArtNetRecorder::update(){
 
 void PMArtNetRecorder::draw(int x, int y, int w, int h){
     frame.draw(vidImageContainer);
+    drawBasicLayout();
 }
 
 void PMArtNetRecorder::start(){

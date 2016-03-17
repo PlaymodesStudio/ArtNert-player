@@ -12,7 +12,6 @@
 void PMArtNetScreenRenderer::setupBase(){
     vidImageContainer.set(0,0,ofGetWidth()/2, ofGetHeight()/2);
     
-    buildOutputDevicesPanel();
     buildMachineIpPanel();
 }
 
@@ -27,7 +26,7 @@ void PMArtNetScreenRenderer::buildInputDevicesPanel()
     vector<ofSoundDevice> devices = ofSoundStreamListDevices();
     string DEVICE_SETTINGS_FILENAME = "devicesettings.xml";
     
-    guiDevices.setup("Device Selector", DEVICE_SETTINGS_FILENAME);
+    guiDevices.setup("Input Device Selector", DEVICE_SETTINGS_FILENAME);
     guiDevices.setPosition(10, 10);
     
     for (int i=0; i<devices.size(); ++i)
@@ -62,8 +61,8 @@ void PMArtNetScreenRenderer::buildOutputDevicesPanel(){
     
     string DEVICE_SETTINGS_FILENAME = "devicesettings.xml";
     
-    guiDevices.setup("Device Selector", DEVICE_SETTINGS_FILENAME);
-    guiDevices.setPosition(10, 10);
+    guiDevices.setup("Output Device Selector", DEVICE_SETTINGS_FILENAME);
+    guiDevices.setPosition(10, vidImageContainer.height+10);
     
     for (int i=0; i<devices.size(); ++i)
     {
@@ -75,8 +74,8 @@ void PMArtNetScreenRenderer::buildOutputDevicesPanel(){
         deviceParams.push_back(devParams);
     }
     
-    ofFile file(DEVICE_SETTINGS_FILENAME);
-    if (file.exists()) file.remove();
+    //ofFile file(DEVICE_SETTINGS_FILENAME);
+    //if (file.exists()) file.remove();
     
     guiDevices.loadFromFile(DEVICE_SETTINGS_FILENAME);
     
@@ -97,7 +96,7 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
     
     string MACHINEIP_SETTINGS_FILENAME = "machineIPsettings.xml";
     guiMachineIp.setup("MACHINE IP", MACHINEIP_SETTINGS_FILENAME);
-    guiMachineIp.setPosition(10, 10);
+    guiMachineIp.setPosition(ofGetWidth()-310, 10);
     guiMachineIp.setHeaderBackgroundColor(ofGetBackgroundColor());
     
     machineIps.setName("Select machine IP from list");
@@ -105,14 +104,13 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
     for (auto iface : ifacesIps){
         ofParameter<bool> machineIp;
         machineIfacesIp.push_back(machineIp);
-        //machineIps.add(machineIfacesIp.at(machineIfacesIp.size()-1).set("Interface: "+iface.first+"   ip: "+iface.second, false));
         machineIps.add(machineIfacesIp.at(machineIfacesIp.size()-1).set(iface.second, false));
     }
     ofAddListener(machineIps.parameterChangedE(),this,  &PMArtNetScreenRenderer::ipSelectorListener);
     guiMachineIp.add(machineIps);
     
-    ofFile file(MACHINEIP_SETTINGS_FILENAME);
-    if (file.exists()) file.remove();
+    //ofFile file(MACHINEIP_SETTINGS_FILENAME);
+    //if (file.exists()) file.remove();
 
     guiMachineIp.loadFromFile(MACHINEIP_SETTINGS_FILENAME);
     
@@ -122,7 +120,7 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
 
 void PMArtNetScreenRenderer::ipSelectorListener(ofAbstractParameter &ip){
     if(ip.toString() == "1"){
-        //artnet.setIp(ip.getName());
+        artnet.setMachineIP(ip.getName());
         for (int i = 0; i < machineIfacesIp.size() ; i++){
             if (machineIfacesIp[i].getName() != ip.getName())
                 machineIfacesIp[i] = false;

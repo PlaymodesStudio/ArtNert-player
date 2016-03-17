@@ -8,13 +8,15 @@
 
 #include "PMArtNetManager.h"
 
-bool PMArtNetManager::setup(pmArtnetFunction _function, const char* machineIp)
+bool PMArtNetManager::setMachineIP(string machineIP){
+    
+    artnet.init(machineIP);
+    ofAddListener(artnet.pollReply, this, &PMArtNetManager::receivePollReply);
+    artnet.sendPoll();
+}
+
+bool PMArtNetManager::setup(pmArtnetFunction _function)
 {
-    auto ippairs = artnet.getIfacesIps();
-    for (auto ippair : ippairs)
-        cout<<ippair.first<<"   "<<ippair.second<<endl;
-    auto ip = artnet.getIP();
-    artnet.init(ip);
     if(_function == PM_ARTNET_PLAYER){
         artnet.setSubNet(0);
         artnet.setPortType(0, ARTNET_PORT_ENABLE_INPUT, ARTNET_DATA_DMX);
@@ -29,7 +31,6 @@ bool PMArtNetManager::setup(pmArtnetFunction _function, const char* machineIp)
         artnet.setPortAddress(0, ARTNET_PORT_OUTPUT, 0);
         ofAddListener(artnet.dmxData, this, &PMArtNetManager::receiveData);
     }
-    artnet.sendPoll("192.168.1.112");
 }
 
 void PMArtNetManager::start(){
@@ -47,4 +48,9 @@ bool PMArtNetManager::sendDmx(){
 bool PMArtNetManager::sendDmx(ofPixels &pixels){
     setFromPixels(pixels);
     sendDmx();
+}
+
+void PMArtNetManager::receivePollReply(ofxArtNetNodeEntry &node){
+    
+    cout<<"NODE FOUND: "<<node.getIp()<<endl;
 }

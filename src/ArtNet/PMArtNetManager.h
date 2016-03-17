@@ -23,14 +23,16 @@ public:
     PMArtNetManager(){};
     ~PMArtNetManager(){};
     
-    bool setup(pmArtnetFunction _function, const char* machineIP);
+    bool setMachineIP(string machineIP);
+    bool setup(pmArtnetFunction _function);
     void start();
     void setFromPixels(ofPixels &pixels);
     bool sendDmx();
     bool sendDmx(ofPixels &pixels);
-    void setIp(string ip){dmxDataPacket.ipTarget = ip.c_str();};
+    void setTargetIP(string ip){dmxDataPacket.ipTarget = ip.c_str();};
     unsigned char* getData(){return dmxDataPacket.data;};
     void receiveData(ofxArtNetDmxData &data){dmxDataPacket = data;};
+    void receivePollReply(ofxArtNetNodeEntry &node);
     
     vector<pair<string, string>> getIfacesIps(){return artnet.getIfacesIps();};
     
