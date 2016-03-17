@@ -13,6 +13,7 @@ bool PMArtNetManager::setMachineIP(string machineIP){
     artnet.init(machineIP);
     ofAddListener(artnet.pollReply, this, &PMArtNetManager::receivePollReply);
     artnet.sendPoll();
+    artnet.start();
 }
 
 bool PMArtNetManager::setup(pmArtnetFunction _function)

@@ -22,7 +22,7 @@ bool PMArtNetRecorder::setup(const char* machineIP){
     frame.allocate(171,1,OF_IMAGE_COLOR);
 
     artnet.setup(PM_ARTNET_RECORDER);
-    artnet.start();
+//    artnet.start();
     
     soundStream.setDeviceID(0);
     soundStream.setup(0, 2, 48000, 256, 4);
