@@ -11,7 +11,6 @@
 
 #include "ofMain.h"
 #include "PMArtNetScreenRenderer.h"
-#include "PMArtNetManager.h"
 
 class PMArtNetPlayer : public PMArtNetScreenRenderer{
     
@@ -27,7 +26,6 @@ public:
     
 private:
     ofVideoPlayer videoPlayer;
-    PMArtNetManager artnet;
 };
 
 #endif /* PMArtNetPlayer_h */

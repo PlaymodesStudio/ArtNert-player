@@ -28,9 +28,11 @@ public:
     void setFromPixels(ofPixels &pixels);
     bool sendDmx();
     bool sendDmx(ofPixels &pixels);
-    void setIp(const char* ip){dmxDataPacket.ipTarget = ip;};
+    void setIp(string ip){dmxDataPacket.ipTarget = ip.c_str();};
     unsigned char* getData(){return dmxDataPacket.data;};
     void receiveData(ofxArtNetDmxData &data){dmxDataPacket = data;};
+    
+    vector<pair<string, string>> getIfacesIps(){return artnet.getIfacesIps();};
     
     int getUniverses(){return 1;};
     

@@ -11,7 +11,6 @@
 
 #include "ofMain.h"
 #include "PMArtNetScreenRenderer.h"
-#include "PMArtNetManager.h"
 #include "ofxVideoRecorder.h"
 
 
@@ -36,6 +35,5 @@ private:
     ofImage frame;
     ofSoundStream soundStream;
     
-    PMArtNetManager artnet;
 };
 #endif /* PMArtNetRecorder_h */

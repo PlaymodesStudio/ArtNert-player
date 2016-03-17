@@ -12,22 +12,14 @@
 void PMArtNetScreenRenderer::setupBase(){
     vidImageContainer.set(0,0,ofGetWidth()/2, ofGetHeight()/2);
     
-//    ofParameter<bool> paramiter1;
-//    ofParameter<bool> paramiter2;
-//    ipSelector.add(paramiter1.set("192.168.1.6", true));
-//    ipSelector.add(paramiter2.set("192.168.1.9", false));
-//    ipSelector.setName("IpChoose");
-//    paramiter1 = false;
-//    
-//    //gui SETUP
-//    gui.setup(); //most of the time you don't need a name
-//    gui.add(ipSelector);
     buildOutputDevicesPanel();
+    buildMachineIpPanel();
 }
 
 void PMArtNetScreenRenderer::drawBasicLayout(){
     ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
     guiDevices.draw();
+    guiMachineIp.draw();
 }
 
 void PMArtNetScreenRenderer::buildInputDevicesPanel()
@@ -67,6 +59,7 @@ void PMArtNetScreenRenderer::buildInputDevicesPanel()
 
 void PMArtNetScreenRenderer::buildOutputDevicesPanel(){
     vector<ofSoundDevice> devices = ofSoundStreamListDevices();
+    
     string DEVICE_SETTINGS_FILENAME = "devicesettings.xml";
     
     guiDevices.setup("Device Selector", DEVICE_SETTINGS_FILENAME);
@@ -97,4 +90,43 @@ void PMArtNetScreenRenderer::buildOutputDevicesPanel(){
     
     guiDevices.setSize(300 , 300);
     guiDevices.setWidthElements(300);
+}
+
+void PMArtNetScreenRenderer::buildMachineIpPanel(){
+    auto ifacesIps = artnet.getIfacesIps();
+    
+    string MACHINEIP_SETTINGS_FILENAME = "machineIPsettings.xml";
+    guiMachineIp.setup("MACHINE IP", MACHINEIP_SETTINGS_FILENAME);
+    guiMachineIp.setPosition(10, 10);
+    guiMachineIp.setHeaderBackgroundColor(ofGetBackgroundColor());
+    
+    machineIps.setName("Select machine IP from list");
+
+    for (auto iface : ifacesIps){
+        ofParameter<bool> machineIp;
+        machineIfacesIp.push_back(machineIp);
+        //machineIps.add(machineIfacesIp.at(machineIfacesIp.size()-1).set("Interface: "+iface.first+"   ip: "+iface.second, false));
+        machineIps.add(machineIfacesIp.at(machineIfacesIp.size()-1).set(iface.second, false));
+    }
+    ofAddListener(machineIps.parameterChangedE(),this,  &PMArtNetScreenRenderer::ipSelectorListener);
+    guiMachineIp.add(machineIps);
+    
+    ofFile file(MACHINEIP_SETTINGS_FILENAME);
+    if (file.exists()) file.remove();
+
+    guiMachineIp.loadFromFile(MACHINEIP_SETTINGS_FILENAME);
+    
+    guiMachineIp.setSize(300 , 300);
+    guiMachineIp.setWidthElements(300);
+}
+
+void PMArtNetScreenRenderer::ipSelectorListener(ofAbstractParameter &ip){
+    if(ip.toString() == "1"){
+        //artnet.setIp(ip.getName());
+        for (int i = 0; i < machineIfacesIp.size() ; i++){
+            if (machineIfacesIp[i].getName() != ip.getName())
+                machineIfacesIp[i] = false;
+        }
+    }
+    
 }

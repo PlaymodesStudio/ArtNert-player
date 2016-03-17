@@ -12,6 +12,7 @@
 #include "ofMain.h"
 #include "ofxGui.h"
 #include "XBDeviceParams.h"
+#include "PMArtNetManager.h"
 
 class PMArtNetScreenRenderer{
 protected:
@@ -19,15 +20,22 @@ protected:
     void drawBasicLayout();
     void buildInputDevicesPanel();
     void buildOutputDevicesPanel();
+    void buildMachineIpPanel();
+    
+    void ipSelectorListener(ofAbstractParameter &ip);
     
     ofRectangle vidImageContainer;
     string fileName;
     
     // Audio device selector
-    ofxPanel                guiDevices;
+    ofxPanel                guiDevices, guiMachineIp;
     vector<XBDeviceParams>  deviceParams;
+    ofParameterGroup        machineIps;
+    vector<ofParameter<bool>> machineIfacesIp;
     ofxButton               btnStartAnalysis;
     ofxLabel                lblStatus;
+    
+    PMArtNetManager artnet;
 
 };
 
