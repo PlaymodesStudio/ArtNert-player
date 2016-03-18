@@ -21,17 +21,29 @@ protected:
     void buildInputDevicesPanel();
     void buildOutputDevicesPanel();
     void buildMachineIpPanel();
+    void buildNodesPanel(int n_universes);
+    void fillNodeIps(string &ip);
     
     void ipSelectorListener(ofAbstractParameter &ip);
+    void nodeIpSelectorListener(ofAbstractParameter &nodeIp){};
     
     ofRectangle vidImageContainer;
     string fileName;
     
     // Audio device selector
-    ofxPanel                guiDevices, guiMachineIp;
+    ofxPanel                guiDevices;
     vector<XBDeviceParams>  deviceParams;
+    
+    //MachineIp selector
+    ofxPanel                guiMachineIp;
     ofParameterGroup        machineIps;
-    vector<ofParameter<bool>> machineIfacesIp;
+    vector<ofParameter<bool>>  machineIfacesIp;
+    
+    //Node Selector
+    ofxPanel                    guiNodes;
+    vector<ofParameterGroup>    nodes;
+    vector<vector<ofParameter<bool>>>   nodesIps;
+    
     ofxButton               btnStartAnalysis;
     ofxLabel                lblStatus;
     

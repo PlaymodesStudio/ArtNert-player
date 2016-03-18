@@ -37,6 +37,7 @@ public:
     vector<pair<string, string>> getIfacesIps(){return artnet.getIfacesIps();};
     
     int getUniverses(){return 1;};
+    ofEvent<string> receivedNode;
     
 private:
     pmArtnetFunction function;

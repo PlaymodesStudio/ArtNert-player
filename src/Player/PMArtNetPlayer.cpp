@@ -15,6 +15,8 @@ bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const ch
     
     videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
     videoPlayer.load(videoFilename);  //load Video
+    auto universes = videoPlayer.getPixels().getHeight();
+    buildNodesPanel(3);
     videoPlayer.setLoopState(OF_LOOP_NORMAL);
     
     artnet.setup(PM_ARTNET_PLAYER);

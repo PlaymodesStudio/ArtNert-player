@@ -11,7 +11,7 @@
 
 void PMArtNetScreenRenderer::setupBase(){
     vidImageContainer.set(0,0,ofGetWidth()/2, ofGetHeight()/2);
-    
+    ofAddListener(artnet.receivedNode, this, &PMArtNetScreenRenderer::fillNodeIps);
     buildMachineIpPanel();
 }
 
@@ -19,6 +19,7 @@ void PMArtNetScreenRenderer::drawBasicLayout(){
     ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
     guiDevices.draw();
     guiMachineIp.draw();
+    guiNodes.draw();
 }
 
 void PMArtNetScreenRenderer::buildInputDevicesPanel()
@@ -96,7 +97,7 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
     
     string MACHINEIP_SETTINGS_FILENAME = "machineIPsettings.xml";
     guiMachineIp.setup("MACHINE IP", MACHINEIP_SETTINGS_FILENAME);
-    guiMachineIp.setPosition(ofGetWidth()-310, 10);
+    guiMachineIp.setPosition(ofGetWidth()-310, ofGetHeight()-310);
     guiMachineIp.setHeaderBackgroundColor(ofGetBackgroundColor());
     
     machineIps.setName("Select machine IP from list");
@@ -118,6 +119,45 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
     guiMachineIp.setWidthElements(300);
 }
 
+void PMArtNetScreenRenderer::buildNodesPanel(int n_universes){
+    
+    string NODES_SETTINGS_FILENAME = "machineIPsettings.xml";
+    guiNodes.setup("MACHINE IP", NODES_SETTINGS_FILENAME);
+    guiNodes.setPosition(vidImageContainer.getX()+vidImageContainer.getRight()+10, vidImageContainer.getY()+10);
+    guiNodes.setHeaderBackgroundColor(ofGetBackgroundColor());
+    
+    guiNodes.setName("Select node for each universe");
+    
+    for (int i = 0 ; i<n_universes ; i++){
+        ofParameterGroup node;
+        node.setName("Universe "+ofToString((i)));
+        nodes.push_back(node);
+        ofAddListener(node.parameterChangedE(),this,  &PMArtNetScreenRenderer::nodeIpSelectorListener);
+        guiNodes.add(nodes.at(nodes.size()-1));
+    }
+    
+    //ofFile file(MACHINEIP_SETTINGS_FILENAME);
+    //if (file.exists()) file.remove();
+    
+    guiNodes.loadFromFile(NODES_SETTINGS_FILENAME);
+    
+    guiNodes.setSize(300 , vidImageContainer.getHeight());
+    guiNodes.setWidthElements(300);
+}
+
+void PMArtNetScreenRenderer::fillNodeIps(string &ip){
+    vector<ofParameter<bool>> nodeIp;
+    nodesIps.push_back(nodeIp);
+    guiNodes.clear();
+    for (int i = 0 ; i<nodes.size() ; i++){
+        ofParameter<bool> tempIp;
+        nodesIps[nodesIps.size()-1].push_back(tempIp);
+        nodes[i].add(nodesIps[nodesIps.size()-1].at(i).set(ip, false));
+        guiNodes.add(nodes[i]);
+    }
+    
+}
+
 void PMArtNetScreenRenderer::ipSelectorListener(ofAbstractParameter &ip){
     if(ip.toString() == "1"){
         artnet.setMachineIP(ip.getName());
@@ -126,5 +166,4 @@ void PMArtNetScreenRenderer::ipSelectorListener(ofAbstractParameter &ip){
                 machineIfacesIp[i] = false;
         }
     }
-    
 }

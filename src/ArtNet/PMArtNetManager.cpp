@@ -52,6 +52,7 @@ bool PMArtNetManager::sendDmx(ofPixels &pixels){
 }
 
 void PMArtNetManager::receivePollReply(ofxArtNetNodeEntry &node){
-    
+    string ipOfNode = node.getIp();
+    ofNotifyEvent(receivedNode,ipOfNode);
     cout<<"NODE FOUND: "<<node.getIp()<<endl;
 }
