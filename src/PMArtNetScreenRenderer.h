@@ -25,7 +25,7 @@ protected:
     void fillNodeIps(string &ip);
     
     void ipSelectorListener(ofAbstractParameter &ip);
-    void nodeIpSelectorListener(ofAbstractParameter &nodeIp){};
+    void nodeIpSelectorListener(ofAbstractParameter &nodeIp);
     
     ofRectangle vidImageContainer;
     string fileName;
