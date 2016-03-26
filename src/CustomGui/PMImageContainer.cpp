@@ -40,7 +40,7 @@ PMImageContainer::PMImageContainer(int _x, int _y, int _width, int _height, ofIm
 
 void PMImageContainer::draw()
 {
-        ofSetRectMode(OF_RECTMODE_CENTER);
+    ofSetRectMode(OF_RECTMODE_CENTER);
     ofPushMatrix();
         ofTranslate(x, y, 0);
         ofRotateZ(angle);

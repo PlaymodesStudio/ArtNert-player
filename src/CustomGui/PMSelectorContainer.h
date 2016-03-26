@@ -9,13 +9,13 @@
 #ifndef PMSelectorContainer_h
 #define PMSelectorContainer_h
 
-#include <stdio.h>
 #include "ofMain.h"
 
 class PMSelectorContainer
 {
 public:
     PMSelectorContainer();
+    ~PMSelectorContainer(){};
     PMSelectorContainer(int x, int y, int width, int height);
     void update(int x, int y);
     void update(int x, int y, int width, int height);

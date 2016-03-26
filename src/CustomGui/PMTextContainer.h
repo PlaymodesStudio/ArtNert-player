@@ -14,6 +14,8 @@
 class PMTextContainer : public PMSelectorContainer
 {
 public:
+    PMTextContainer();
+    ~PMTextContainer(){};
     PMTextContainer(int x, int y, string s, ofTrueTypeFont &font, float scale);
     PMTextContainer(int x, int y, string s, ofTrueTypeFont &font);
     //PMTextContainer(int x, int y, string s, ofTrueTypeFont &font, float scale);
@@ -21,6 +23,7 @@ public:
     void draw(float scale);
     void setFont(ofTrueTypeFont &font);
     void setScale(float _scale);
+    void setString(string _s);
     string getString(){return s;};
     
 private:

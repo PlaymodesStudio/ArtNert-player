@@ -23,7 +23,7 @@ void PMColorContainer::draw()
     ofPushStyle();
         ofSetRectMode(OF_RECTMODE_CENTER);
         ofSetColor(color);
-        ofDrawRectRounded(x, y, width, height, 2);
+        ofDrawRectRounded(x, y, width, height, 10);
     ofPopStyle();
 }
 

@@ -14,6 +14,8 @@
 class PMColorContainer :public PMSelectorContainer
 {
 public:
+    PMColorContainer(){PMSelectorContainer();};
+    ~PMColorContainer(){};
     PMColorContainer(int x, int y, int width, int height, ofColor color);
     void draw();
     void setColor(ofColor color);
