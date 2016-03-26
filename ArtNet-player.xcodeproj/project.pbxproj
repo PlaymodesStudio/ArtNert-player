@@ -22,6 +22,10 @@
 		856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9604B925D32EE39065747725 /* ofxBaseGui.cpp */; };
 		8A231283D31A46A796730807 /* receive.c in Sources */ = {isa = PBXBuildFile; fileRef = 566765C2F49884233EE6073D /* receive.c */; };
 		956CF63633047A3EAD98DD6B /* artnet.c in Sources */ = {isa = PBXBuildFile; fileRef = DCD389AF5601BEB7DFC8347A /* artnet.c */; };
+		9F31FAE31CA72A9A008CF5B4 /* PMColorContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FADB1CA72A9A008CF5B4 /* PMColorContainer.cpp */; };
+		9F31FAE41CA72A9A008CF5B4 /* PMImageContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FADD1CA72A9A008CF5B4 /* PMImageContainer.cpp */; };
+		9F31FAE51CA72A9A008CF5B4 /* PMSelectorContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FADF1CA72A9A008CF5B4 /* PMSelectorContainer.cpp */; };
+		9F31FAE61CA72A9A008CF5B4 /* PMTextContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FAE11CA72A9A008CF5B4 /* PMTextContainer.cpp */; };
 		9FFB25021C989E94006E87E4 /* XBDeviceParams.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB25001C989E94006E87E4 /* XBDeviceParams.cpp */; };
 		AFCD3AF3E225232FD1C29D70 /* ofxArtNetDmxData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB3594DD72C61A24879F817F /* ofxArtNetDmxData.cpp */; };
 		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
@@ -97,6 +101,14 @@
 		8B64CE3352997CAE525FC092 /* unistd_d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = unistd_d.h; path = ../../../addons/ofxArtNet/libs/artnet/include/unistd_d.h; sourceTree = SOURCE_ROOT; };
 		907C5B5E104864A2D3A25745 /* ofxToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxToggle.cpp; path = ../../../addons/ofxGui/src/ofxToggle.cpp; sourceTree = SOURCE_ROOT; };
 		9604B925D32EE39065747725 /* ofxBaseGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBaseGui.cpp; path = ../../../addons/ofxGui/src/ofxBaseGui.cpp; sourceTree = SOURCE_ROOT; };
+		9F31FADB1CA72A9A008CF5B4 /* PMColorContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMColorContainer.cpp; path = CustomGui/PMColorContainer.cpp; sourceTree = "<group>"; };
+		9F31FADC1CA72A9A008CF5B4 /* PMColorContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMColorContainer.h; path = CustomGui/PMColorContainer.h; sourceTree = "<group>"; };
+		9F31FADD1CA72A9A008CF5B4 /* PMImageContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMImageContainer.cpp; path = CustomGui/PMImageContainer.cpp; sourceTree = "<group>"; };
+		9F31FADE1CA72A9A008CF5B4 /* PMImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMImageContainer.h; path = CustomGui/PMImageContainer.h; sourceTree = "<group>"; };
+		9F31FADF1CA72A9A008CF5B4 /* PMSelectorContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMSelectorContainer.cpp; path = CustomGui/PMSelectorContainer.cpp; sourceTree = "<group>"; };
+		9F31FAE01CA72A9A008CF5B4 /* PMSelectorContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMSelectorContainer.h; path = CustomGui/PMSelectorContainer.h; sourceTree = "<group>"; };
+		9F31FAE11CA72A9A008CF5B4 /* PMTextContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMTextContainer.cpp; path = CustomGui/PMTextContainer.cpp; sourceTree = "<group>"; };
+		9F31FAE21CA72A9A008CF5B4 /* PMTextContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMTextContainer.h; path = CustomGui/PMTextContainer.h; sourceTree = "<group>"; };
 		9FFB25001C989E94006E87E4 /* XBDeviceParams.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XBDeviceParams.cpp; sourceTree = "<group>"; };
 		9FFB25011C989E94006E87E4 /* XBDeviceParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBDeviceParams.h; sourceTree = "<group>"; };
 		A045E7601183986D7E19ADA9 /* common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = common.h; path = ../../../addons/ofxArtNet/libs/artnet/include/common.h; sourceTree = SOURCE_ROOT; };
@@ -225,6 +237,21 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		9F31FAD61CA72988008CF5B4 /* CustomGui */ = {
+			isa = PBXGroup;
+			children = (
+				9F31FADB1CA72A9A008CF5B4 /* PMColorContainer.cpp */,
+				9F31FADC1CA72A9A008CF5B4 /* PMColorContainer.h */,
+				9F31FADD1CA72A9A008CF5B4 /* PMImageContainer.cpp */,
+				9F31FADE1CA72A9A008CF5B4 /* PMImageContainer.h */,
+				9F31FADF1CA72A9A008CF5B4 /* PMSelectorContainer.cpp */,
+				9F31FAE01CA72A9A008CF5B4 /* PMSelectorContainer.h */,
+				9F31FAE11CA72A9A008CF5B4 /* PMTextContainer.cpp */,
+				9F31FAE21CA72A9A008CF5B4 /* PMTextContainer.h */,
+			);
+			name = CustomGui;
+			sourceTree = "<group>";
+		};
 		9F8BFCFAAE384EEE6A2DEC5B /* Recorder */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +362,7 @@
 				9FFB25011C989E94006E87E4 /* XBDeviceParams.h */,
 				B9424E3F73100D56E7DC0F01 /* Player */,
 				9F8BFCFAAE384EEE6A2DEC5B /* Recorder */,
+				9F31FAD61CA72988008CF5B4 /* CustomGui */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -452,6 +480,7 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				0FB220F1A800322E7D70E3D5 /* PMArtNetManager.cpp in Sources */,
+				9F31FAE51CA72A9A008CF5B4 /* PMSelectorContainer.cpp in Sources */,
 				EC9648E20E6DC662B8A1399E /* PMArtNetPlayer.cpp in Sources */,
 				F063691EE6483EB89142C7F7 /* PMArtNetScreenRenderer.cpp in Sources */,
 				0246944D1821831195034AA5 /* PMArtNetSetup.cpp in Sources */,
@@ -468,9 +497,12 @@
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
+				9F31FAE31CA72A9A008CF5B4 /* PMColorContainer.cpp in Sources */,
+				9F31FAE61CA72A9A008CF5B4 /* PMTextContainer.cpp in Sources */,
 				9FFB25021C989E94006E87E4 /* XBDeviceParams.cpp in Sources */,
 				483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */,
 				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,
+				9F31FAE41CA72A9A008CF5B4 /* PMImageContainer.cpp in Sources */,
 				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
 				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
 				1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */,
