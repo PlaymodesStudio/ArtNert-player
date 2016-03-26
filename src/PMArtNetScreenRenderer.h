@@ -13,6 +13,8 @@
 #include "ofxGui.h"
 #include "XBDeviceParams.h"
 #include "PMArtNetManager.h"
+#include "PMTextContainer.h"
+#include "PMColorContainer.h"
 
 class PMArtNetScreenRenderer{
 protected:
@@ -27,8 +29,12 @@ protected:
     void ipSelectorListener(ofAbstractParameter &ip);
     void nodeIpSelectorListener(ofAbstractParameter &nodeIp);
     
+    
+    
     ofRectangle vidImageContainer;
     string fileName;
+    
+    ofTrueTypeFont font;
     
     // Audio device selector
     ofxPanel                guiDevices;
@@ -43,6 +49,10 @@ protected:
     ofxPanel                    guiNodes;
     vector<ofParameterGroup>    nodes;
     vector<vector<ofParameter<bool>>>   nodesIps;
+    
+    //File Selector
+    PMTextContainer         fileSelector;
+    PMColorContainer        fileSelectorBackground;
     
     ofxButton               btnStartAnalysis;
     ofxLabel                lblStatus;

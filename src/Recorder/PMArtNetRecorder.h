@@ -27,6 +27,7 @@ public:
     void start();
     void stop();
     void addAudioBuffer(float *input, int bufferSize, int nChannels);
+    void mousePressed(int x, int y, int button);
     void audioIn(float *input, int bufferSize, int nChannels);
     
 private:

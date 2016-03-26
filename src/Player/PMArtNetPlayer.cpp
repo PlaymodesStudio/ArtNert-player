@@ -33,3 +33,10 @@ void PMArtNetPlayer::draw(int x, int y, int w, int h){
     videoPlayer.draw(vidImageContainer);
     drawBasicLayout();
 }
+
+
+void PMArtNetPlayer::mousePressed(int x, int y, int button){
+    if(fileSelector.isInside(x, y)){
+        ofFileDialogResult result = ofSystemLoadDialog();
+    }
+}

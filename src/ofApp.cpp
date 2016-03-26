@@ -89,20 +89,24 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    if (state == STATE_SETUP) {
-        auto toChange = setupScreen.checkPress(x, y);
-        if(toChange != -1)
-            changeToScene(appState(toChange));
-    }
     switch (state) {
+        case STATE_SETUP:
+        {
+            auto toChange = setupScreen.checkPress(x, y);
+            if(toChange != -1)
+                changeToScene(appState(toChange));
+            break;
+        }
         case STATE_PLAYER:
+            player.mousePressed(x, y, button);
             break;
         case STATE_RECORDER:
+            recorder.mousePressed(x, y, button);
             break;
-            
         default:
             break;
     }
+    cout<<x<<"  "<<y<<endl;
 }
 
 //--------------------------------------------------------------

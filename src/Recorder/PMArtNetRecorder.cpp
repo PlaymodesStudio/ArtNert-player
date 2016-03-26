@@ -12,6 +12,7 @@
 bool PMArtNetRecorder::setup(const char* machineIP){
     setupBase();
     buildInputDevicesPanel();
+    
     this->fileName = "Artnet_Recording"+ofGetTimestampString()+".mov";
     
     vidRecorder.setPixelFormat("rgb24");
@@ -50,6 +51,12 @@ void PMArtNetRecorder::start(){
 
 void PMArtNetRecorder::stop(){
     vidRecorder.close();
+}
+
+void PMArtNetRecorder::mousePressed(int x, int y, int button){
+    if(fileSelector.isInside(x, y)){
+        ofFileDialogResult result = ofSystemSaveDialog("hola.mov", "Select Save File");
+    }
 }
 
 //--------------------------------------------------------------

@@ -13,6 +13,15 @@ void PMArtNetScreenRenderer::setupBase(){
     vidImageContainer.set(0,0,ofGetWidth()/2, ofGetHeight()/2);
     ofAddListener(artnet.receivedNode, this, &PMArtNetScreenRenderer::fillNodeIps);
     buildMachineIpPanel();
+    
+    font.load("LucidaGrande.ttc", 20);
+    //build fileLoader/Saver
+    fileSelector.update(450, vidImageContainer.height+100, 300, 20);
+    fileSelector.setFont(font);
+    fileSelector.setScale(0.5);
+    fileSelector.setString("Click To Select File");
+    fileSelectorBackground.update(fileSelector.getX(), fileSelector.getY(), fileSelector.getWidth()+20, fileSelector.getHeight()+20);
+    fileSelectorBackground.setColor(ofColor::blueViolet);
 }
 
 void PMArtNetScreenRenderer::drawBasicLayout(){
@@ -20,6 +29,9 @@ void PMArtNetScreenRenderer::drawBasicLayout(){
     guiDevices.draw();
     guiMachineIp.draw();
     guiNodes.draw();
+    
+    fileSelectorBackground.draw();
+    fileSelector.draw();
 }
 
 void PMArtNetScreenRenderer::buildInputDevicesPanel()
@@ -28,7 +40,7 @@ void PMArtNetScreenRenderer::buildInputDevicesPanel()
     string DEVICE_SETTINGS_FILENAME = "devicesettings.xml";
     
     guiDevices.setup("Input Device Selector", DEVICE_SETTINGS_FILENAME);
-    guiDevices.setPosition(10, 10);
+    guiDevices.setPosition(10, vidImageContainer.height+10);
     
     for (int i=0; i<devices.size(); ++i)
     {
@@ -181,3 +193,5 @@ void PMArtNetScreenRenderer::nodeIpSelectorListener(ofAbstractParameter &nodeIp)
         }
     }
 }
+
+

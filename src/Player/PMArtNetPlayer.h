@@ -23,6 +23,8 @@ public:
     void draw(int x, int y, int w, int h);
     
     void play(){videoPlayer.play();};
+    void mousePressed(int x, int y, int button);
+
     
 private:
     ofVideoPlayer videoPlayer;
