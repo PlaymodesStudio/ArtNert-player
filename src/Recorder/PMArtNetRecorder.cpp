@@ -56,6 +56,8 @@ void PMArtNetRecorder::stop(){
 void PMArtNetRecorder::mousePressed(int x, int y, int button){
     if(fileSelector.isInside(x, y)){
         ofFileDialogResult result = ofSystemSaveDialog("hola.mov", "Select Save File");
+        fileName = result.getPath();
+        fileSelector.setString(result.getName());
     }
 }
 

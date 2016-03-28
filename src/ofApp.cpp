@@ -106,7 +106,6 @@ void ofApp::mousePressed(int x, int y, int button){
         default:
             break;
     }
-    cout<<x<<"  "<<y<<endl;
 }
 
 //--------------------------------------------------------------
