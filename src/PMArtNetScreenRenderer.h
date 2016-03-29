@@ -15,6 +15,7 @@
 #include "PMArtNetManager.h"
 #include "PMTextContainer.h"
 #include "PMColorContainer.h"
+#include "PMFileSelector.h"
 
 class PMArtNetScreenRenderer{
 protected:
@@ -51,8 +52,7 @@ protected:
     vector<vector<ofParameter<bool>>>   nodesIps;
     
     //File Selector
-    PMTextContainer         fileSelector;
-    PMColorContainer        fileSelectorBackground;
+    PMFileSelector          fileSelectorCustom;
     
     ofxButton               btnStartAnalysis;
     ofxLabel                lblStatus;

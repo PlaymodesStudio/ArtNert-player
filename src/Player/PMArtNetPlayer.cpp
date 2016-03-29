@@ -36,9 +36,6 @@ void PMArtNetPlayer::draw(int x, int y, int w, int h){
 
 
 void PMArtNetPlayer::mousePressed(int x, int y, int button){
-    if(fileSelector.isInside(x, y)){
-        ofFileDialogResult result = ofSystemLoadDialog();
-        fileName = result.getPath();
-        fileSelector.setString(result.getName());
-    }
+    if(fileSelectorCustom.isInside(x, y))
+        fileSelectorCustom.selectToOpen();
 }

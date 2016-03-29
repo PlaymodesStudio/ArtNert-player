@@ -16,12 +16,9 @@ void PMArtNetScreenRenderer::setupBase(){
     
     font.load("LucidaGrande.ttc", 20);
     //build fileLoader/Saver
-    fileSelector.update(450, vidImageContainer.height+100, 300, 20);
-    fileSelector.setFont(font);
-    fileSelector.setScale(0.5);
-    fileSelector.setString("Click To Select File");
-    fileSelectorBackground.update(fileSelector.getX(), fileSelector.getY(), fileSelector.getWidth()+20, fileSelector.getHeight()+20);
-    fileSelectorBackground.setColor(ofColor::blueViolet);
+    fileSelectorCustom.setPosition(500, vidImageContainer.height + 300);
+    fileSelectorCustom.setSize(320, 40);
+    fileSelectorCustom.setFont(font);
 }
 
 void PMArtNetScreenRenderer::drawBasicLayout(){
@@ -30,8 +27,7 @@ void PMArtNetScreenRenderer::drawBasicLayout(){
     guiMachineIp.draw();
     guiNodes.draw();
     
-    fileSelectorBackground.draw();
-    fileSelector.draw();
+    fileSelectorCustom.draw();
 }
 
 void PMArtNetScreenRenderer::buildInputDevicesPanel()

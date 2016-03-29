@@ -22,6 +22,7 @@
 		856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9604B925D32EE39065747725 /* ofxBaseGui.cpp */; };
 		8A231283D31A46A796730807 /* receive.c in Sources */ = {isa = PBXBuildFile; fileRef = 566765C2F49884233EE6073D /* receive.c */; };
 		956CF63633047A3EAD98DD6B /* artnet.c in Sources */ = {isa = PBXBuildFile; fileRef = DCD389AF5601BEB7DFC8347A /* artnet.c */; };
+		9F2CAB2E1CAACC03000F76E4 /* PMFileSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CAB2C1CAACC03000F76E4 /* PMFileSelector.cpp */; };
 		9F31FAE31CA72A9A008CF5B4 /* PMColorContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FADB1CA72A9A008CF5B4 /* PMColorContainer.cpp */; };
 		9F31FAE41CA72A9A008CF5B4 /* PMImageContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FADD1CA72A9A008CF5B4 /* PMImageContainer.cpp */; };
 		9F31FAE51CA72A9A008CF5B4 /* PMSelectorContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FADF1CA72A9A008CF5B4 /* PMSelectorContainer.cpp */; };
@@ -101,6 +102,8 @@
 		8B64CE3352997CAE525FC092 /* unistd_d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = unistd_d.h; path = ../../../addons/ofxArtNet/libs/artnet/include/unistd_d.h; sourceTree = SOURCE_ROOT; };
 		907C5B5E104864A2D3A25745 /* ofxToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxToggle.cpp; path = ../../../addons/ofxGui/src/ofxToggle.cpp; sourceTree = SOURCE_ROOT; };
 		9604B925D32EE39065747725 /* ofxBaseGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBaseGui.cpp; path = ../../../addons/ofxGui/src/ofxBaseGui.cpp; sourceTree = SOURCE_ROOT; };
+		9F2CAB2C1CAACC03000F76E4 /* PMFileSelector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMFileSelector.cpp; path = CustomGui/PMFileSelector.cpp; sourceTree = "<group>"; };
+		9F2CAB2D1CAACC03000F76E4 /* PMFileSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMFileSelector.h; path = CustomGui/PMFileSelector.h; sourceTree = "<group>"; };
 		9F31FADB1CA72A9A008CF5B4 /* PMColorContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMColorContainer.cpp; path = CustomGui/PMColorContainer.cpp; sourceTree = "<group>"; };
 		9F31FADC1CA72A9A008CF5B4 /* PMColorContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMColorContainer.h; path = CustomGui/PMColorContainer.h; sourceTree = "<group>"; };
 		9F31FADD1CA72A9A008CF5B4 /* PMImageContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMImageContainer.cpp; path = CustomGui/PMImageContainer.cpp; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				9F31FAE01CA72A9A008CF5B4 /* PMSelectorContainer.h */,
 				9F31FAE11CA72A9A008CF5B4 /* PMTextContainer.cpp */,
 				9F31FAE21CA72A9A008CF5B4 /* PMTextContainer.h */,
+				9F2CAB2C1CAACC03000F76E4 /* PMFileSelector.cpp */,
+				9F2CAB2D1CAACC03000F76E4 /* PMFileSelector.h */,
 			);
 			name = CustomGui;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				BD53C476A333DDFCFE13D752 /* ofxArtNetNodeEntry.cpp in Sources */,
 				956CF63633047A3EAD98DD6B /* artnet.c in Sources */,
 				0302D18489150FC1B75EE86A /* misc.c in Sources */,
+				9F2CAB2E1CAACC03000F76E4 /* PMFileSelector.cpp in Sources */,
 				052155D469378A23A81F5CA7 /* network.c in Sources */,
 				8A231283D31A46A796730807 /* receive.c in Sources */,
 				27DFFCF1C740D20E8B751B35 /* tod.c in Sources */,
