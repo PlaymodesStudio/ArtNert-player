@@ -18,9 +18,8 @@ void PMFileSelector::draw(){
     
     ofSetColor(ofColor::green);
     int x = rectangle.getX() + 20;
-    int y = rectangle.getY()+rectangle.getHeight();   //font->stringHeight(text);
+    int y = rectangle.getY()+rectangle.getHeight() - ((rectangle.getHeight()-(font->stringHeight(text)))/1.5);   //font->stringHeight(text);
     font->drawString(text, x, y);
- 
 }
 
 bool PMFileSelector::isInside(int x, int y){
@@ -34,7 +33,6 @@ void PMFileSelector::setPosition(int x, int y){
 void PMFileSelector::setSize(int width, int height){
     rectangle.setSize(width, height);
 }
-
 
 
 void PMFileSelector::selectToSave(){
