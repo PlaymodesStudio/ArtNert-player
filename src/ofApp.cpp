@@ -84,7 +84,23 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    switch (state) {
+        case STATE_SETUP:
+        {
+            //            auto toChange = setupScreen.checkPress(x, y);
+            //            if(toChange != -1)
+            //                changeToScene(appState(toChange));
+            //            break;
+        }
+        case STATE_PLAYER:
+            player.mouseDragged(x, y, button);
+            break;
+        case STATE_RECORDER:
+            //recorder.mousePressed(x, y, button);
+            break;
+        default:
+            break;
+    }
 }
 
 //--------------------------------------------------------------
@@ -110,6 +126,23 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
+    switch (state) {
+        case STATE_SETUP:
+        {
+//            auto toChange = setupScreen.checkPress(x, y);
+//            if(toChange != -1)
+//                changeToScene(appState(toChange));
+//            break;
+        }
+        case STATE_PLAYER:
+            player.mouseReleased(x, y, button);
+            break;
+        case STATE_RECORDER:
+            //recorder.mousePressed(x, y, button);
+            break;
+        default:
+            break;
+    }
 
 }
 

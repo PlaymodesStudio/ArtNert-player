@@ -34,5 +34,6 @@ bool PMPlayHeader::dragged(int x, int y){
         headerPos = (x-rectangle.getX())/rectangle.getWidth();
         float toSend = headerPos;//*duration;
         ofNotifyEvent(headerDragged, toSend, this);
+        return true;
     }
 }

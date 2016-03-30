@@ -36,7 +36,8 @@ void PMArtNetPlayer::update(){
     videoPlayer.update();
 
     artnet.sendDmx(videoPlayer.getPixels());
-    playHeader.setHeaderPosition(videoPlayer.getPosition());
+    if(!videoPlayer.isPaused())
+        playHeader.setHeaderPosition(videoPlayer.getPosition());
 }
 
 void PMArtNetPlayer::draw(int x, int y, int w, int h){
@@ -53,5 +54,18 @@ void PMArtNetPlayer::changePlayHead(float &position){
 void PMArtNetPlayer::mousePressed(int x, int y, int button){
     if(fileSelectorCustom.isInside(x, y))
         fileSelectorCustom.selectToOpen();
+    if(playHeader.dragged(x, y))
+        videoPlayer.setPaused(true);
+    else
+        videoPlayer.setPaused(false);
+}
+
+void PMArtNetPlayer::mouseReleased(int x, int y, int button){
+    if(videoPlayer.isPaused()){
+        videoPlayer.setPaused(false);
+    }
+}
+
+void PMArtNetPlayer::mouseDragged(int x, int y, int button){
     playHeader.dragged(x, y);
 }

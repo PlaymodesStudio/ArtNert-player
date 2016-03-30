@@ -26,7 +26,8 @@ public:
     void play(){videoPlayer.play();};
     void changePlayHead(float &position);
     void mousePressed(int x, int y, int button);
-
+    void mouseReleased(int x, int y, int button);
+    void mouseDragged(int x, int y, int button);
     
 private:
     ofVideoPlayer videoPlayer;
