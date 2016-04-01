@@ -28,6 +28,7 @@
 		9F31FAE41CA72A9A008CF5B4 /* PMImageContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FADD1CA72A9A008CF5B4 /* PMImageContainer.cpp */; };
 		9F31FAE51CA72A9A008CF5B4 /* PMSelectorContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FADF1CA72A9A008CF5B4 /* PMSelectorContainer.cpp */; };
 		9F31FAE61CA72A9A008CF5B4 /* PMTextContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31FAE11CA72A9A008CF5B4 /* PMTextContainer.cpp */; };
+		9F88B9371CAE71210022EE85 /* PMBaseCustomButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F88B9351CAE71210022EE85 /* PMBaseCustomButton.cpp */; };
 		9FFB25021C989E94006E87E4 /* XBDeviceParams.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB25001C989E94006E87E4 /* XBDeviceParams.cpp */; };
 		AFCD3AF3E225232FD1C29D70 /* ofxArtNetDmxData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB3594DD72C61A24879F817F /* ofxArtNetDmxData.cpp */; };
 		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
@@ -115,6 +116,8 @@
 		9F31FAE01CA72A9A008CF5B4 /* PMSelectorContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMSelectorContainer.h; path = CustomGui/PMSelectorContainer.h; sourceTree = "<group>"; };
 		9F31FAE11CA72A9A008CF5B4 /* PMTextContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMTextContainer.cpp; path = CustomGui/PMTextContainer.cpp; sourceTree = "<group>"; };
 		9F31FAE21CA72A9A008CF5B4 /* PMTextContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMTextContainer.h; path = CustomGui/PMTextContainer.h; sourceTree = "<group>"; };
+		9F88B9351CAE71210022EE85 /* PMBaseCustomButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PMBaseCustomButton.cpp; path = CustomGui/PMBaseCustomButton.cpp; sourceTree = "<group>"; };
+		9F88B9361CAE71210022EE85 /* PMBaseCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMBaseCustomButton.h; path = CustomGui/PMBaseCustomButton.h; sourceTree = "<group>"; };
 		9FFB25001C989E94006E87E4 /* XBDeviceParams.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XBDeviceParams.cpp; sourceTree = "<group>"; };
 		9FFB25011C989E94006E87E4 /* XBDeviceParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBDeviceParams.h; sourceTree = "<group>"; };
 		A045E7601183986D7E19ADA9 /* common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = common.h; path = ../../../addons/ofxArtNet/libs/artnet/include/common.h; sourceTree = SOURCE_ROOT; };
@@ -258,6 +261,8 @@
 				9F2CAB2D1CAACC03000F76E4 /* PMFileSelector.h */,
 				9F2CAB2F1CAAE0CB000F76E4 /* PMPlayHeader.cpp */,
 				9F2CAB301CAAE0CB000F76E4 /* PMPlayHeader.h */,
+				9F88B9351CAE71210022EE85 /* PMBaseCustomButton.cpp */,
+				9F88B9361CAE71210022EE85 /* PMBaseCustomButton.h */,
 			);
 			name = CustomGui;
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				5D2254D017AC101A4F244E2C /* ofxArtNet.cpp in Sources */,
 				AFCD3AF3E225232FD1C29D70 /* ofxArtNetDmxData.cpp in Sources */,
 				BD53C476A333DDFCFE13D752 /* ofxArtNetNodeEntry.cpp in Sources */,
+				9F88B9371CAE71210022EE85 /* PMBaseCustomButton.cpp in Sources */,
 				956CF63633047A3EAD98DD6B /* artnet.c in Sources */,
 				0302D18489150FC1B75EE86A /* misc.c in Sources */,
 				9F2CAB2E1CAACC03000F76E4 /* PMFileSelector.cpp in Sources */,
