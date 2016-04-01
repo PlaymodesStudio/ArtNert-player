@@ -18,9 +18,13 @@ bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const ch
     playHeader.setSize(vidImageContainer.getWidth(), 20);
     
     //playbutton
-    playButton.setPosition(ofGetWidth()-100, ofGetHeight()-100);
+    playButton.setPosition(ofGetWidth()-200, ofGetHeight()-100);
     playButton.setSize(80, 80);
     playButton.setIconPredefined(PMButtonPlay);
+    
+    pauseButton.setPosition(ofGetWidth()-100, ofGetHeight()-100);
+    pauseButton.setSize(80, 80);
+    pauseButton.setIconPredefined(PMButtonPause);
     
     
     videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
@@ -51,7 +55,9 @@ void PMArtNetPlayer::draw(int x, int y, int w, int h){
     videoPlayer.draw(vidImageContainer);
     drawBasicLayout();
     playHeader.draw();
+    pauseButton.draw();
     playButton.draw();
+    
 }
 
 void PMArtNetPlayer::changePlayHead(int &position){

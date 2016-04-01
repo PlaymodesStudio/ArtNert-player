@@ -24,8 +24,8 @@ void PMBaseCustomButton::draw(){
     ofSetColor(ofColor::blueSteel);
     ofDrawRectRounded(rectangle, 5);
     ofSetColor(0);
-    ofPopMatrix();
-        ofPoint scale = ofPoint(rectangle.getWidth()/(icon.getBoundingBox().getWidth()+iconMargin), rectangle.getHeight()/(icon.getBoundingBox().getHeight()+iconMargin));
+    ofPushMatrix();
+        ofPoint scale = ofPoint(rectangle.getWidth()/(getIconBoundingBox().getWidth()+iconMargin), rectangle.getHeight()/(getIconBoundingBox().getHeight()+iconMargin));
         ofTranslate(rectangle.getX()+(iconMargin*scale.x/2), rectangle.getY()+iconMargin*scale.y/2);
         ofScale(scale);
         icon.draw();
@@ -36,14 +36,44 @@ void PMBaseCustomButton::draw(){
 void PMBaseCustomButton::setIconPredefined(PMbuttonType type){
     switch(type){
         case PMButtonPlay:
-            int curveRes = 500;
+        {
             icon.clear();
-            icon.curveTo(0,10, curveRes);
-            icon.curveTo(0,0, curveRes);
-            icon.curveTo(10,5, curveRes);
-            icon.curveTo(0,10, curveRes);
-            icon.curveTo(0,0, curveRes);
-            icon.curveTo(0,0, curveRes);
+            icon.moveTo(0,0);
+            icon.lineTo(10, 5);
+            icon.lineTo(0,10);
+            icon.lineTo(0,0);
+            icon.setColor(0);
             iconMargin = 5;
+            break;
+        }
+        case PMButtonPause:
+        {
+            icon.clear();
+            icon.moveTo(0,0);
+            icon.lineTo(0,10);
+            icon.moveTo(4,0);
+            icon.lineTo(4,10);
+            icon.setColor(0);
+            icon.setStrokeColor(0);
+            icon.setStrokeWidth(10);
+            iconMargin = 5;
+            break;
+        }
+        case PMButtonStop:
+        {
+            
+            break;
+        }
     }
 }
+
+ofRectangle PMBaseCustomButton::getIconBoundingBox(){
+    ofRectangle rect;
+    rect.set(0,0,0,0);
+    for (auto polyline : icon.getOutline()) {
+        ofRectangle b = polyline.getBoundingBox();
+        rect.growToInclude(b);
+    }
+    return rect;
+}
+

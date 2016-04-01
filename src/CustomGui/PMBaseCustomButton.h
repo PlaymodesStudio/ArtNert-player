@@ -26,14 +26,16 @@ public:
     void draw();
     void setPosition(int x, int y){rectangle.setPosition(x, y);};
     void setSize(int width, int height){rectangle.setSize(width, height);};
-    void setIcon(ofPolyline _icon){icon = _icon;};
+    void setIcon(ofPath _icon){icon = _icon;};
     void setIconPredefined(PMbuttonType type);
+    
+    ofRectangle getIconBoundingBox();
     
     bool isPressed(int x, int y){return rectangle.inside(x,y);};
     
 private:
     ofRectangle     rectangle;
-    ofPolyline      icon;
+    ofPath          icon;
     int             iconMargin;
 };
 
