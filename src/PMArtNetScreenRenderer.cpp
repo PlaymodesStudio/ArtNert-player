@@ -16,7 +16,7 @@ void PMArtNetScreenRenderer::setupBase(){
     
     font.load("LucidaGrande.ttc", 20);
     //build fileLoader/Saver
-    fileSelectorCustom.setPosition(500, vidImageContainer.height + 300);
+    fileSelectorCustom.setPosition(400, vidImageContainer.height + 300);
     fileSelectorCustom.setSize(320, 40);
     fileSelectorCustom.setFont(font);
 }

@@ -18,13 +18,17 @@ bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const ch
     playHeader.setSize(vidImageContainer.getWidth(), 20);
     
     //playbutton
-    playButton.setPosition(ofGetWidth()-200, ofGetHeight()-100);
+    playButton.setPosition(ofGetWidth()-300, ofGetHeight()-100);
     playButton.setSize(80, 80);
     playButton.setIconPredefined(PMButtonPlay);
     
-    pauseButton.setPosition(ofGetWidth()-100, ofGetHeight()-100);
+    pauseButton.setPosition(ofGetWidth()-200, ofGetHeight()-100);
     pauseButton.setSize(80, 80);
     pauseButton.setIconPredefined(PMButtonPause);
+    
+    stopButton.setPosition(ofGetWidth()-100, ofGetHeight()-100);
+    stopButton.setSize(80, 80);
+    stopButton.setIconPredefined(PMButtonStop);
     
     
     videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
@@ -38,7 +42,6 @@ bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const ch
     
     artnet.setup(PM_ARTNET_PLAYER);
     artnet.setTargetIP(targetIP);
-//    artnet.start();
 }
 
 void PMArtNetPlayer::update(){
@@ -57,6 +60,7 @@ void PMArtNetPlayer::draw(int x, int y, int w, int h){
     playHeader.draw();
     pauseButton.draw();
     playButton.draw();
+    stopButton.draw();
     
 }
 
@@ -70,6 +74,18 @@ void PMArtNetPlayer::mousePressed(int x, int y, int button){
         fileSelectorCustom.selectToOpen();
     if(playHeader.dragged(x, y))
         videoPlayer.setPaused(true);
+    if(playButton.isPressed(x, y))
+        videoPlayer.play();
+    if(pauseButton.isPressed(x, y)){
+        if(videoPlayer.isPaused())
+            videoPlayer.setPaused(false);
+        else
+            videoPlayer.setPaused(true);
+    }
+    if(stopButton.isPressed(x, y)){
+        videoPlayer.stop();
+        playHeader.setHeaderPosition(0);
+    }
 }
 
 void PMArtNetPlayer::mouseReleased(int x, int y, int button){

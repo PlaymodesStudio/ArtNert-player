@@ -49,7 +49,7 @@ void ofApp::changeToScene(appState _state){
                 player.setup("artnettestProres.mov", "192.168.1.105", "192.168.1.112");
             else
                 player.setup("artnettest.mov", "192.168.1.112", "192.168.1.105");
-            player.play();
+            //player.play();
             break;
         case STATE_RECORDER:
             if(ofGetTargetPlatform() == OF_TARGET_OSX)

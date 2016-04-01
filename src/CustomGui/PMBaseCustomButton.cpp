@@ -16,6 +16,8 @@ PMBaseCustomButton::PMBaseCustomButton(){
     icon.curveTo(5,10);
     icon.curveTo(0,0);
     icon.curveTo(0,0);
+    
+    iconMargin = 1;
     //icon.close();
 }
 
@@ -61,9 +63,23 @@ void PMBaseCustomButton::setIconPredefined(PMbuttonType type){
         }
         case PMButtonStop:
         {
-            
+            icon.clear();
+            icon.moveTo(0, 0);
+            icon.lineTo(10,0);
+            icon.lineTo(10,10);
+            icon.lineTo(0, 10);
+            icon.lineTo(0, 0);
+            icon.setColor(0);
+            iconMargin = 5;
             break;
         }
+        case PMButtonRecord:
+            icon.clear();
+            icon.arc(10,10,10,10,0,360);
+            icon.setColor(0);
+            iconMargin=5;
+            icon.setCircleResolution(50);
+            break;
     }
 }
 
