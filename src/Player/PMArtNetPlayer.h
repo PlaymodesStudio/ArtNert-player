@@ -12,6 +12,7 @@
 #include "ofMain.h"
 #include "PMArtNetScreenRenderer.h"
 #include "PMPlayHeader.h"
+#include "PMBaseCustomButton.h"
 
 class PMArtNetPlayer : public PMArtNetScreenRenderer{
     
@@ -32,6 +33,7 @@ public:
 private:
     ofVideoPlayer videoPlayer;
     PMPlayHeader playHeader;
+    PMBaseCustomButton  playButton, pauseButton, stopButton;
 };
 
 #endif /* PMArtNetPlayer_h */

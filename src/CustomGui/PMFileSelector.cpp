@@ -13,6 +13,7 @@ PMFileSelector::PMFileSelector(){
 }
 
 void PMFileSelector::draw(){
+    ofPushStyle();
     ofSetColor(ofColor::red);
     ofDrawRectRounded(rectangle, 5);
     
@@ -20,6 +21,7 @@ void PMFileSelector::draw(){
     int x = rectangle.getX() + 20;
     int y = rectangle.getY()+rectangle.getHeight() - ((rectangle.getHeight()-(font->stringHeight(text)))/1.5);   //font->stringHeight(text);
     font->drawString(text, x, y);
+    ofPopStyle();
 }
 
 bool PMFileSelector::isInside(int x, int y){
