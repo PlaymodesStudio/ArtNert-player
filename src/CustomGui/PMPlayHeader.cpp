@@ -26,13 +26,13 @@ void PMPlayHeader::draw(){
             ofDrawRectRounded(header, 2);
         ofPopMatrix();
     ofPopStyle();
-    cout<<"position: "<<headerPos<<"   Duration: "<<duration<<endl;
+    //cout<<"position: "<<headerPos<<"   Duration: "<<duration<<endl;
 }
 
 bool PMPlayHeader::dragged(int x, int y){
-    if(rectangle.inside(x,y)){
+    if(rectangle.inside(x,y) && headerPos+rectangle.getX()-x < 5){
         headerPos = (x-rectangle.getX())/rectangle.getWidth();
-        float toSend = headerPos;//*duration;
+        int toSend = headerPos*duration;
         ofNotifyEvent(headerDragged, toSend, this);
         return true;
     }

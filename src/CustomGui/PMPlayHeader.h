@@ -25,15 +25,16 @@ public:
         rectangle.setSize(width, height);
         header.setHeight(height);
     };
-    void setDuration(float _duration){duration = _duration;};
+    void setDuration(int _duration){duration = _duration;};
     void setHeaderPosition(float position){headerPos = position;};
 
-    ofEvent<float> headerDragged;
+    ofEvent<int> headerDragged;
     
 private:
     ofRectangle rectangle;
     ofRectangle header;
-    float headerPos, duration;
+    float headerPos;
+    int duration;
 };
 
 #endif /* PMPlayHeader_h */

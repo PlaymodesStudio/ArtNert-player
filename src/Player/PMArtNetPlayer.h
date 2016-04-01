@@ -25,7 +25,7 @@ public:
     void draw(int x, int y, int w, int h);
     
     void play(){videoPlayer.play();};
-    void changePlayHead(float &position);
+    void changePlayHead(int &position);
     void mousePressed(int x, int y, int button);
     void mouseReleased(int x, int y, int button);
     void mouseDragged(int x, int y, int button);
