@@ -155,8 +155,8 @@ void PMArtNetScreenRenderer::buildNodesPanel(int n_universes){
     
     //guiNodes.loadFromFile(NODES_SETTINGS_FILENAME);
     
-    guiNodes.setSize(300 , 300);
-    guiNodes.setWidthElements(300);
+    guiNodes.setSize(200 , 300);
+    guiNodes.setWidthElements(200);
 }
 
 void PMArtNetScreenRenderer::fillNodeIps(string &ip){
@@ -187,8 +187,7 @@ void PMArtNetScreenRenderer::nodeIpSelectorListener(ofAbstractParameter &nodeIp)
         string nodeClicked = nodeIp.getGroupHierarchyNames()[1];
         int universe = ofToInt(string(&nodeClicked.back()));
         cout<<universe<<"  "<<nodeIp.getName()<<endl;
-        //artnet.setTargetIP(nodeIp.getName());
-        //artnet.setMachineIP(ip.getName());
+        artnet.setTargetIP(nodeIp.getName());
         for (int i = 0 ; i < nodesIps.size() ; i++){
             if ( nodesIps[i][universe].getName() != nodeIp.getName())
                 nodesIps[i][universe] = false;
