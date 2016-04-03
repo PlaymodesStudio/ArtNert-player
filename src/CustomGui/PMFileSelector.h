@@ -27,6 +27,7 @@ public:
     void setPosition(int x, int y);
     void setSize(int width, int height);
     
+    string getFilePath(){return filePath;};
     void selectToSave();
     void selectToOpen();
     

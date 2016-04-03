@@ -16,13 +16,14 @@
 #include "PMTextContainer.h"
 #include "PMColorContainer.h"
 #include "PMFileSelector.h"
+#include "PMBaseCustomButton.h"
 
 class PMArtNetScreenRenderer{
 protected:
     void setupBase();
     void drawBasicLayout();
     void buildInputDevicesPanel();
-    void buildOutputDevicesPanel();
+//    void buildOutputDevicesPanel();
     void buildMachineIpPanel();
     void buildNodesPanel(int n_universes);
     void fillNodeIps(string &ip);

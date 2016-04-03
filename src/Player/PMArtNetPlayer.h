@@ -12,7 +12,6 @@
 #include "ofMain.h"
 #include "PMArtNetScreenRenderer.h"
 #include "PMPlayHeader.h"
-#include "PMBaseCustomButton.h"
 
 class PMArtNetPlayer : public PMArtNetScreenRenderer{
     

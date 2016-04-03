@@ -13,7 +13,6 @@
 #include "PMArtNetScreenRenderer.h"
 #include "ofxVideoRecorder.h"
 
-
 class PMArtNetRecorder : public PMArtNetScreenRenderer, ofBaseSoundInput{
     
 public:
@@ -32,9 +31,8 @@ public:
     
 private:
     ofxVideoRecorder vidRecorder;
-    bool isRecording;
     ofImage frame;
     ofSoundStream soundStream;
-    
+    PMBaseCustomButton recordButton, stopButton;
 };
 #endif /* PMArtNetRecorder_h */

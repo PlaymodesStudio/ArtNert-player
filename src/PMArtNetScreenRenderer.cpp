@@ -22,6 +22,12 @@ void PMArtNetScreenRenderer::setupBase(){
 }
 
 void PMArtNetScreenRenderer::drawBasicLayout(){
+    ofPushStyle();
+        ofNoFill();
+        ofSetColor(0);
+        ofSetLineWidth(2);
+        ofDrawRectRounded(vidImageContainer, 2);
+    ofPopStyle();
     ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
     guiDevices.draw();
     guiMachineIp.draw();
@@ -65,40 +71,40 @@ void PMArtNetScreenRenderer::buildInputDevicesPanel()
     guiDevices.setWidthElements(300);
 }
 
-void PMArtNetScreenRenderer::buildOutputDevicesPanel(){
-    vector<ofSoundDevice> devices = ofSoundStreamListDevices();
-    
-    string DEVICE_SETTINGS_FILENAME = "devicesettings.xml";
-    
-    guiDevices.setup("Output Device Selector", DEVICE_SETTINGS_FILENAME);
-    guiDevices.setPosition(10, vidImageContainer.height+10);
-    
-    for (int i=0; i<devices.size(); ++i)
-    {
-        if (devices[i].outputChannels < 2) continue;
-        
-        XBDeviceParams devParams(devices[i].deviceID, devices[i].name, devices[i].outputChannels);
-        guiDevices.add(devParams.getParams());
-        
-        deviceParams.push_back(devParams);
-    }
-    
-    //ofFile file(DEVICE_SETTINGS_FILENAME);
-    //if (file.exists()) file.remove();
-    
-    guiDevices.loadFromFile(DEVICE_SETTINGS_FILENAME);
-    
-    guiDevices.add(lblStatus.setup("Current Status", "off"));
-    lblStatus.setBackgroundColor(ofColor::darkRed);
-    guiDevices.add(btnStartAnalysis.setup("START"));
-    
-    //btnStartAnalysis.addListener(this, &CelloApp::startButtonPressed);
-    
-    lblStatus.setDefaultWidth(300);
-    
-    guiDevices.setSize(300 , 300);
-    guiDevices.setWidthElements(300);
-}
+//void PMArtNetScreenRenderer::buildOutputDevicesPanel(){
+//    vector<ofSoundDevice> devices = ofSoundStreamListDevices();
+//    
+//    string DEVICE_SETTINGS_FILENAME = "devicesettings.xml";
+//    
+//    guiDevices.setup("Output Device Selector", DEVICE_SETTINGS_FILENAME);
+//    guiDevices.setPosition(10, vidImageContainer.height+10);
+//    
+//    for (int i=0; i<devices.size(); ++i)
+//    {
+//        if (devices[i].outputChannels < 2) continue;
+//        
+//        XBDeviceParams devParams(devices[i].deviceID, devices[i].name, devices[i].outputChannels);
+//        guiDevices.add(devParams.getParams());
+//        
+//        deviceParams.push_back(devParams);
+//    }
+//    
+//    //ofFile file(DEVICE_SETTINGS_FILENAME);
+//    //if (file.exists()) file.remove();
+//    
+//    guiDevices.loadFromFile(DEVICE_SETTINGS_FILENAME);
+//    
+//    guiDevices.add(lblStatus.setup("Current Status", "off"));
+//    lblStatus.setBackgroundColor(ofColor::darkRed);
+//    guiDevices.add(btnStartAnalysis.setup("START"));
+//    
+//    //btnStartAnalysis.addListener(this, &CelloApp::startButtonPressed);
+//    
+//    lblStatus.setDefaultWidth(300);
+//    
+//    guiDevices.setSize(300 , 300);
+//    guiDevices.setWidthElements(300);
+//}
 
 void PMArtNetScreenRenderer::buildMachineIpPanel(){
     auto ifacesIps = artnet.getIfacesIps();
@@ -182,6 +188,7 @@ void PMArtNetScreenRenderer::nodeIpSelectorListener(ofAbstractParameter &nodeIp)
         string nodeClicked = nodeIp.getGroupHierarchyNames()[1];
         int universe = ofToInt(string(&nodeClicked.back()));
         cout<<universe<<"  "<<nodeIp.getName()<<endl;
+        //artnet.setTargetIP(nodeIp.getName());
         //artnet.setMachineIP(ip.getName());
         for (int i = 0 ; i < nodesIps.size() ; i++){
             if ( nodesIps[i][universe].getName() != nodeIp.getName())

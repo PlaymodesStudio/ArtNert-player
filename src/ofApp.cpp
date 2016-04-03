@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    ofDisableAntiAliasing();
     ofSetFrameRate(24);
     state = STATE_SETUP;
     setupScreen.setup();

@@ -30,26 +30,26 @@ bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const ch
     stopButton.setSize(80, 80);
     stopButton.setIconPredefined(PMButtonStop);
     
-    
     videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
-    videoPlayer.load(videoFilename);  //load Video
-    auto universes = videoPlayer.getPixels().getHeight();
-    buildNodesPanel(3);
+    //videoPlayer.load(videoFilename);  //load Video
+//    auto universes = videoPlayer.getPixels().getHeight();
+//    buildNodesPanel(3);
     videoPlayer.setLoopState(OF_LOOP_NORMAL);
     
-    playHeader.setDuration(videoPlayer.getTotalNumFrames());
+//    playHeader.setDuration(videoPlayer.getTotalNumFrames());
     ofAddListener(playHeader.headerDragged, this, &PMArtNetPlayer::changePlayHead);
     
     artnet.setup(PM_ARTNET_PLAYER);
-    artnet.setTargetIP(targetIP);
+    artnet.setTargetIP("192.168.1.150");//targetIP);
 }
 
 void PMArtNetPlayer::update(){
-    videoPlayer.update();
-
-    artnet.sendDmx(videoPlayer.getPixels());
-    if(!videoPlayer.isPaused() && videoPlayer.isPlaying())
-        playHeader.setHeaderPosition(videoPlayer.getPosition());
+    if(videoPlayer.isLoaded()){
+        videoPlayer.update();
+        artnet.sendDmx(videoPlayer.getPixels());
+        if(!videoPlayer.isPaused() && videoPlayer.isPlaying())
+            playHeader.setHeaderPosition(videoPlayer.getPosition());
+    }
     
     //videoPlayer.setFrame(ofGetMouseX()/videoPlayer.getDuration());
 }
@@ -70,8 +70,13 @@ void PMArtNetPlayer::changePlayHead(int &position){
 
 
 void PMArtNetPlayer::mousePressed(int x, int y, int button){
-    if(fileSelectorCustom.isInside(x, y))
+    if(fileSelectorCustom.isInside(x, y)){
         fileSelectorCustom.selectToOpen();
+        videoPlayer.load(fileSelectorCustom.getFilePath());
+        auto universes = videoPlayer.getPixels().getHeight();
+        buildNodesPanel(universes);
+        playHeader.setDuration(videoPlayer.getTotalNumFrames());
+    }
     if(playHeader.dragged(x, y))
         videoPlayer.setPaused(true);
     if(playButton.isPressed(x, y))
@@ -95,5 +100,5 @@ void PMArtNetPlayer::mouseReleased(int x, int y, int button){
 }
 
 void PMArtNetPlayer::mouseDragged(int x, int y, int button){
-    playHeader.dragged(x, y);
+//    playHeader.dragged(x, y);
 }

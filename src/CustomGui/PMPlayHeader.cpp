@@ -30,7 +30,7 @@ void PMPlayHeader::draw(){
 }
 
 bool PMPlayHeader::dragged(int x, int y){
-    if(rectangle.inside(x,y) && headerPos+rectangle.getX()-x < 5){
+    if(rectangle.inside(x,y)){
         headerPos = (x-rectangle.getX())/rectangle.getWidth();
         int toSend = headerPos*duration;
         ofNotifyEvent(headerDragged, toSend, this);
