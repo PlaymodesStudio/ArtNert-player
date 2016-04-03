@@ -1,6 +1,0 @@
-<MACHINE_IP>
-	<Select_machine_IP_from_list>
-		<127_0_0_1>0</127_0_0_1>
-		<192_168_1_105>1</192_168_1_105>
-	</Select_machine_IP_from_list>
-</MACHINE_IP>

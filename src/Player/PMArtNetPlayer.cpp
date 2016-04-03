@@ -40,15 +40,16 @@ bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const ch
     ofAddListener(playHeader.headerDragged, this, &PMArtNetPlayer::changePlayHead);
     
     artnet.setup(PM_ARTNET_PLAYER);
-    artnet.setTargetIP("192.168.1.150");//targetIP);
+    artnet.setTargetIP(targetIP);
 }
 
 void PMArtNetPlayer::update(){
     if(videoPlayer.isLoaded()){
         videoPlayer.update();
-        artnet.sendDmx(videoPlayer.getPixels());
-        if(!videoPlayer.isPaused() && videoPlayer.isPlaying())
+        if(!videoPlayer.isPaused() && videoPlayer.isPlaying()){
+            artnet.sendDmx(videoPlayer.getPixels());
             playHeader.setHeaderPosition(videoPlayer.getPosition());
+        }
     }
     
     //videoPlayer.setFrame(ofGetMouseX()/videoPlayer.getDuration());
@@ -74,7 +75,7 @@ void PMArtNetPlayer::mousePressed(int x, int y, int button){
         fileSelectorCustom.selectToOpen();
         videoPlayer.load(fileSelectorCustom.getFilePath());
         auto universes = videoPlayer.getPixels().getHeight();
-        buildNodesPanel(universes);
+        buildNodesPanel(3);
         playHeader.setDuration(videoPlayer.getTotalNumFrames());
     }
     if(playHeader.dragged(x, y))

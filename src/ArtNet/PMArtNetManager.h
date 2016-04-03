@@ -29,7 +29,7 @@ public:
     void setFromPixels(ofPixels &pixels);
     bool sendDmx();
     bool sendDmx(ofPixels &pixels);
-    void setTargetIP(string ip){dmxDataPacket.ipTarget = ip.c_str();};
+    void setTargetIP(string ip){dmxDataPacket.setIp(ip.c_str());};
     unsigned char* getData(){return dmxDataPacket.data;};
     void receiveData(ofxArtNetDmxData &data){dmxDataPacket = data;};
     void receivePollReply(ofxArtNetNodeEntry &node);
