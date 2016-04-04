@@ -142,12 +142,31 @@ void PMArtNetScreenRenderer::buildNodesPanel(int n_universes){
     
     guiNodes.setName("Select node");
     
-    for (int i = 0 ; i<n_universes ; i++){
-        ofParameterGroup node;
-        node.setName("Universe "+ofToString((i)));
-        nodes.push_back(node);
-        ofAddListener(nodes[nodes.size()-1].parameterChangedE(),this,  &PMArtNetScreenRenderer::nodeIpSelectorListener);
-        guiNodes.add(nodes.at(nodes.size()-1));
+    if(nodesIpsString.size() == 0){
+        for (int i = 0 ; i<n_universes ; i++){
+            ofParameterGroup node;
+            node.setName("Universe "+ofToString((i)));
+            nodes.push_back(node);
+            ofAddListener(nodes[nodes.size()-1].parameterChangedE(),this,  &PMArtNetScreenRenderer::nodeIpSelectorListener);
+            guiNodes.add(nodes.at(nodes.size()-1));
+        }
+    }else{
+        for (int i = 0; i<nodesIpsString.size(); i++) {
+            vector<ofParameter<bool>> nodeIp;
+            nodesIps.push_back(nodeIp);
+        }
+        for (int i = 0 ; i<n_universes ; i++){
+            ofParameterGroup node;
+            node.setName("Universe "+ofToString((i)));
+            for (int j = 0; j<nodesIpsString.size(); j++){
+                ofParameter<bool> tempIp;
+                nodesIps[j].push_back(tempIp);
+                node.add(nodesIps[j].at(i).set(nodesIpsString[j], false));
+            }
+            nodes.push_back(node);
+            ofAddListener(nodes[nodes.size()-1].parameterChangedE(),this,  &PMArtNetScreenRenderer::nodeIpSelectorListener);
+            guiNodes.add(nodes.at(nodes.size()-1));
+        }
     }
     
 //    ofFile file(NODES_SETTINGS_FILENAME);
@@ -160,14 +179,18 @@ void PMArtNetScreenRenderer::buildNodesPanel(int n_universes){
 }
 
 void PMArtNetScreenRenderer::fillNodeIps(string &ip){
-    vector<ofParameter<bool>> nodeIp;
-    nodesIps.push_back(nodeIp);
-    guiNodes.clear();
-    for (int i = 0 ; i<nodes.size() ; i++){
-        ofParameter<bool> tempIp;
-        nodesIps[nodesIps.size()-1].push_back(tempIp);
-        nodes[i].add(nodesIps[nodesIps.size()-1].at(i).set(ip, false));
-        guiNodes.add(nodes[i]);
+    if(guiNodes.getName() == ""){//Gui Nodes is not yet created
+        nodesIpsString.push_back(ip);
+    }else{
+        vector<ofParameter<bool>> nodeIp;
+        nodesIps.push_back(nodeIp);
+        guiNodes.clear();
+        for (int i = 0 ; i<nodes.size() ; i++){
+            ofParameter<bool> tempIp;
+            nodesIps[nodesIps.size()-1].push_back(tempIp);
+            nodes[i].add(nodesIps[nodesIps.size()-1].at(i).set(ip, false));
+            guiNodes.add(nodes[i]);
+        }
     }
 }
 

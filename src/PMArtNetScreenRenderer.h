@@ -51,6 +51,7 @@ protected:
     ofxPanel                    guiNodes;
     vector<ofParameterGroup>    nodes;
     vector<vector<ofParameter<bool>>>   nodesIps;
+    vector<string>              nodesIpsString;
     
     //File Selector
     PMFileSelector          fileSelectorCustom;
