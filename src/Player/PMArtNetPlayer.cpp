@@ -9,7 +9,7 @@
 #include "PMArtNetPlayer.h"
 
 
-bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const char* targetIP){
+bool PMArtNetPlayer::setup(){
     setupBase();
     //buildOutputDevicesPanel();
     
@@ -30,17 +30,7 @@ bool PMArtNetPlayer::setup(string videoFilename, const char* machineIP, const ch
     stopButton.setSize(80, 80);
     stopButton.setIconPredefined(PMButtonStop);
     
-    videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
-    //videoPlayer.load(videoFilename);  //load Video
-//    auto universes = videoPlayer.getPixels().getHeight();
-//    buildNodesPanel(3);
-    videoPlayer.setLoopState(OF_LOOP_NORMAL);
-    
-//    playHeader.setDuration(videoPlayer.getTotalNumFrames());
-    ofAddListener(playHeader.headerDragged, this, &PMArtNetPlayer::changePlayHead);
-    
     artnet.setup(PM_ARTNET_PLAYER);
-    artnet.setTargetIP(targetIP);
 }
 
 void PMArtNetPlayer::update(){
@@ -69,14 +59,22 @@ void PMArtNetPlayer::changePlayHead(int &position){
     videoPlayer.setFrame(position);
 }
 
+void PMArtNetPlayer::loadFile(string file){
+    fileName = file;
+    videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
+    videoPlayer.setLoopState(OF_LOOP_NORMAL);
+    videoPlayer.load(file);
+    auto universes = videoPlayer.getPixels().getHeight();
+    buildNodesPanel(universes);
+    playHeader.setDuration(videoPlayer.getTotalNumFrames());
+    
+    ofAddListener(playHeader.headerDragged, this, &PMArtNetPlayer::changePlayHead);
+}
 
 void PMArtNetPlayer::mousePressed(int x, int y, int button){
     if(fileSelectorCustom.isInside(x, y)){
         fileSelectorCustom.selectToOpen();
-        videoPlayer.load(fileSelectorCustom.getFilePath());
-        auto universes = videoPlayer.getPixels().getHeight();
-        buildNodesPanel(3);
-        playHeader.setDuration(videoPlayer.getTotalNumFrames());
+        loadFile(fileSelectorCustom.getFilePath());
     }
     if(playHeader.dragged(x, y))
         videoPlayer.setPaused(true);

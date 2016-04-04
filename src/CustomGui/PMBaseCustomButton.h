@@ -15,7 +15,9 @@ enum PMbuttonType{
     PMButtonPlay,
     PMButtonPause,
     PMButtonStop,
-    PMButtonRecord
+    PMButtonRecord,
+    PMButtonLoop,
+    PMButtonNoLoop,
 };
 
 class PMBaseCustomButton{

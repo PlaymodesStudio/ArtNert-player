@@ -74,12 +74,23 @@ void PMBaseCustomButton::setIconPredefined(PMbuttonType type){
             break;
         }
         case PMButtonRecord:
+        {
             icon.clear();
             icon.arc(10,10,10,10,0,360);
             icon.setColor(0);
             iconMargin=5;
             icon.setCircleResolution(50);
             break;
+        }
+        case PMButtonLoop:
+        {
+            break;
+        }
+        case PMButtonNoLoop:
+        {
+            break;
+        }
+    
     }
 }
 

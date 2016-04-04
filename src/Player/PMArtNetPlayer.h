@@ -19,9 +19,11 @@ public:
     PMArtNetPlayer(){};
     ~PMArtNetPlayer(){};
     
-    bool setup(string videoFilename, const char* machineIP, const char* targetIP);
+    bool setup();
     void update();
     void draw(int x, int y, int w, int h);
+    
+    void loadFile(string fileName);
     
     void play(){videoPlayer.play();};
     void changePlayHead(int &position);
