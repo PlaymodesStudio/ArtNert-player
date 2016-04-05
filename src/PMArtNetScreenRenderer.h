@@ -13,8 +13,6 @@
 #include "ofxGui.h"
 #include "XBDeviceParams.h"
 #include "PMArtNetManager.h"
-#include "PMTextContainer.h"
-#include "PMColorContainer.h"
 #include "PMFileSelector.h"
 #include "PMBaseCustomButton.h"
 

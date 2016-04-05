@@ -10,7 +10,6 @@
 #define PMFileSelector_h
 
 #include "ofMain.h"
-#include "PMTextContainer.h"
 
 class PMFileSelector
 {
