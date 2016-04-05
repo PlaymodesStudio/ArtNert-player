@@ -39,16 +39,24 @@ void PMArtNetManager::start(){
 }
 
 void PMArtNetManager::setFromPixels(ofPixels &pixels){
-    dmxDataPacket.data = pixels;
+    for (int i = 0; i < pixels.getHeight(); i++){
+        dmxDataPacket[i].data = &pixels[i];
+        dmxDataPacket[i].port = i;
+    }
 }
 
 bool PMArtNetManager::sendDmx(){
-    artnet.sendDmx(dmxDataPacket);
+    for (auto dmxUniverse : dmxDataPacket)
+        artnet.sendDmx(dmxUniverse);
 }
 
 bool PMArtNetManager::sendDmx(ofPixels &pixels){
     setFromPixels(pixels);
     sendDmx();
+}
+
+void PMArtNetManager::setUniverses(int universes){
+    dmxDataPacket.reserve(universes);
 }
 
 void PMArtNetManager::receivePollReply(ofxArtNetNodeEntry &node){

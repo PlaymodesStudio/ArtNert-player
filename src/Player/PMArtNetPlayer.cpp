@@ -66,6 +66,7 @@ void PMArtNetPlayer::loadFile(string file){
     videoPlayer.load(file);
     auto universes = videoPlayer.getPixels().getHeight();
     buildNodesPanel(universes);
+    artnet.setUniverses(universes);
     playHeader.setDuration(videoPlayer.getTotalNumFrames());
     
     ofAddListener(playHeader.headerDragged, this, &PMArtNetPlayer::changePlayHead);

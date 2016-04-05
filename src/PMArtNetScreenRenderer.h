@@ -60,6 +60,8 @@ protected:
     ofxLabel                lblStatus;
     
     PMArtNetManager artnet;
+    
+    int n_universes;
 
 };
 

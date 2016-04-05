@@ -29,21 +29,22 @@ public:
     void setFromPixels(ofPixels &pixels);
     bool sendDmx();
     bool sendDmx(ofPixels &pixels);
-    void setTargetIP(string ip){dmxDataPacket.setIp(ip.c_str());};
-    unsigned char* getData(){return dmxDataPacket.data;};
-    void receiveData(ofxArtNetDmxData &data){dmxDataPacket = data;};
+    void setTargetIP(string ip, int universe){dmxDataPacket[universe].setIp(ip.c_str());};
+    unsigned char* getData(int universe){return dmxDataPacket[universe].data;};
+    void receiveData(ofxArtNetDmxData &data){dmxDataPacket[data.port] = data;};
     void receivePollReply(ofxArtNetNodeEntry &node);
     
     vector<pair<string, string>> getIfacesIps(){return artnet.getIfacesIps();};
     
-    int getUniverses(){return 1;};
+    int getUniverses(){return dmxDataPacket.size();};
+    void setUniverses(int universes);
     ofEvent<string> receivedNode;
     
 private:
     pmArtnetFunction function;
     ofxArtNet artnet;
     int nUniverses;
-    ofxArtNetDmxData dmxDataPacket;
+    vector<ofxArtNetDmxData> dmxDataPacket;
     
 };
 

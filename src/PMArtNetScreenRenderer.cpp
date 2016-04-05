@@ -210,7 +210,7 @@ void PMArtNetScreenRenderer::nodeIpSelectorListener(ofAbstractParameter &nodeIp)
         string nodeClicked = nodeIp.getGroupHierarchyNames()[1];
         int universe = ofToInt(string(&nodeClicked.back()));
         cout<<universe<<"  "<<nodeIp.getName()<<endl;
-        artnet.setTargetIP(nodeIp.getName());
+        artnet.setTargetIP(nodeIp.getName(), universe);
         for (int i = 0 ; i < nodesIps.size() ; i++){
             if ( nodesIps[i][universe].getName() != nodeIp.getName())
                 nodesIps[i][universe] = false;
