@@ -12,6 +12,7 @@
 bool PMArtNetRecorder::setup(const char* machineIP){
     setupBase();
     buildInputDevicesPanel();
+    buildUniversesSelector();
     
     //RECORD BUTTON
     recordButton.setPosition(ofGetWidth()-200, ofGetHeight()-100);
@@ -41,17 +42,20 @@ bool PMArtNetRecorder::setup(const char* machineIP){
 }
 
 void PMArtNetRecorder::update(){
-    ofPixels pixels;
-    for (int i = 0; i < n_universes ; i++){
-        pixels[i] = *artnet.getData(i);
+    if(artnet.isStarted()){
+        ofPixels pixels;
+        for (int i = 0; i < n_universes ; i++){
+            pixels[i] = *artnet.getData(i);
+        }
+        frame.setFromPixels(pixels, 171, n_universes, OF_IMAGE_COLOR);
+        vidRecorder.addFrame(frame.getPixels());
     }
-    frame.setFromPixels(pixels, 171, n_universes, OF_IMAGE_COLOR);
-    vidRecorder.addFrame(frame.getPixels());
 }
 
 void PMArtNetRecorder::draw(int x, int y, int w, int h){
     frame.draw(vidImageContainer);
     drawBasicLayout();
+    universesSelector.draw();
     recordButton.draw();
     stopButton.draw();
 }
@@ -67,6 +71,31 @@ void PMArtNetRecorder::start(){
 
 void PMArtNetRecorder::stop(){
     vidRecorder.close();
+}
+
+void PMArtNetRecorder::buildUniversesSelector(){
+    string UNIVERSESSELECTOR_SETTINGS_FILENAME = "NumUniversesSettings.xml";
+    universesSelector.setup("MACHINE IP", UNIVERSESSELECTOR_SETTINGS_FILENAME);
+    universesSelector.setPosition(vidImageContainer.getRight()+10, 0);
+    universesSelector.setHeaderBackgroundColor(ofGetBackgroundColor());
+    
+    universesTrigger.addListener(this, &PMArtNetRecorder::setUniverses);
+    universesSelector.add(universesSlider.setup("Num Universes", 1, 1, 16));
+    universesSelector.add(universesTrigger.setup("Set Num Universes"));
+    
+    //ofFile file(MACHINEIP_SETTINGS_FILENAME);
+    //if (file.exists()) file.remove();
+    
+    universesSelector.loadFromFile(UNIVERSESSELECTOR_SETTINGS_FILENAME);
+    
+    universesSelector.setSize(300 , 300);
+    universesSelector.setWidthElements(300);
+
+}
+
+void PMArtNetRecorder::setUniverses(){
+    buildNodesPanel(universesSlider);
+    artnet.setUniverses(universesSlider);
 }
 
 void PMArtNetRecorder::mousePressed(int x, int y, int button){

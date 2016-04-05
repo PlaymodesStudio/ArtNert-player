@@ -33,7 +33,7 @@ public:
     unsigned char* getData(int universe){return dmxDataPacket[universe].data;};
     void receiveData(ofxArtNetDmxData &data){dmxDataPacket[data.port] = data;};
     void receivePollReply(ofxArtNetNodeEntry &node);
-    
+    bool isStarted(){return bStarted;};
     vector<pair<string, string>> getIfacesIps(){return artnet.getIfacesIps();};
     
     int getUniverses(){return dmxDataPacket.size();};
@@ -41,6 +41,7 @@ public:
     ofEvent<string> receivedNode;
     
 private:
+    bool bStarted;
     pmArtnetFunction function;
     ofxArtNet artnet;
     int nUniverses;

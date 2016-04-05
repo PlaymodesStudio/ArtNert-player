@@ -133,11 +133,12 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
     guiMachineIp.setWidthElements(300);
 }
 
-void PMArtNetScreenRenderer::buildNodesPanel(int n_universes){
+void PMArtNetScreenRenderer::buildNodesPanel(int universes){
+    this->n_universes = universes;
     
     string NODES_SETTINGS_FILENAME = "nodesIPsettings.xml";
     guiNodes.setup("MACHINE IP", NODES_SETTINGS_FILENAME);
-    guiNodes.setPosition(vidImageContainer.getX()+vidImageContainer.getRight()+10, vidImageContainer.getY()+10);
+    guiNodes.setPosition(vidImageContainer.getRight()+10, vidImageContainer.getY()+50);
     guiNodes.setHeaderBackgroundColor(ofGetBackgroundColor());
     
     guiNodes.setName("Select node");

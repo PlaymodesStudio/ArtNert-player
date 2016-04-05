@@ -29,10 +29,17 @@ public:
     void mousePressed(int x, int y, int button);
     void audioIn(float *input, int bufferSize, int nChannels);
     
+    void buildUniversesSelector();
+    void setUniverses();
+    
 private:
     ofxVideoRecorder vidRecorder;
     ofImage frame;
     ofSoundStream soundStream;
     PMBaseCustomButton recordButton, stopButton;
+    
+    ofxPanel universesSelector;
+    ofxIntSlider universesSlider;
+    ofxButton universesTrigger;
 };
 #endif /* PMArtNetRecorder_h */
