@@ -30,6 +30,10 @@ bool PMArtNetPlayer::setup(){
     stopButton.setSize(80, 80);
     stopButton.setIconPredefined(PMButtonStop);
     
+    loopButton.setPosition(ofGetWidth()-100, ofGetHeight()-200);
+    loopButton.setSize(80, 80);
+    loopButton.setIconPredefined(PMButtonNoLoop);
+    
     artnet.setup(PM_ARTNET_PLAYER);
 }
 
@@ -52,6 +56,7 @@ void PMArtNetPlayer::draw(int x, int y, int w, int h){
     pauseButton.draw();
     playButton.draw();
     stopButton.draw();
+    loopButton.draw();
     
 }
 
@@ -62,8 +67,13 @@ void PMArtNetPlayer::changePlayHead(int &position){
 void PMArtNetPlayer::loadFile(string file){
     fileName = file;
     videoPlayer.setPixelFormat(OF_PIXELS_RGB); //set pixel type to NATIVE, although it has to be always rgb
-    videoPlayer.setLoopState(OF_LOOP_NORMAL);
     videoPlayer.load(file);
+    
+    if(loopButton.getIconType() == PMButtonLoop)
+        videoPlayer.setLoopState(OF_LOOP_NORMAL);
+    else
+        videoPlayer.setLoopState(OF_LOOP_NONE);
+    
     auto universes = videoPlayer.getPixels().getHeight();
     buildNodesPanel(universes);
     artnet.setUniverses(universes);
@@ -90,6 +100,15 @@ void PMArtNetPlayer::mousePressed(int x, int y, int button){
     if(stopButton.isPressed(x, y)){
         videoPlayer.stop();
         playHeader.setHeaderPosition(0);
+    }
+    if(loopButton.isPressed(x, y)){
+        if(loopButton.getIconType() == PMButtonLoop){
+            videoPlayer.setLoopState(OF_LOOP_NONE);
+            loopButton.setIconPredefined(PMButtonNoLoop);
+        }else{
+            videoPlayer.setLoopState(OF_LOOP_NORMAL);
+            loopButton.setIconPredefined(PMButtonLoop);
+        }
     }
 }
 

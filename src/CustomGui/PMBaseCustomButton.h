@@ -28,17 +28,19 @@ public:
     void draw();
     void setPosition(int x, int y){rectangle.setPosition(x, y);};
     void setSize(int width, int height){rectangle.setSize(width, height);};
-    void setIcon(ofPath _icon){icon = _icon;};
+    void setIcon(ofPath _icon){iconPath = _icon;};
     void setIconPredefined(PMbuttonType type);
     
+    PMbuttonType getIconType(){return buttonType;}
     ofRectangle getIconBoundingBox();
     
     bool isPressed(int x, int y){return rectangle.inside(x,y);};
     
 private:
     ofRectangle     rectangle;
-    ofPath          icon;
+    ofPath          iconPath;
     int             iconMargin;
+    PMbuttonType    buttonType;
 };
 
 #endif /* PMBaseCustomButton_h */

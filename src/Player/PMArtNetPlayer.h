@@ -34,7 +34,7 @@ public:
 private:
     ofVideoPlayer videoPlayer;
     PMPlayHeader playHeader;
-    PMBaseCustomButton  playButton, pauseButton, stopButton;
+    PMBaseCustomButton  playButton, pauseButton, stopButton, loopButton;
 };
 
 #endif /* PMArtNetPlayer_h */
