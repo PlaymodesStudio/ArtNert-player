@@ -30,8 +30,8 @@ public:
     bool sendDmx();
     bool sendDmx(ofPixels &pixels);
     void setTargetIP(string ip, int universe){dmxDataPacket[universe].setIp(ip.c_str());};
-    unsigned char* getData(int universe){return dmxDataPacket[universe].data;};
-    void receiveData(ofxArtNetDmxData &data){dmxDataPacket[data.port] = data;};
+    vector<unsigned char> getData(int universe){return dmxDataPacket[universe].getData();};
+    void receiveData(ofxArtNetDmxData &data){dmxDataPacket[data.getPort()] = data;};
     void receivePollReply(ofxArtNetNodeEntry &node);
     bool isStarted(){return bStarted;};
     vector<pair<string, string>> getIfacesIps(){return artnet.getIfacesIps();};

@@ -45,7 +45,8 @@ void PMArtNetRecorder::update(){
     if(artnet.isStarted()){
         ofPixels pixels;
         for (int i = 0; i < n_universes ; i++){
-            pixels[i] = *artnet.getData(i);
+            for (int j = 0; j<512; j++)
+                pixels[i] = artnet.getData(i)[0];
         }
         frame.setFromPixels(pixels, 171, n_universes, OF_IMAGE_COLOR);
         vidRecorder.addFrame(frame.getPixels());

@@ -40,14 +40,21 @@ void PMArtNetManager::start(){
 
 void PMArtNetManager::setFromPixels(ofPixels &pixels){
     for (int i = 0; i < pixels.getHeight(); i++){
-        dmxDataPacket[i].data = &pixels[i];
-        dmxDataPacket[i].port = i;
+        vector<unsigned char> linepixels;
+        linepixels.reserve(pixels.getLine(i).getStride());
+        for ( int j = 0; j < pixels.getLine(i).getStride(); j++){
+            linepixels[j]=pixels.getLine(i).asPixels()[j];
+        }
+        dmxDataPacket[i].setData(linepixels);
+        dmxDataPacket[i].setPort(i);
     }
 }
 
 bool PMArtNetManager::sendDmx(){
-    for (auto dmxUniverse : dmxDataPacket)
-        artnet.sendDmx(dmxUniverse);
+//    for (auto dmxUniverse : dmxDataPacket){
+//        artnet.sendDmx(dmxUniverse);
+//        cout<<dmxUniverse.getIp()<<endl;
+//    }
 }
 
 bool PMArtNetManager::sendDmx(ofPixels &pixels){
@@ -56,7 +63,11 @@ bool PMArtNetManager::sendDmx(ofPixels &pixels){
 }
 
 void PMArtNetManager::setUniverses(int universes){
-    dmxDataPacket.reserve(universes);
+    for(int i = 0 ; i<universes ; i++){
+        ofxArtNetDmxData tempPacket;
+        tempPacket.setPort(i);
+        dmxDataPacket.push_back(tempPacket);
+    }
 }
 
 void PMArtNetManager::receivePollReply(ofxArtNetNodeEntry &node){
