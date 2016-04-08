@@ -11,31 +11,49 @@
 bool PMArtNetManager::setMachineIP(string machineIP){
     
     artnet.init(machineIP);
+        if(function == PM_ARTNET_PLAYER){
+            artnet.setSubNet(0);
+            artnet.setPortType(0, ARTNET_PORT_ENABLE_INPUT, ARTNET_DATA_DMX);
+            artnet.setPortAddress(0, ARTNET_PORT_INPUT, 0);
+    
+        }else if(function == PM_ARTNET_RECORDER){
+            artnet.setShortName("Artnet receive");
+            artnet.setLongName("Artnet Mac receiver");
+            artnet.setNodeType(ARTNET_TYPE_NODE);
+            artnet.setSubNet(0);
+            artnet.setPortType(0, ARTNET_PORT_ENABLE_OUTPUT, ARTNET_DATA_DMX);
+            artnet.setPortAddress(0, ARTNET_PORT_OUTPUT, 0);
+            ofAddListener(artnet.dmxData, this, &PMArtNetManager::receiveData);
+        }
+
     ofAddListener(artnet.pollReply, this, &PMArtNetManager::receivePollReply);
     artnet.sendPoll();
-    artnet.start();
+    start();
 }
 
 bool PMArtNetManager::setup(pmArtnetFunction _function)
 {
-    if(_function == PM_ARTNET_PLAYER){
-        artnet.setSubNet(0);
-        artnet.setPortType(0, ARTNET_PORT_ENABLE_INPUT, ARTNET_DATA_DMX);
-        artnet.setPortAddress(0, ARTNET_PORT_INPUT, 0);
-        
-    }else{
-        artnet.setShortName("Artnet receive");
-        artnet.setLongName("Artnet Mac receiver");
-        artnet.setNodeType(ARTNET_TYPE_NODE);
-        artnet.setSubNet(0);
-        artnet.setPortType(0, ARTNET_PORT_ENABLE_OUTPUT, ARTNET_DATA_DMX);
-        artnet.setPortAddress(0, ARTNET_PORT_OUTPUT, 0);
-        ofAddListener(artnet.dmxData, this, &PMArtNetManager::receiveData);
-    }
+    function = _function;
+    bStarted = false;
+//    if(function == PM_ARTNET_PLAYER){
+//        artnet.setSubNet(0);
+//        artnet.setPortType(0, ARTNET_PORT_ENABLE_INPUT, ARTNET_DATA_DMX);
+//        artnet.setPortAddress(0, ARTNET_PORT_INPUT, 0);
+//        
+//    }else{
+//        artnet.setShortName("Artnet receive");
+//        artnet.setLongName("Artnet Mac receiver");
+//        artnet.setNodeType(ARTNET_TYPE_NODE);
+//        artnet.setSubNet(0);
+//        artnet.setPortType(0, ARTNET_PORT_ENABLE_OUTPUT, ARTNET_DATA_DMX);
+//        artnet.setPortAddress(0, ARTNET_PORT_OUTPUT, 0);
+//        ofAddListener(artnet.dmxData, this, &PMArtNetManager::receiveData);
+//    }
 }
 
 void PMArtNetManager::start(){
     artnet.start();
+    bStarted = true;
 }
 
 void PMArtNetManager::setFromPixels(ofPixels &pixels){
@@ -65,6 +83,9 @@ void PMArtNetManager::setUniverses(int universes){
     for(int i = 0 ; i<universes ; i++){
         ofxArtNetDmxData tempPacket;
         tempPacket.setPort(i);
+        vector<unsigned char> dataVec;
+        dataVec.assign(512, sizeof(unsigned char));
+        tempPacket.setData(dataVec);
         dmxDataPacket.push_back(tempPacket);
     }
 }

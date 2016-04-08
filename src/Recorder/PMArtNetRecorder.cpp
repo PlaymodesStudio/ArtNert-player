@@ -43,10 +43,12 @@ bool PMArtNetRecorder::setup(const char* machineIP){
 
 void PMArtNetRecorder::update(){
     if(artnet.isStarted()){
-        ofPixels pixels;
+        unsigned char *pixels;
+        pixels = (unsigned char*)malloc(512*n_universes);
+        //memset(pixels, ' ', 512*n_universes);
         for (int i = 0; i < n_universes ; i++){
-            for (int j = 0; j<512; j++)
-                pixels[i] = artnet.getData(i)[0];
+            pixels[i*513] = *artnet.getData(i).data();
+            pixels[(i+1)*512] = 0;
         }
         frame.setFromPixels(pixels, 171, n_universes, OF_IMAGE_COLOR);
         vidRecorder.addFrame(frame.getPixels());
