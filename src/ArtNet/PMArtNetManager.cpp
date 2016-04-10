@@ -80,7 +80,8 @@ bool PMArtNetManager::sendDmx(ofPixels &pixels){
 }
 
 void PMArtNetManager::setUniverses(int universes){
-    for(int i = 0 ; i<universes ; i++){
+    nUniverses = universes;
+    for(int i = 0 ; i<nUniverses ; i++){
         ofxArtNetDmxData tempPacket;
         tempPacket.setPort(i);
         vector<unsigned char> dataVec;
@@ -88,6 +89,7 @@ void PMArtNetManager::setUniverses(int universes){
         tempPacket.setData(dataVec);
         dmxDataPacket.push_back(tempPacket);
     }
+    
 }
 
 void PMArtNetManager::receivePollReply(ofxArtNetNodeEntry &node){

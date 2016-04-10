@@ -31,7 +31,6 @@ bool PMArtNetRecorder::setup(const char* machineIP){
     vidRecorder.setVideoCodec("png");
     //vidRecorder.setAudioCodec("mp3");
     //vidRecorder.setAudioBitrate("256k");
-    frame.allocate(171,1,OF_IMAGE_COLOR);
 
     artnet.setup(PM_ARTNET_RECORDER);
 //    artnet.start();
@@ -43,20 +42,24 @@ bool PMArtNetRecorder::setup(const char* machineIP){
 
 void PMArtNetRecorder::update(){
     if(artnet.isStarted()){
-        unsigned char *pixels;
-        pixels = (unsigned char*)malloc(512*n_universes);
-        //memset(pixels, ' ', 512*n_universes);
+        vector<unsigned char> pixels;
+        pixels.assign(513*n_universes, sizeof(unsigned char));
+        //memset(&pixels, 0, 513*n_universes);
         for (int i = 0; i < n_universes ; i++){
-            pixels[i*513] = *artnet.getData(i).data();
-            pixels[(i+1)*512] = 0;
+            for(int j=0; j < 512 ; j++){
+                pixels[(i*513)+j] = artnet.getData(i)[j];
+            }
+            pixels[((i+1)*513)-1] = ' ';
         }
-        frame.setFromPixels(pixels, 171, n_universes, OF_IMAGE_COLOR);
+        frame.setFromPixels(pixels.data(), 171, n_universes, OF_IMAGE_COLOR);
+        //frame.setFromPixels(artnet.getData(0).data(), 171, 1, OF_IMAGE_COLOR);
         vidRecorder.addFrame(frame.getPixels());
     }
 }
 
 void PMArtNetRecorder::draw(int x, int y, int w, int h){
-    frame.draw(vidImageContainer);
+    if(artnet.isStarted())
+        frame.draw(vidImageContainer);
     drawBasicLayout();
     universesSelector.draw();
     recordButton.draw();
@@ -65,9 +68,9 @@ void PMArtNetRecorder::draw(int x, int y, int w, int h){
 
 void PMArtNetRecorder::start(){
     if(ofGetTargetPlatform() == OF_TARGET_OSX)
-        vidRecorder.setup(fileName, 171, artnet.getUniverses(), 24, 48000, 2);
+        vidRecorder.setup(fileName, 171, n_universes, 24, 48000, 2);
     else
-        vidRecorder.setup(fileName, 171, artnet.getUniverses(), 24);
+        vidRecorder.setup(fileName, 171, n_universes, 24);
     
     vidRecorder.start();
 }
@@ -99,6 +102,8 @@ void PMArtNetRecorder::buildUniversesSelector(){
 void PMArtNetRecorder::setUniverses(){
     buildNodesPanel(universesSlider);
     artnet.setUniverses(universesSlider);
+    n_universes = universesSlider;
+    frame.allocate(171,universesSlider,OF_IMAGE_COLOR);
 }
 
 void PMArtNetRecorder::mousePressed(int x, int y, int button){
