@@ -46,6 +46,7 @@ private:
     ofxArtNet artnet;
     int nUniverses;
     vector<ofxArtNetDmxData> dmxDataPacket;
+    vector<unsigned char> linepixels;
     
 };
 

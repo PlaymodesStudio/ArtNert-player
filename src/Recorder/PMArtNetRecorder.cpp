@@ -49,7 +49,7 @@ void PMArtNetRecorder::update(){
             for(int j=0; j < 512 ; j++){
                 pixels[(i*513)+j] = artnet.getData(i)[j];
             }
-            pixels[((i+1)*513)-1] = ' ';
+            pixels[((i+1)*513)-(i+1)] = ' ';
         }
         frame.setFromPixels(pixels.data(), 171, n_universes, OF_IMAGE_COLOR);
         //frame.setFromPixels(artnet.getData(0).data(), 171, 1, OF_IMAGE_COLOR);

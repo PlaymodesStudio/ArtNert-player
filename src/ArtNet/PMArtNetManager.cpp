@@ -58,12 +58,11 @@ void PMArtNetManager::start(){
 
 void PMArtNetManager::setFromPixels(ofPixels &pixels){
     for (int i = 0; i < pixels.getHeight(); i++){
-        vector<unsigned char> linepixels;
         for ( int j = 0; j < pixels.getLine(i).getStride()-1; j++){
-            linepixels.push_back(pixels.getLine(i).asPixels()[j]);
+            linepixels[j] = (pixels.getLine(i).asPixels()[j]);
         }
         dmxDataPacket[i].setData(linepixels);
-        dmxDataPacket[i].setPort(i);
+        //dmxDataPacket[i].setPort(i);
     }
 }
 
@@ -75,6 +74,7 @@ bool PMArtNetManager::sendDmx(){
 }
 
 bool PMArtNetManager::sendDmx(ofPixels &pixels){
+
     setFromPixels(pixels);
     sendDmx();
 }
@@ -89,7 +89,7 @@ void PMArtNetManager::setUniverses(int universes){
         tempPacket.setData(dataVec);
         dmxDataPacket.push_back(tempPacket);
     }
-    
+    linepixels.assign(512, sizeof(unsigned char));
 }
 
 void PMArtNetManager::receivePollReply(ofxArtNetNodeEntry &node){
