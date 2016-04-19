@@ -19,6 +19,7 @@
 class PMArtNetScreenRenderer{
 protected:
     void setupBase();
+    void update(ofEventArgs &a);
     void drawBasicLayout();
     void buildInputDevicesPanel();
 //    void buildOutputDevicesPanel();
@@ -26,7 +27,7 @@ protected:
     void buildNodesPanel(int n_universes);
     void fillNodeIps(string &ip);
     
-    void ipSelectorListener(ofAbstractParameter &ip);
+    void ipSelectorListener(ofxDatGuiDropdownEvent e);
     void nodeIpSelectorListener(ofAbstractParameter &nodeIp);
     
     
@@ -41,9 +42,8 @@ protected:
     vector<XBDeviceParams>  deviceParams;
     
     //MachineIp selector
-//    ofxPanel                guiMachineIp;
-    ofParameterGroup        machineIps;
-    vector<ofParameter<bool>>  machineIfacesIp;
+    vector<string>                  machineIps;
+    ofxDatGuiDropdown*              guiMachineIp;
     
     //Node Selector
 //    ofxPanel                    guiNodes;

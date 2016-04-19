@@ -10,6 +10,8 @@
 
 
 void PMArtNetScreenRenderer::setupBase(){
+    ofAddListener(ofEvents().update, this, &PMArtNetScreenRenderer::update);
+    
     vidImageContainer.set(0,0,ofGetWidth()/2, ofGetHeight()/2);
     ofAddListener(artnet.receivedNode, this, &PMArtNetScreenRenderer::fillNodeIps);
     buildMachineIpPanel();
@@ -21,6 +23,10 @@ void PMArtNetScreenRenderer::setupBase(){
     fileSelectorCustom.setFont(font);
 }
 
+void PMArtNetScreenRenderer::update(ofEventArgs &a){
+    guiMachineIp->update();
+}
+
 void PMArtNetScreenRenderer::drawBasicLayout(){
     ofPushStyle();
         ofNoFill();
@@ -30,7 +36,7 @@ void PMArtNetScreenRenderer::drawBasicLayout(){
     ofPopStyle();
     ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
 //    guiDevices.draw();
-//    guiMachineIp.draw();
+    guiMachineIp->draw();
 //    guiNodes.draw();
     
     fileSelectorCustom.draw();
@@ -107,30 +113,14 @@ void PMArtNetScreenRenderer::buildInputDevicesPanel()
 //}
 
 void PMArtNetScreenRenderer::buildMachineIpPanel(){
-//    auto ifacesIps = artnet.getIfacesIps();
-//    
-//    string MACHINEIP_SETTINGS_FILENAME = "machineIPsettings.xml";
-//    guiMachineIp.setup("MACHINE IP", MACHINEIP_SETTINGS_FILENAME);
-//    guiMachineIp.setPosition(ofGetWidth()-310, ofGetHeight()-310);
-//    guiMachineIp.setHeaderBackgroundColor(ofGetBackgroundColor());
-//    
-//    machineIps.setName("Select machine IP from list");
-//
-//    for (auto iface : ifacesIps){
-//        ofParameter<bool> machineIp;
-//        machineIfacesIp.push_back(machineIp);
-//        machineIps.add(machineIfacesIp.at(machineIfacesIp.size()-1).set(iface.second, false));
-//    }
-//    ofAddListener(machineIps.parameterChangedE(),this,  &PMArtNetScreenRenderer::ipSelectorListener);
-//    guiMachineIp.add(machineIps);
-//    
-//    //ofFile file(MACHINEIP_SETTINGS_FILENAME);
-//    //if (file.exists()) file.remove();
-//
-//    guiMachineIp.loadFromFile(MACHINEIP_SETTINGS_FILENAME);
-//    
-//    guiMachineIp.setSize(300 , 300);
-//    guiMachineIp.setWidthElements(300);
+    auto ifacesIps = artnet.getIfacesIps();
+    for (auto iface : ifacesIps) machineIps.push_back(iface.second);
+    
+    guiMachineIp = new ofxDatGuiDropdown("Select your Machine Ip", machineIps);
+    guiMachineIp->setPosition(ofGetWidth()-310, ofGetHeight()-310);
+    guiMachineIp->expand();
+    guiMachineIp->onDropdownEvent(this, &PMArtNetScreenRenderer::ipSelectorListener);
+
 }
 
 void PMArtNetScreenRenderer::buildNodesPanel(int universes){
@@ -195,14 +185,8 @@ void PMArtNetScreenRenderer::fillNodeIps(string &ip){
 //    }
 }
 
-void PMArtNetScreenRenderer::ipSelectorListener(ofAbstractParameter &ip){
-    if(ip.toString() == "1"){
-        artnet.setMachineIP(ip.getName());
-        for (int i = 0; i < machineIfacesIp.size() ; i++){
-            if (machineIfacesIp[i].getName() != ip.getName())
-                machineIfacesIp[i] = false;
-        }
-    }
+void PMArtNetScreenRenderer::ipSelectorListener(ofxDatGuiDropdownEvent e){
+    artnet.setMachineIP(machineIps[e.child]);
 }
 
 
