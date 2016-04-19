@@ -49,7 +49,7 @@ protected:
     ofxPanel                    guiNodes;
     vector<ofParameterGroup>    nodes;
     vector<vector<ofParameter<bool>>>   nodesIps;
-    vector<string>              nodesIpsString = {"192.168.1.105"};
+    vector<string>              nodesIpsString;// = {"192.168.1.105"};
     
     //File Selector
     PMFileSelector          fileSelectorCustom;

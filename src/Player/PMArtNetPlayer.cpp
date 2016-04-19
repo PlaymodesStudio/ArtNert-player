@@ -113,9 +113,9 @@ void PMArtNetPlayer::mousePressed(int x, int y, int button){
 }
 
 void PMArtNetPlayer::mouseReleased(int x, int y, int button){
-    if(videoPlayer.isPaused() && videoPlayer.isPlaying()){
+    if(playHeader.dragged(x, y))
         videoPlayer.setPaused(false);
-    }
+    
 }
 
 void PMArtNetPlayer::mouseDragged(int x, int y, int button){
