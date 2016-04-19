@@ -1,3 +1,3 @@
 ofxArtNet
-ofxGui
+ofxDatGui
 ofxVideoRecorder
