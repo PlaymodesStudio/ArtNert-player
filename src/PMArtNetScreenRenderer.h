@@ -28,7 +28,7 @@ protected:
     void fillNodeIps(string &ip);
     
     void ipSelectorListener(ofxDatGuiDropdownEvent e);
-    void nodeIpSelectorListener(ofAbstractParameter &nodeIp);
+    void nodeIpSelectorListener(ofxDatGuiDropdownEvent e);
     
     
     
@@ -42,14 +42,12 @@ protected:
     vector<XBDeviceParams>  deviceParams;
     
     //MachineIp selector
-    vector<string>                  machineIps;
-    ofxDatGuiDropdown*              guiMachineIp;
+    vector<string>              machineIps;
+    ofxDatGuiDropdown*          guiMachineIp;
     
     //Node Selector
-//    ofxPanel                    guiNodes;
-    vector<ofParameterGroup>    nodes;
-    vector<vector<ofParameter<bool>>>   nodesIps;
-    vector<string>              nodesIpsString;// = {"192.168.1.105"};
+    vector<ofxDatGuiDropdown*>   guiNodes;
+    vector<string>              nodesIpsString = {"192.168.1.105"};
     
     //File Selector
     PMFileSelector          fileSelectorCustom;

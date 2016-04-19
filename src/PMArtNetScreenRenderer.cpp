@@ -25,6 +25,8 @@ void PMArtNetScreenRenderer::setupBase(){
 
 void PMArtNetScreenRenderer::update(ofEventArgs &a){
     guiMachineIp->update();
+    for(auto guiNode : guiNodes)
+        guiNode->update();
 }
 
 void PMArtNetScreenRenderer::drawBasicLayout(){
@@ -37,7 +39,8 @@ void PMArtNetScreenRenderer::drawBasicLayout(){
     ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
 //    guiDevices.draw();
     guiMachineIp->draw();
-//    guiNodes.draw();
+    for(auto guiNode : guiNodes)
+        guiNode->draw();
     
     fileSelectorCustom.draw();
 }
@@ -77,41 +80,6 @@ void PMArtNetScreenRenderer::buildInputDevicesPanel()
 //    guiDevices.setWidthElements(300);
 }
 
-//void PMArtNetScreenRenderer::buildOutputDevicesPanel(){
-//    vector<ofSoundDevice> devices = ofSoundStreamListDevices();
-//    
-//    string DEVICE_SETTINGS_FILENAME = "devicesettings.xml";
-//    
-//    guiDevices.setup("Output Device Selector", DEVICE_SETTINGS_FILENAME);
-//    guiDevices.setPosition(10, vidImageContainer.height+10);
-//    
-//    for (int i=0; i<devices.size(); ++i)
-//    {
-//        if (devices[i].outputChannels < 2) continue;
-//        
-//        XBDeviceParams devParams(devices[i].deviceID, devices[i].name, devices[i].outputChannels);
-//        guiDevices.add(devParams.getParams());
-//        
-//        deviceParams.push_back(devParams);
-//    }
-//    
-//    //ofFile file(DEVICE_SETTINGS_FILENAME);
-//    //if (file.exists()) file.remove();
-//    
-//    guiDevices.loadFromFile(DEVICE_SETTINGS_FILENAME);
-//    
-//    guiDevices.add(lblStatus.setup("Current Status", "off"));
-//    lblStatus.setBackgroundColor(ofColor::darkRed);
-//    guiDevices.add(btnStartAnalysis.setup("START"));
-//    
-//    //btnStartAnalysis.addListener(this, &CelloApp::startButtonPressed);
-//    
-//    lblStatus.setDefaultWidth(300);
-//    
-//    guiDevices.setSize(300 , 300);
-//    guiDevices.setWidthElements(300);
-//}
-
 void PMArtNetScreenRenderer::buildMachineIpPanel(){
     auto ifacesIps = artnet.getIfacesIps();
     for (auto iface : ifacesIps) machineIps.push_back(iface.second);
@@ -124,83 +92,45 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
 }
 
 void PMArtNetScreenRenderer::buildNodesPanel(int universes){
-//    this->n_universes = universes;
-//    
-//    string NODES_SETTINGS_FILENAME = "nodesIPsettings.xml";
-//    guiNodes.setup("MACHINE IP", NODES_SETTINGS_FILENAME);
-//    guiNodes.setPosition(vidImageContainer.getRight()+10, vidImageContainer.getY()+50);
-//    guiNodes.setHeaderBackgroundColor(ofGetBackgroundColor());
-//    
-//    guiNodes.setName("Select node");
-//    
-//    if(nodesIpsString.size() == 0){
-//        for (int i = 0 ; i<n_universes ; i++){
-//            ofParameterGroup node;
-//            node.setName("Universe "+ofToString((i)));
-//            nodes.push_back(node);
-//            ofAddListener(nodes[nodes.size()-1].parameterChangedE(),this,  &PMArtNetScreenRenderer::nodeIpSelectorListener);
-//            guiNodes.add(nodes.at(nodes.size()-1));
-//        }
-//    }else{
-//        for (int i = 0; i<nodesIpsString.size(); i++) {
-//            vector<ofParameter<bool>> nodeIp;
-//            nodesIps.push_back(nodeIp);
-//        }
-//        for (int i = 0 ; i<n_universes ; i++){
-//            ofParameterGroup node;
-//            node.setName("Universe "+ofToString((i)));
-//            for (int j = 0; j<nodesIpsString.size(); j++){
-//                ofParameter<bool> tempIp;
-//                nodesIps[j].push_back(tempIp);
-//                node.add(nodesIps[j].at(i).set(nodesIpsString[j], false));
-//            }
-//            nodes.push_back(node);
-//            ofAddListener(nodes[nodes.size()-1].parameterChangedE(),this,  &PMArtNetScreenRenderer::nodeIpSelectorListener);
-//            guiNodes.add(nodes.at(nodes.size()-1));
-//        }
-//    }
-//    
-////    ofFile file(NODES_SETTINGS_FILENAME);
-////    if (file.exists()) file.remove();
-//    
-//    //guiNodes.loadFromFile(NODES_SETTINGS_FILENAME);
-//    
-//    guiNodes.setSize(200 , 300);
-//    guiNodes.setWidthElements(200);
+    this->n_universes = universes;
+    int posX = vidImageContainer.getRight()+10;
+    int posY = vidImageContainer.getTop();
+    int stepY = vidImageContainer.getHeight()/n_universes;
+    for(int i=0 ; i<n_universes; i++){
+        auto guiNode = new ofxDatGuiDropdown("Select ip for pixel line "+ofToString(i), nodesIpsString);
+        guiNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
+        guiNode->setPosition(posX, posY);
+        posY+=stepY;
+        guiNodes.push_back(guiNode);
+    }
 }
 
 void PMArtNetScreenRenderer::fillNodeIps(string &ip){
-//    if(guiNodes.getName() == ""){//Gui Nodes is not yet created
-//        nodesIpsString.push_back(ip);
-//    }else{
-//        vector<ofParameter<bool>> nodeIp;
-//        nodesIps.push_back(nodeIp);
-//        guiNodes.clear();
-//        for (int i = 0 ; i<nodes.size() ; i++){
-//            ofParameter<bool> tempIp;
-//            nodesIps[nodesIps.size()-1].push_back(tempIp);
-//            nodes[i].add(nodesIps[nodesIps.size()-1].at(i).set(ip, false));
-//            guiNodes.add(nodes[i]);
-//        }
-//    }
+    nodesIpsString.push_back(ip);
+    if(guiNodes.size() != 0){//Gui Nodes is created
+        int posX = vidImageContainer.getRight()+10;
+        int posY = vidImageContainer.getTop();
+        int stepY = vidImageContainer.getHeight()/n_universes;
+        int i=0;
+        for(auto &guiNode : guiNodes){
+            guiNode = new ofxDatGuiDropdown("Select ip for pixel line "+ofToString(i), nodesIpsString);
+            guiNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
+            guiNode->setPosition(posX, posY);
+            posY+=stepY;
+            i++;
+        }
+    }
 }
 
 void PMArtNetScreenRenderer::ipSelectorListener(ofxDatGuiDropdownEvent e){
     artnet.setMachineIP(machineIps[e.child]);
+    machineIps.push_back("prova");
 }
 
 
-void PMArtNetScreenRenderer::nodeIpSelectorListener(ofAbstractParameter &nodeIp){
-    if(nodeIp.toString() == "1"){
-        string nodeClicked = nodeIp.getGroupHierarchyNames()[1];
-        int universe = ofToInt(string(&nodeClicked.back()));
-        cout<<universe<<"  "<<nodeIp.getName()<<endl;
-        artnet.setTargetIP(nodeIp.getName(), universe);
-        for (int i = 0 ; i < nodesIps.size() ; i++){
-            if ( nodesIps[i][universe].getName() != nodeIp.getName())
-                nodesIps[i][universe] = false;
-        }
-    }
+void PMArtNetScreenRenderer::nodeIpSelectorListener(ofxDatGuiDropdownEvent e){
+    int universe = ofToInt(&e.target->getName()[e.target->getName().length()-1]);
+    artnet.setTargetIP(machineIps[e.child], universe);
 }
 
 
