@@ -61,7 +61,7 @@ void PMArtNetRecorder::draw(int x, int y, int w, int h){
     if(artnet.isStarted())
         frame.draw(vidImageContainer);
     drawBasicLayout();
-    universesSelector.draw();
+//    universesSelector.draw();
     recordButton.draw();
     stopButton.draw();
 }
@@ -80,30 +80,30 @@ void PMArtNetRecorder::stop(){
 }
 
 void PMArtNetRecorder::buildUniversesSelector(){
-    string UNIVERSESSELECTOR_SETTINGS_FILENAME = "NumUniversesSettings.xml";
-    universesSelector.setup("MACHINE IP", UNIVERSESSELECTOR_SETTINGS_FILENAME);
-    universesSelector.setPosition(vidImageContainer.getRight()+10, 0);
-    universesSelector.setHeaderBackgroundColor(ofGetBackgroundColor());
-    
-    universesTrigger.addListener(this, &PMArtNetRecorder::setUniverses);
-    universesSelector.add(universesSlider.setup("Num Universes", 1, 1, 16));
-    universesSelector.add(universesTrigger.setup("Set Num Universes"));
-    
-    //ofFile file(MACHINEIP_SETTINGS_FILENAME);
-    //if (file.exists()) file.remove();
-    
-    universesSelector.loadFromFile(UNIVERSESSELECTOR_SETTINGS_FILENAME);
-    
-    universesSelector.setSize(300 , 300);
-    universesSelector.setWidthElements(300);
+//    string UNIVERSESSELECTOR_SETTINGS_FILENAME = "NumUniversesSettings.xml";
+//    universesSelector.setup("MACHINE IP", UNIVERSESSELECTOR_SETTINGS_FILENAME);
+//    universesSelector.setPosition(vidImageContainer.getRight()+10, 0);
+//    universesSelector.setHeaderBackgroundColor(ofGetBackgroundColor());
+//    
+//    universesTrigger.addListener(this, &PMArtNetRecorder::setUniverses);
+//    universesSelector.add(universesSlider.setup("Num Universes", 1, 1, 16));
+//    universesSelector.add(universesTrigger.setup("Set Num Universes"));
+//    
+//    //ofFile file(MACHINEIP_SETTINGS_FILENAME);
+//    //if (file.exists()) file.remove();
+//    
+//    universesSelector.loadFromFile(UNIVERSESSELECTOR_SETTINGS_FILENAME);
+//    
+//    universesSelector.setSize(300 , 300);
+//    universesSelector.setWidthElements(300);
 
 }
 
 void PMArtNetRecorder::setUniverses(){
-    buildNodesPanel(universesSlider);
-    artnet.setUniverses(universesSlider);
-    n_universes = universesSlider;
-    frame.allocate(171,universesSlider,OF_IMAGE_COLOR);
+//    buildNodesPanel(universesSlider);
+//    artnet.setUniverses(universesSlider);
+//    n_universes = universesSlider;
+//    frame.allocate(171,universesSlider,OF_IMAGE_COLOR);
 }
 
 void PMArtNetRecorder::mousePressed(int x, int y, int button){

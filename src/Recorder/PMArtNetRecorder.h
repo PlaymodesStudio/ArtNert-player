@@ -38,8 +38,8 @@ private:
     ofSoundStream soundStream;
     PMBaseCustomButton recordButton, stopButton;
     
-    ofxPanel universesSelector;
-    ofxIntSlider universesSlider;
-    ofxButton universesTrigger;
+//    ofxPanel universesSelector;
+//    ofxIntSlider universesSlider;
+//    ofxButton universesTrigger;
 };
 #endif /* PMArtNetRecorder_h */

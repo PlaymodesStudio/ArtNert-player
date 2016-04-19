@@ -10,7 +10,7 @@
 #define PMArtNetScreenRenderer_h
 
 #include "ofMain.h"
-#include "ofxGui.h"
+#include "ofxDatGui.h"
 #include "XBDeviceParams.h"
 #include "PMArtNetManager.h"
 #include "PMFileSelector.h"
@@ -37,16 +37,16 @@ protected:
     ofTrueTypeFont font;
     
     // Audio device selector
-    ofxPanel                guiDevices;
+//    ofxPanel                guiDevices;
     vector<XBDeviceParams>  deviceParams;
     
     //MachineIp selector
-    ofxPanel                guiMachineIp;
+//    ofxPanel                guiMachineIp;
     ofParameterGroup        machineIps;
     vector<ofParameter<bool>>  machineIfacesIp;
     
     //Node Selector
-    ofxPanel                    guiNodes;
+//    ofxPanel                    guiNodes;
     vector<ofParameterGroup>    nodes;
     vector<vector<ofParameter<bool>>>   nodesIps;
     vector<string>              nodesIpsString;// = {"192.168.1.105"};
@@ -54,8 +54,8 @@ protected:
     //File Selector
     PMFileSelector          fileSelectorCustom;
     
-    ofxButton               btnStartAnalysis;
-    ofxLabel                lblStatus;
+//    ofxButton               btnStartAnalysis;
+//    ofxLabel                lblStatus;
     
     PMArtNetManager artnet;
     
