@@ -96,5 +96,5 @@ void PMArtNetManager::receivePollReply(ofxArtNetNodeEntry &node){
     ofNotifyEvent(receivedNode,ipOfNode);
     int univi = node.getUniverseOutput(0);
     univi = univi>>14;
-    cout<<"NODE FOUND: "<<node.getIp()<< "  -  Subnet "<<node.getSubnet()<<"  Universe "<<univi<<endl;
+    cout<<"NODE FOUND: "<<node.getIp()<< "  -  Subnet "<<node.getSubnet()<<"  Universe "<<node.getShortName()<<endl;
 }
