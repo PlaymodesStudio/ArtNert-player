@@ -14,7 +14,7 @@ void PMArtNetScreenRenderer::setupBase(){
     
     vidImageContainer.set(0,0,ofGetWidth()/2, ofGetHeight()/2);
     ofAddListener(artnet.receivedNode, this, &PMArtNetScreenRenderer::fillNodeIps);
-    buildMachineIpPanel();
+    buildMachineIpPanel(); 
     
     font.load("LucidaGrande.ttc", 20);
     //build fileLoader/Saver
@@ -107,7 +107,7 @@ void PMArtNetScreenRenderer::buildNodesPanel(int universes){
         //posY+=stepY;
         guiNodes.push_back(guiNode);
         //guiNodes universes
-        auto gui = new ofxDatGui();
+        auto gui = new ofxDatGuiFolder("Set Sub-Net and Universe for line "+ofToString(i+1));
         auto matrix = gui->addMatrix("Sub-Net", 16, true);
         auto matrix2 = gui->addMatrix("Universe", 16, true);
         matrix->setRadioMode(true);
@@ -117,9 +117,9 @@ void PMArtNetScreenRenderer::buildNodesPanel(int universes){
         matrix2->setPosition(matrix->getWidth(), 0);
         gui->setPosition(posX+guiNode->getWidth(), posY);
         gui->setWidth(560, 90);
-        gui->addFooter();
+//        gui->addFooter();
         gui->collapse();
-        gui->getFooter()->setLabelWhenCollapsed("Set Sub-Net and Universe for line "+ofToString(i+1));
+//        gui->getFooter()->setLabelWhenCollapsed("Set Sub-Net and Universe for line "+ofToString(i+1));
         guiNodesUniverse.push_back(gui);
         posY+=stepY;
     }
