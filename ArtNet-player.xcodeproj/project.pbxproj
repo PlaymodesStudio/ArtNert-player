@@ -568,14 +568,14 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>4B1E1FC27344991B859D9AAC</key>
+			<key>132D31C24E365A26120C42B1</key>
 			<dict>
 				<key>fileRef</key>
-				<string>842BA3A516E8121CBCA5206E</string>
+				<string>E5C29FF1417486C04877A44A</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>842BA3A516E8121CBCA5206E</key>
+			<key>E5C29FF1417486C04877A44A</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.c</string>
@@ -586,18 +586,18 @@
 				<key>name</key>
 				<string>transmit.c</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/src/transmit.c</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/src/transmit.c</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>27DFFCF1C740D20E8B751B35</key>
+			<key>73A331658DDC9C473AB11C44</key>
 			<dict>
 				<key>fileRef</key>
-				<string>B49171312F553876F9DE028D</string>
+				<string>6A45FDCC7CD6475BCDEB2C4E</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>B49171312F553876F9DE028D</key>
+			<key>6A45FDCC7CD6475BCDEB2C4E</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.c</string>
@@ -608,18 +608,18 @@
 				<key>name</key>
 				<string>tod.c</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/src/tod.c</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/src/tod.c</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>8A231283D31A46A796730807</key>
+			<key>5F7B2A57AA22B794398838C9</key>
 			<dict>
 				<key>fileRef</key>
-				<string>566765C2F49884233EE6073D</string>
+				<string>CD8146FD00369AEE3348AAF7</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>566765C2F49884233EE6073D</key>
+			<key>CD8146FD00369AEE3348AAF7</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.c</string>
@@ -630,18 +630,18 @@
 				<key>name</key>
 				<string>receive.c</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/src/receive.c</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/src/receive.c</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>052155D469378A23A81F5CA7</key>
+			<key>AFA770E077C98B68898648B2</key>
 			<dict>
 				<key>fileRef</key>
-				<string>4A4C2AB18C0C208C18B3D357</string>
+				<string>011E83AA30DC0C5FB5381D04</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>4A4C2AB18C0C208C18B3D357</key>
+			<key>011E83AA30DC0C5FB5381D04</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.c</string>
@@ -652,18 +652,18 @@
 				<key>name</key>
 				<string>network.c</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/src/network.c</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/src/network.c</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>0302D18489150FC1B75EE86A</key>
+			<key>723D9A873147B54BE80DE89C</key>
 			<dict>
 				<key>fileRef</key>
-				<string>73F55079DECEC97824145213</string>
+				<string>FA18339C464E1246621A40A3</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>73F55079DECEC97824145213</key>
+			<key>FA18339C464E1246621A40A3</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.c</string>
@@ -674,20 +674,20 @@
 				<key>name</key>
 				<string>misc.c</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/src/misc.c</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/src/misc.c</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>D8D809149F02A6970C89B783</key>
+			<key>3C32A97990D15E9281CD5257</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>DCD389AF5601BEB7DFC8347A</string>
-					<string>73F55079DECEC97824145213</string>
-					<string>4A4C2AB18C0C208C18B3D357</string>
-					<string>566765C2F49884233EE6073D</string>
-					<string>B49171312F553876F9DE028D</string>
-					<string>842BA3A516E8121CBCA5206E</string>
+					<string>A771139B825081BCAB712F43</string>
+					<string>FA18339C464E1246621A40A3</string>
+					<string>011E83AA30DC0C5FB5381D04</string>
+					<string>CD8146FD00369AEE3348AAF7</string>
+					<string>6A45FDCC7CD6475BCDEB2C4E</string>
+					<string>E5C29FF1417486C04877A44A</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -696,14 +696,14 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>956CF63633047A3EAD98DD6B</key>
+			<key>4A49D5B6E4CB67A97FD7BAE0</key>
 			<dict>
 				<key>fileRef</key>
-				<string>DCD389AF5601BEB7DFC8347A</string>
+				<string>A771139B825081BCAB712F43</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>DCD389AF5601BEB7DFC8347A</key>
+			<key>A771139B825081BCAB712F43</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.c</string>
@@ -714,11 +714,11 @@
 				<key>name</key>
 				<string>artnet.c</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/src/artnet.c</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/src/artnet.c</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>8B64CE3352997CAE525FC092</key>
+			<key>50E73952D6219B762EF60FC2</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -729,11 +729,11 @@
 				<key>name</key>
 				<string>unistd_d.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/include/unistd_d.h</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/include/unistd_d.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>82A9624DA018DD5C6DD73FA2</key>
+			<key>0CC41F90CD6A54AA9B514FBF</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -744,11 +744,11 @@
 				<key>name</key>
 				<string>tod.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/include/tod.h</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/include/tod.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>32CCDAD12D3D45D86DB057B2</key>
+			<key>11B316D310C6E82C191893DF</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -759,11 +759,11 @@
 				<key>name</key>
 				<string>private.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/include/private.h</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/include/private.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>65A1128A5039E57A53EE7F5F</key>
+			<key>D16C09175F57156ED1852EB9</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -774,11 +774,11 @@
 				<key>name</key>
 				<string>packets.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/include/packets.h</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/include/packets.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>487D0B8DAE735DCBA1A7DF79</key>
+			<key>4D37E57808518E2E3CF882A6</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -789,11 +789,11 @@
 				<key>name</key>
 				<string>misc.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/include/misc.h</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/include/misc.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>A045E7601183986D7E19ADA9</key>
+			<key>BC473AEC2F7CFF5459BC9C50</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -804,21 +804,21 @@
 				<key>name</key>
 				<string>common.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/include/common.h</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/include/common.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>1B57B49536A5F52C8C15744B</key>
+			<key>2163D52A6AF2F392E3BDAD7A</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>A138E5CF1785EB2D74F9C7C6</string>
-					<string>A045E7601183986D7E19ADA9</string>
-					<string>487D0B8DAE735DCBA1A7DF79</string>
-					<string>65A1128A5039E57A53EE7F5F</string>
-					<string>32CCDAD12D3D45D86DB057B2</string>
-					<string>82A9624DA018DD5C6DD73FA2</string>
-					<string>8B64CE3352997CAE525FC092</string>
+					<string>21035C6E19D26CA07F363963</string>
+					<string>BC473AEC2F7CFF5459BC9C50</string>
+					<string>4D37E57808518E2E3CF882A6</string>
+					<string>D16C09175F57156ED1852EB9</string>
+					<string>11B316D310C6E82C191893DF</string>
+					<string>0CC41F90CD6A54AA9B514FBF</string>
+					<string>50E73952D6219B762EF60FC2</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -827,12 +827,12 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>740F2F59D2FCBAE88AFDB3F1</key>
+			<key>D01A22F07DB7E001D6816969</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>1B57B49536A5F52C8C15744B</string>
-					<string>D8D809149F02A6970C89B783</string>
+					<string>2163D52A6AF2F392E3BDAD7A</string>
+					<string>3C32A97990D15E9281CD5257</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -841,11 +841,11 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>6CD9AD2694C21D77DA0DEF85</key>
+			<key>02428035B652D3A56EA8689E</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>740F2F59D2FCBAE88AFDB3F1</string>
+					<string>D01A22F07DB7E001D6816969</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -854,7 +854,7 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>A138E5CF1785EB2D74F9C7C6</key>
+			<key>21035C6E19D26CA07F363963</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -865,11 +865,11 @@
 				<key>name</key>
 				<string>artnet.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/libs/artnet/include/artnet.h</string>
+				<string>../../../addons/ofxArtNet_PM/libs/artnet/include/artnet.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>BF3E86C6EA2D91BA714B526F</key>
+			<key>41F93FC739C26C4986AA6CF0</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -880,18 +880,18 @@
 				<key>name</key>
 				<string>ofxArtNetNodeEntry.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/src/ofxArtNetNodeEntry.h</string>
+				<string>../../../addons/ofxArtNet_PM/src/ofxArtNetNodeEntry.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>BD53C476A333DDFCFE13D752</key>
+			<key>BE2CEB38B94EFF1BB2D599AD</key>
 			<dict>
 				<key>fileRef</key>
-				<string>3181C391A928D1249647940B</string>
+				<string>6D0471CE092FEAB47D35E9DA</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>3181C391A928D1249647940B</key>
+			<key>6D0471CE092FEAB47D35E9DA</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.cpp</string>
@@ -902,11 +902,11 @@
 				<key>name</key>
 				<string>ofxArtNetNodeEntry.cpp</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/src/ofxArtNetNodeEntry.cpp</string>
+				<string>../../../addons/ofxArtNet_PM/src/ofxArtNetNodeEntry.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>D0256A7AE08DE2D42EF1B6EB</key>
+			<key>C9F62704C82E4DCF1EE514E3</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -917,18 +917,18 @@
 				<key>name</key>
 				<string>ofxArtNetDmxData.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/src/ofxArtNetDmxData.h</string>
+				<string>../../../addons/ofxArtNet_PM/src/ofxArtNetDmxData.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>AFCD3AF3E225232FD1C29D70</key>
+			<key>0D5CA92D58451A6B622B5E9B</key>
 			<dict>
 				<key>fileRef</key>
-				<string>DB3594DD72C61A24879F817F</string>
+				<string>C87F2E40CDD50503F4526CC8</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>DB3594DD72C61A24879F817F</key>
+			<key>C87F2E40CDD50503F4526CC8</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.cpp</string>
@@ -939,11 +939,11 @@
 				<key>name</key>
 				<string>ofxArtNetDmxData.cpp</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/src/ofxArtNetDmxData.cpp</string>
+				<string>../../../addons/ofxArtNet_PM/src/ofxArtNetDmxData.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>5F1CEA41106DA5558AA93BDA</key>
+			<key>2A7826AB1A7D3703DD4B2D53</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -954,18 +954,18 @@
 				<key>name</key>
 				<string>ofxArtNet.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/src/ofxArtNet.h</string>
+				<string>../../../addons/ofxArtNet_PM/src/ofxArtNet.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>5D2254D017AC101A4F244E2C</key>
+			<key>0FBB0D2E1BEF7724280D03C9</key>
 			<dict>
 				<key>fileRef</key>
-				<string>B9721C959370E9CD294EE489</string>
+				<string>1EEC26D1DB5F088CCDD9A14D</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>B9721C959370E9CD294EE489</key>
+			<key>1EEC26D1DB5F088CCDD9A14D</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.cpp</string>
@@ -976,21 +976,21 @@
 				<key>name</key>
 				<string>ofxArtNet.cpp</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/src/ofxArtNet.cpp</string>
+				<string>../../../addons/ofxArtNet_PM/src/ofxArtNet.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>830586A1AA0051305017565F</key>
+			<key>90DCD9E84992B83941A0FFFA</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>3B80170E1283F0857A1A53A3</string>
-					<string>B9721C959370E9CD294EE489</string>
-					<string>5F1CEA41106DA5558AA93BDA</string>
-					<string>DB3594DD72C61A24879F817F</string>
-					<string>D0256A7AE08DE2D42EF1B6EB</string>
-					<string>3181C391A928D1249647940B</string>
-					<string>BF3E86C6EA2D91BA714B526F</string>
+					<string>97F1FB8C7A7B28F160C8F56A</string>
+					<string>1EEC26D1DB5F088CCDD9A14D</string>
+					<string>2A7826AB1A7D3703DD4B2D53</string>
+					<string>C87F2E40CDD50503F4526CC8</string>
+					<string>C9F62704C82E4DCF1EE514E3</string>
+					<string>6D0471CE092FEAB47D35E9DA</string>
+					<string>41F93FC739C26C4986AA6CF0</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -999,21 +999,21 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>E0CBBF0F01F7F6399CF2163B</key>
+			<key>862A697AEFFD1E4C5648A079</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>830586A1AA0051305017565F</string>
-					<string>6CD9AD2694C21D77DA0DEF85</string>
+					<string>90DCD9E84992B83941A0FFFA</string>
+					<string>02428035B652D3A56EA8689E</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
 				<key>name</key>
-				<string>ofxArtNet</string>
+				<string>ofxArtNet_PM</string>
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>3B80170E1283F0857A1A53A3</key>
+			<key>97F1FB8C7A7B28F160C8F56A</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -1024,7 +1024,7 @@
 				<key>name</key>
 				<string>LocalAddressGrabber.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxArtNet/src/LocalAddressGrabber.h</string>
+				<string>../../../addons/ofxArtNet_PM/src/LocalAddressGrabber.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -1602,7 +1602,7 @@ IFS=$SAVED_IFS
 			<dict>
 				<key>children</key>
 				<array>
-					<string>E0CBBF0F01F7F6399CF2163B</string>
+					<string>862A697AEFFD1E4C5648A079</string>
 					<string>D8DD1043C333F6F63C8685E6</string>
 					<string>7652B9B7014C8450639DA55C</string>
 				</array>
@@ -1764,11 +1764,11 @@ IFS=$SAVED_IFS
 						<string>src/Player</string>
 						<string>src/Recorder</string>
 						<string>src/Video</string>
-						<string>../../../addons/ofxArtNet/libs</string>
-						<string>../../../addons/ofxArtNet/libs/artnet</string>
-						<string>../../../addons/ofxArtNet/libs/artnet/include</string>
-						<string>../../../addons/ofxArtNet/libs/artnet/src</string>
-						<string>../../../addons/ofxArtNet/src</string>
+						<string>../../../addons/ofxArtNet_PM/libs</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet/include</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet/src</string>
+						<string>../../../addons/ofxArtNet_PM/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>
@@ -1839,11 +1839,11 @@ IFS=$SAVED_IFS
 						<string>src/Player</string>
 						<string>src/Recorder</string>
 						<string>src/Video</string>
-						<string>../../../addons/ofxArtNet/libs</string>
-						<string>../../../addons/ofxArtNet/libs/artnet</string>
-						<string>../../../addons/ofxArtNet/libs/artnet/include</string>
-						<string>../../../addons/ofxArtNet/libs/artnet/src</string>
-						<string>../../../addons/ofxArtNet/src</string>
+						<string>../../../addons/ofxArtNet_PM/libs</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet/include</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet/src</string>
+						<string>../../../addons/ofxArtNet_PM/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>
@@ -1917,15 +1917,15 @@ IFS=$SAVED_IFS
 					<string>417199A2F3CD2158BF327462</string>
 					<string>DA4F7D757A9535C3C2F0FD99</string>
 					<string>5E46D6532F1DB9158778401B</string>
-					<string>5D2254D017AC101A4F244E2C</string>
-					<string>AFCD3AF3E225232FD1C29D70</string>
-					<string>BD53C476A333DDFCFE13D752</string>
-					<string>956CF63633047A3EAD98DD6B</string>
-					<string>0302D18489150FC1B75EE86A</string>
-					<string>052155D469378A23A81F5CA7</string>
-					<string>8A231283D31A46A796730807</string>
-					<string>27DFFCF1C740D20E8B751B35</string>
-					<string>4B1E1FC27344991B859D9AAC</string>
+					<string>0FBB0D2E1BEF7724280D03C9</string>
+					<string>0D5CA92D58451A6B622B5E9B</string>
+					<string>BE2CEB38B94EFF1BB2D599AD</string>
+					<string>4A49D5B6E4CB67A97FD7BAE0</string>
+					<string>723D9A873147B54BE80DE89C</string>
+					<string>AFA770E077C98B68898648B2</string>
+					<string>5F7B2A57AA22B794398838C9</string>
+					<string>73A331658DDC9C473AB11C44</string>
+					<string>132D31C24E365A26120C42B1</string>
 					<string>D3C1C48E59CAA2D68C0DD477</string>
 					<string>9CF4130A7E6DA19A3DC42B9A</string>
 					<string>C9466C434D1CF8AB968D298D</string>
@@ -2020,11 +2020,11 @@ IFS=$SAVED_IFS
 						<string>src/Player</string>
 						<string>src/Recorder</string>
 						<string>src/Video</string>
-						<string>../../../addons/ofxArtNet/libs</string>
-						<string>../../../addons/ofxArtNet/libs/artnet</string>
-						<string>../../../addons/ofxArtNet/libs/artnet/include</string>
-						<string>../../../addons/ofxArtNet/libs/artnet/src</string>
-						<string>../../../addons/ofxArtNet/src</string>
+						<string>../../../addons/ofxArtNet_PM/libs</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet/include</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet/src</string>
+						<string>../../../addons/ofxArtNet_PM/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>
@@ -2085,11 +2085,11 @@ IFS=$SAVED_IFS
 						<string>src/Player</string>
 						<string>src/Recorder</string>
 						<string>src/Video</string>
-						<string>../../../addons/ofxArtNet/libs</string>
-						<string>../../../addons/ofxArtNet/libs/artnet</string>
-						<string>../../../addons/ofxArtNet/libs/artnet/include</string>
-						<string>../../../addons/ofxArtNet/libs/artnet/src</string>
-						<string>../../../addons/ofxArtNet/src</string>
+						<string>../../../addons/ofxArtNet_PM/libs</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet/include</string>
+						<string>../../../addons/ofxArtNet_PM/libs/artnet/src</string>
+						<string>../../../addons/ofxArtNet_PM/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>

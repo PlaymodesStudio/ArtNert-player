@@ -1,3 +1,3 @@
-ofxArtNet
+ofxArtNet_PM
 ofxDatGui
 ofxVideoRecorder
