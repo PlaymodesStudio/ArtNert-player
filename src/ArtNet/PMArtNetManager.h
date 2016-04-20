@@ -29,7 +29,9 @@ public:
     void setFromPixels(ofPixels &pixels);
     bool sendDmx();
     bool sendDmx(ofPixels &pixels);
-    void setTargetIP(string ip, int universe){dmxDataPacket[universe].setIp(ip);};
+    void setTargetIP(string ip, int line){dmxDataPacket[line].setIp(ip);};
+    void setTargetSubNet(int subnet, int line){dmxDataPacket[line].setSubNet(subnet);};
+    void setTargetUniverse(int universe, int line){dmxDataPacket[line].setUniverse(universe);};
     vector<unsigned char> getData(int universe){return dmxDataPacket[universe].getData();};
     void receiveData(ofxArtNetDmxData &data){dmxDataPacket[data.getPort()] = data;};
     void receivePollReply(ofxArtNetNodeEntry &node);

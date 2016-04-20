@@ -16,6 +16,7 @@ void PMArtNetScreenRenderer::setupBase(){
     ofAddListener(artnet.receivedNode, this, &PMArtNetScreenRenderer::fillNodeIps);
     buildMachineIpPanel(); 
     
+    
     font.load("LucidaGrande.ttc", 20);
     //build fileLoader/Saver
     fileSelectorCustom.setPosition(400, vidImageContainer.height + 300);
@@ -25,10 +26,10 @@ void PMArtNetScreenRenderer::setupBase(){
 
 void PMArtNetScreenRenderer::update(ofEventArgs &a){
     guiMachineIp->update();
-    for(auto guiNode : guiNodes)
-        guiNode->update();
-    for(auto guiNodeUniverse : guiNodesUniverse)
-        guiNodeUniverse->update();
+//    for(auto guiNode : guiNodes)
+//        guiNode->update();
+//    for(auto guiNodeUniverse : guiNodesUniverse)
+//        guiNodeUniverse->update();
 }
 
 void PMArtNetScreenRenderer::drawBasicLayout(){
@@ -41,10 +42,10 @@ void PMArtNetScreenRenderer::drawBasicLayout(){
     ofDrawBitmapString(ofGetFrameRate(), 20, ofGetHeight()-20);
 //    guiDevices.draw();
     guiMachineIp->draw();
-    for(auto guiNode : guiNodes)
-        guiNode->draw();
-    for(auto guiNodeUniverse : guiNodesUniverse)
-        guiNodeUniverse->draw();
+//    for(auto guiNode : guiNodes)
+//        guiNode->draw();
+//    for(auto guiNodeUniverse : guiNodesUniverse)
+//        guiNodeUniverse->draw();
     
     fileSelectorCustom.draw();
 }
@@ -96,65 +97,61 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
 }
 
 void PMArtNetScreenRenderer::buildNodesPanel(int universes){
+    guiNodes = new ofxDatGui();
+    guiNodes->setPosition(vidImageContainer.getRight()+10, vidImageContainer.getTop());
+    guiNodesSubNet = new ofxDatGui();
+    guiNodesSubNet->setPosition(guiNodes->getPosition().x + guiNodes->getWidth(), guiNodes->getHeight());
+    guiNodesUniverse = new ofxDatGui();
+    guiNodesUniverse->setPosition(guiNodesSubNet->getPosition().x + guiNodesSubNet->getWidth(), guiNodesSubNet->getHeight());
+    
+    vector<string> universeSubnetNumbers;
+    for (int i=0; i<16; i++) universeSubnetNumbers.push_back(ofToString(i));
     this->n_universes = universes;
     int posX = vidImageContainer.getRight()+10;
     int posY = vidImageContainer.getTop();
-    int stepY = vidImageContainer.getHeight()/n_universes;
     for(int i=0 ; i<n_universes; i++){
-        auto guiNode = new ofxDatGuiDropdown("Select ip for pixel line "+ofToString(i+1), nodesIpsString);
-        guiNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
-        guiNode->setPosition(posX, posY);
-        //posY+=stepY;
-        guiNodes.push_back(guiNode);
-        //guiNodes universes
-        auto gui = new ofxDatGuiFolder("Set Sub-Net and Universe for line "+ofToString(i+1));
-        auto matrix = gui->addMatrix("Sub-Net", 16, true);
-        auto matrix2 = gui->addMatrix("Universe", 16, true);
-        matrix->setRadioMode(true);
-        matrix->onMatrixEvent(this, &PMArtNetScreenRenderer::universeSelection);
-        matrix2->setRadioMode(true);
-        matrix2->onMatrixEvent(this, &PMArtNetScreenRenderer::universeSelection);
-        matrix2->setPosition(matrix->getWidth(), 0);
-        gui->setPosition(posX+guiNode->getWidth(), posY);
-        gui->setWidth(560, 90);
-//        gui->addFooter();
-        gui->collapse();
-//        gui->getFooter()->setLabelWhenCollapsed("Set Sub-Net and Universe for line "+ofToString(i+1));
-        guiNodesUniverse.push_back(gui);
-        posY+=stepY;
+        auto dropDownNode = guiNodes->addDropdown("Select ip for pixel line "+ofToString(i), nodesIpsString);
+        dropDownNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
+        //guiNodes SubNet
+        auto dropDownSubNet = guiNodesSubNet->addDropdown("Select Sub-Net for pixel line "+ofToString(i), universeSubnetNumbers);
+        dropDownSubNet->onDropdownEvent(this, &::PMArtNetScreenRenderer::nodeSubnetSelectorListener);
+        //guiNodes Universes
+        auto dropDownUniverse = guiNodesUniverse->addDropdown("Select Universe for pixel line "+ofToString(i), universeSubnetNumbers);
+        dropDownUniverse->onDropdownEvent(this, &::PMArtNetScreenRenderer::nodeUniverseSelectorListener);
     }
 }
 
 void PMArtNetScreenRenderer::fillNodeIps(string &ip){
     nodesIpsString.push_back(ip);
-    if(guiNodes.size() != 0){//Gui Nodes is created
-        int posX = vidImageContainer.getRight()+10;
-        int posY = vidImageContainer.getTop();
-        int stepY = vidImageContainer.getHeight()/n_universes;
-        int i=0;
-        for(auto &guiNode : guiNodes){
-            guiNode = new ofxDatGuiDropdown("Select ip for pixel line "+ofToString(i), nodesIpsString);
-            guiNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
-            guiNode->setPosition(posX, posY);
-            posY+=stepY;
-            i++;
+    if(guiNodes != nullptr){//Gui Nodes is created
+        ofPoint guiPos = guiNodes->getPosition();
+        guiNodes = new ofxDatGui();
+        guiNodes->setPosition(guiPos.x, guiPos.y);
+        for(int i=0 ; i<n_universes; i++){
+            auto dropDownNode = guiNodes->addDropdown("Select ip for pixel line "+ofToString(i+1), nodesIpsString);
+            dropDownNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
         }
     }
 }
 
 void PMArtNetScreenRenderer::ipSelectorListener(ofxDatGuiDropdownEvent e){
     artnet.setMachineIP(machineIps[e.child]);
-    machineIps.push_back("prova");
 }
 
 
 void PMArtNetScreenRenderer::nodeIpSelectorListener(ofxDatGuiDropdownEvent e){
-    int universe = ofToInt(&e.target->getName()[e.target->getName().length()-1]);
-    artnet.setTargetIP(machineIps[e.child], universe-1);
+    int line = ofToInt(&e.target->getName()[e.target->getName().length()-1]);
+    artnet.setTargetIP(nodesIpsString[e.child], line);
 }
 
-void PMArtNetScreenRenderer::universeSelection(ofxDatGuiMatrixEvent e){
-    
+void PMArtNetScreenRenderer::nodeSubnetSelectorListener(ofxDatGuiDropdownEvent e){
+    int line = ofToInt(&e.target->getName()[e.target->getName().length()-1]);
+    artnet.setTargetSubNet(e.child, line);
+}
+
+void PMArtNetScreenRenderer::nodeUniverseSelectorListener(ofxDatGuiDropdownEvent e){
+    int line = ofToInt(&e.target->getName()[e.target->getName().length()-1]);
+    artnet.setTargetUniverse(e.child, line);
 }
 
 

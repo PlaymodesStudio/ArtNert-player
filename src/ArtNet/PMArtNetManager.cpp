@@ -74,7 +74,6 @@ bool PMArtNetManager::sendDmx(){
 }
 
 bool PMArtNetManager::sendDmx(ofPixels &pixels){
-
     setFromPixels(pixels);
     sendDmx();
 }
@@ -83,7 +82,7 @@ void PMArtNetManager::setUniverses(int universes){
     nUniverses = universes;
     for(int i = 0 ; i<nUniverses ; i++){
         ofxArtNetDmxData tempPacket;
-        tempPacket.setPort(i);
+        tempPacket.setPort(0);
         vector<unsigned char> dataVec;
         dataVec.assign(512, sizeof(unsigned char));
         tempPacket.setData(dataVec);
@@ -95,5 +94,7 @@ void PMArtNetManager::setUniverses(int universes){
 void PMArtNetManager::receivePollReply(ofxArtNetNodeEntry &node){
     string ipOfNode = node.getIp();
     ofNotifyEvent(receivedNode,ipOfNode);
-    cout<<"NODE FOUND: "<<node.getIp()<<endl;
+    int univi = node.getUniverseOutput(0);
+    univi = univi>>14;
+    cout<<"NODE FOUND: "<<node.getIp()<< "  -  Subnet "<<node.getSubnet()<<"  Universe "<<univi<<endl;
 }
