@@ -99,10 +99,13 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
 void PMArtNetScreenRenderer::buildNodesPanel(int universes){
     guiNodes = new ofxDatGui();
     guiNodes->setPosition(vidImageContainer.getRight()+10, vidImageContainer.getTop());
+    guiNodes->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);;
     guiNodesSubNet = new ofxDatGui();
     guiNodesSubNet->setPosition(guiNodes->getPosition().x + guiNodes->getWidth(), guiNodes->getHeight());
+    guiNodesSubNet->onDropdownEvent(this, &::PMArtNetScreenRenderer::nodeSubnetSelectorListener);
     guiNodesUniverse = new ofxDatGui();
     guiNodesUniverse->setPosition(guiNodesSubNet->getPosition().x + guiNodesSubNet->getWidth(), guiNodesSubNet->getHeight());
+    guiNodesUniverse->onDropdownEvent(this, &::PMArtNetScreenRenderer::nodeUniverseSelectorListener);
     
     vector<string> universeSubnetNumbers;
     for (int i=0; i<16; i++) universeSubnetNumbers.push_back(ofToString(i));
@@ -111,13 +114,10 @@ void PMArtNetScreenRenderer::buildNodesPanel(int universes){
     int posY = vidImageContainer.getTop();
     for(int i=0 ; i<n_universes; i++){
         auto dropDownNode = guiNodes->addDropdown("Select ip for pixel line "+ofToString(i), nodesIpsString);
-        dropDownNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
         //guiNodes SubNet
         auto dropDownSubNet = guiNodesSubNet->addDropdown("Select Sub-Net for pixel line "+ofToString(i), universeSubnetNumbers);
-        dropDownSubNet->onDropdownEvent(this, &::PMArtNetScreenRenderer::nodeSubnetSelectorListener);
         //guiNodes Universes
         auto dropDownUniverse = guiNodesUniverse->addDropdown("Select Universe for pixel line "+ofToString(i), universeSubnetNumbers);
-        dropDownUniverse->onDropdownEvent(this, &::PMArtNetScreenRenderer::nodeUniverseSelectorListener);
     }
 }
 
@@ -127,6 +127,7 @@ void PMArtNetScreenRenderer::fillNodeIps(string &ip){
         ofPoint guiPos = guiNodes->getPosition();
         guiNodes = new ofxDatGui();
         guiNodes->setPosition(guiPos.x, guiPos.y);
+        guiNodes->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);;
         for(int i=0 ; i<n_universes; i++){
             auto dropDownNode = guiNodes->addDropdown("Select ip for pixel line "+ofToString(i+1), nodesIpsString);
             dropDownNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
