@@ -29,7 +29,7 @@ protected:
     
     void ipSelectorListener(ofxDatGuiDropdownEvent e);
     void nodeIpSelectorListener(ofxDatGuiDropdownEvent e);
-    
+    void universeSelection(ofxDatGuiMatrixEvent e);
     
     
     ofRectangle vidImageContainer;
@@ -46,8 +46,9 @@ protected:
     ofxDatGuiDropdown*          guiMachineIp;
     
     //Node Selector
-    vector<ofxDatGuiDropdown*>   guiNodes;
+    vector<ofxDatGuiDropdown*>  guiNodes;
     vector<string>              nodesIpsString = {"192.168.1.105"};
+    vector<ofxDatGui*>          guiNodesUniverse;
     
     //File Selector
     PMFileSelector          fileSelectorCustom;

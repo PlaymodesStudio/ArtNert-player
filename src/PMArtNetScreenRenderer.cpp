@@ -27,6 +27,8 @@ void PMArtNetScreenRenderer::update(ofEventArgs &a){
     guiMachineIp->update();
     for(auto guiNode : guiNodes)
         guiNode->update();
+    for(auto guiNodeUniverse : guiNodesUniverse)
+        guiNodeUniverse->update();
 }
 
 void PMArtNetScreenRenderer::drawBasicLayout(){
@@ -41,6 +43,8 @@ void PMArtNetScreenRenderer::drawBasicLayout(){
     guiMachineIp->draw();
     for(auto guiNode : guiNodes)
         guiNode->draw();
+    for(auto guiNodeUniverse : guiNodesUniverse)
+        guiNodeUniverse->draw();
     
     fileSelectorCustom.draw();
 }
@@ -97,11 +101,27 @@ void PMArtNetScreenRenderer::buildNodesPanel(int universes){
     int posY = vidImageContainer.getTop();
     int stepY = vidImageContainer.getHeight()/n_universes;
     for(int i=0 ; i<n_universes; i++){
-        auto guiNode = new ofxDatGuiDropdown("Select ip for pixel line "+ofToString(i), nodesIpsString);
+        auto guiNode = new ofxDatGuiDropdown("Select ip for pixel line "+ofToString(i+1), nodesIpsString);
         guiNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
         guiNode->setPosition(posX, posY);
-        posY+=stepY;
+        //posY+=stepY;
         guiNodes.push_back(guiNode);
+        //guiNodes universes
+        auto gui = new ofxDatGui();
+        auto matrix = gui->addMatrix("Sub-Net", 16, true);
+        auto matrix2 = gui->addMatrix("Universe", 16, true);
+        matrix->setRadioMode(true);
+        matrix->onMatrixEvent(this, &PMArtNetScreenRenderer::universeSelection);
+        matrix2->setRadioMode(true);
+        matrix2->onMatrixEvent(this, &PMArtNetScreenRenderer::universeSelection);
+        matrix2->setPosition(matrix->getWidth(), 0);
+        gui->setPosition(posX+guiNode->getWidth(), posY);
+        gui->setWidth(560, 90);
+        gui->addFooter();
+        gui->collapse();
+        gui->getFooter()->setLabelWhenCollapsed("Set Sub-Net and Universe for line "+ofToString(i+1));
+        guiNodesUniverse.push_back(gui);
+        posY+=stepY;
     }
 }
 
@@ -130,7 +150,11 @@ void PMArtNetScreenRenderer::ipSelectorListener(ofxDatGuiDropdownEvent e){
 
 void PMArtNetScreenRenderer::nodeIpSelectorListener(ofxDatGuiDropdownEvent e){
     int universe = ofToInt(&e.target->getName()[e.target->getName().length()-1]);
-    artnet.setTargetIP(machineIps[e.child], universe);
+    artnet.setTargetIP(machineIps[e.child], universe-1);
+}
+
+void PMArtNetScreenRenderer::universeSelection(ofxDatGuiMatrixEvent e){
+    
 }
 
 
