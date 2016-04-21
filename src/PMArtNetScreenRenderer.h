@@ -47,6 +47,7 @@ protected:
     ofxDatGuiDropdown*          guiMachineIp;
     
     //Node Selector
+    ofxDatGui*                  guiLabels;
     ofxDatGui*                  guiNodes;
     vector<string>              nodesIpsString = {"192.168.1.105"};
     ofxDatGui*                  guiNodesUniverse;
