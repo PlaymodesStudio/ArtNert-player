@@ -73,7 +73,7 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>21E1E3071CB7B11914428B62</key>
+			<key>9E034FA57FE251AC33904E82</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -84,16 +84,16 @@
 				<key>name</key>
 				<string>ofxDatGuiThemes.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/themes/ofxDatGuiThemes.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/themes/ofxDatGuiThemes.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>911FE1C75E520EE70A7B4830</key>
+			<key>D9757BE1A5DFAE64198FF989</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>B498F0559F473CF855EF6062</string>
-					<string>21E1E3071CB7B11914428B62</string>
+					<string>0EA01AA404A74EE4BF1F46AD</string>
+					<string>9E034FA57FE251AC33904E82</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -102,7 +102,7 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>B498F0559F473CF855EF6062</key>
+			<key>0EA01AA404A74EE4BF1F46AD</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -113,11 +113,11 @@
 				<key>name</key>
 				<string>ofxDatGuiTheme.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/themes/ofxDatGuiTheme.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/themes/ofxDatGuiTheme.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>9705D66270ED89ECA6E6FECE</key>
+			<key>4D832D586223B608C5420D29</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -128,18 +128,18 @@
 				<key>name</key>
 				<string>ofxDatGui.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/ofxDatGui.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/ofxDatGui.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>C9466C434D1CF8AB968D298D</key>
+			<key>BE7DAF3CB982C2BD0FE44648</key>
 			<dict>
 				<key>fileRef</key>
-				<string>26490D7CC31EF7D6ED5F925A</string>
+				<string>DD8F81F7AAB5BA396231DD4C</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>26490D7CC31EF7D6ED5F925A</key>
+			<key>DD8F81F7AAB5BA396231DD4C</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.cpp</string>
@@ -150,11 +150,11 @@
 				<key>name</key>
 				<string>ofxDatGui.cpp</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/ofxDatGui.cpp</string>
+				<string>../../../addons/ofxDatGui_PM/src/ofxDatGui.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>896211FFD7650884437CE42C</key>
+			<key>EFC799641CF7089DDBF2094B</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -165,16 +165,16 @@
 				<key>name</key>
 				<string>ofxSmartFont.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/libs/ofxSmartFont/ofxSmartFont.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/libs/ofxSmartFont/ofxSmartFont.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>0EF29D3ABD6E4147AE024D7A</key>
+			<key>D334E5DEE84D3F52FE9065DE</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>C954E0E8B7DB9D6983309883</string>
-					<string>896211FFD7650884437CE42C</string>
+					<string>A403D3D25D08FC7AF3B871D4</string>
+					<string>EFC799641CF7089DDBF2094B</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -183,11 +183,11 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>69146F0BA46E48E576618E5E</key>
+			<key>49829C6AAEB884DF8A116E1D</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>0EF29D3ABD6E4147AE024D7A</string>
+					<string>D334E5DEE84D3F52FE9065DE</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -196,14 +196,14 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>9CF4130A7E6DA19A3DC42B9A</key>
+			<key>646DF4D56CE728133610A7F6</key>
 			<dict>
 				<key>fileRef</key>
-				<string>C954E0E8B7DB9D6983309883</string>
+				<string>A403D3D25D08FC7AF3B871D4</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>C954E0E8B7DB9D6983309883</key>
+			<key>A403D3D25D08FC7AF3B871D4</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.cpp</string>
@@ -214,11 +214,11 @@
 				<key>name</key>
 				<string>ofxSmartFont.cpp</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/libs/ofxSmartFont/ofxSmartFont.cpp</string>
+				<string>../../../addons/ofxDatGui_PM/src/libs/ofxSmartFont/ofxSmartFont.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>422C4E1AAC7EC4D30B17702D</key>
+			<key>8E922B504254FF844AF5505A</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -229,11 +229,11 @@
 				<key>name</key>
 				<string>ofxDatGuiIntObject.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/core/ofxDatGuiIntObject.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/core/ofxDatGuiIntObject.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>F59384ED57A7C6A7A8B0351D</key>
+			<key>407D7F7B6D3EDF97638DF661</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -244,11 +244,11 @@
 				<key>name</key>
 				<string>ofxDatGuiEvents.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/core/ofxDatGuiEvents.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/core/ofxDatGuiEvents.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>9B5051062C6A871714E6F5F4</key>
+			<key>169D713735D46DFA03D4EBEB</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -259,11 +259,11 @@
 				<key>name</key>
 				<string>ofxDatGuiConstants.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/core/ofxDatGuiConstants.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/core/ofxDatGuiConstants.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>BCC84C6EB3417706F4F762F0</key>
+			<key>A534F08B38B5C43917E2A9E4</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -274,19 +274,19 @@
 				<key>name</key>
 				<string>ofxDatGuiComponent.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/core/ofxDatGuiComponent.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/core/ofxDatGuiComponent.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>8870759BC9CAEA1E4E9EA3A8</key>
+			<key>EB0606B779510751DDA16A81</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>1A3E3B8F332A1A3C7EDF4998</string>
-					<string>BCC84C6EB3417706F4F762F0</string>
-					<string>9B5051062C6A871714E6F5F4</string>
-					<string>F59384ED57A7C6A7A8B0351D</string>
-					<string>422C4E1AAC7EC4D30B17702D</string>
+					<string>5D13EE4C64902574D9153447</string>
+					<string>A534F08B38B5C43917E2A9E4</string>
+					<string>169D713735D46DFA03D4EBEB</string>
+					<string>407D7F7B6D3EDF97638DF661</string>
+					<string>8E922B504254FF844AF5505A</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -295,14 +295,14 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>D3C1C48E59CAA2D68C0DD477</key>
+			<key>4A277DA746402C76CE307770</key>
 			<dict>
 				<key>fileRef</key>
-				<string>1A3E3B8F332A1A3C7EDF4998</string>
+				<string>5D13EE4C64902574D9153447</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>1A3E3B8F332A1A3C7EDF4998</key>
+			<key>5D13EE4C64902574D9153447</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.cpp</string>
@@ -313,11 +313,11 @@
 				<key>name</key>
 				<string>ofxDatGuiComponent.cpp</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/core/ofxDatGuiComponent.cpp</string>
+				<string>../../../addons/ofxDatGui_PM/src/core/ofxDatGuiComponent.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>0A42C807BEF3A18E8E105A3B</key>
+			<key>A7B61DF7F41316374CEEE8CA</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -328,11 +328,11 @@
 				<key>name</key>
 				<string>ofxDatGuiTimeGraph.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiTimeGraph.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiTimeGraph.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>04C339FF9ADCF05DF2DA62A3</key>
+			<key>3F15C4313830F7C3C28E1FAE</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -343,11 +343,11 @@
 				<key>name</key>
 				<string>ofxDatGuiTextInputField.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiTextInputField.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiTextInputField.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>C085A33340AB0C1DB647AC2F</key>
+			<key>29030CD02944F06F1DAC3E49</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -358,11 +358,11 @@
 				<key>name</key>
 				<string>ofxDatGuiTextInput.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiTextInput.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiTextInput.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>D0D6A66BEBA820EA1D396889</key>
+			<key>149298D896FDA631EE81BEB9</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -373,11 +373,11 @@
 				<key>name</key>
 				<string>ofxDatGuiSlider.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiSlider.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiSlider.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>545BBA6F6669BED2DA497BC6</key>
+			<key>11021811865108C49AED9E1E</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -388,11 +388,11 @@
 				<key>name</key>
 				<string>ofxDatGuiScrollView.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiScrollView.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiScrollView.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>CDF7278CB636137FE7BF91A5</key>
+			<key>92007C97134ED347908EA736</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -403,11 +403,11 @@
 				<key>name</key>
 				<string>ofxDatGuiMatrix.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiMatrix.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiMatrix.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>787315438BF1DD00C81DF413</key>
+			<key>A13853A1B21F20177F44EE37</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -418,11 +418,11 @@
 				<key>name</key>
 				<string>ofxDatGuiLabel.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiLabel.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiLabel.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>744031A3E8F8DAF9FE6F3EA8</key>
+			<key>698855D874920D7A53525854</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -433,11 +433,11 @@
 				<key>name</key>
 				<string>ofxDatGuiGroups.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiGroups.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiGroups.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>64C563B8158C37E9D07AE29D</key>
+			<key>B11DB438E2A6EBD360F8BA50</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -448,11 +448,11 @@
 				<key>name</key>
 				<string>ofxDatGuiFRM.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiFRM.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiFRM.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>E100ED9DCB412957A879CD5A</key>
+			<key>B7B623A02730497FBCEA4FF2</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -463,11 +463,11 @@
 				<key>name</key>
 				<string>ofxDatGuiControls.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiControls.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiControls.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>C84ED7FCC017328C6F58283D</key>
+			<key>0795F21A2022A202F628BE94</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -478,11 +478,11 @@
 				<key>name</key>
 				<string>ofxDatGuiColorPicker.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiColorPicker.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiColorPicker.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>FDA86F4C2F1F1964D35391C6</key>
+			<key>771877A40D55CB5D6C1969C4</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -493,27 +493,27 @@
 				<key>name</key>
 				<string>ofxDatGuiButton.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGuiButton.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGuiButton.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>947FCD1248D8B0A16B53C1AA</key>
+			<key>1D570521A53950659A74DE26</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>902724601B82C6AD81BBCD71</string>
-					<string>FDA86F4C2F1F1964D35391C6</string>
-					<string>C84ED7FCC017328C6F58283D</string>
-					<string>E100ED9DCB412957A879CD5A</string>
-					<string>64C563B8158C37E9D07AE29D</string>
-					<string>744031A3E8F8DAF9FE6F3EA8</string>
-					<string>787315438BF1DD00C81DF413</string>
-					<string>CDF7278CB636137FE7BF91A5</string>
-					<string>545BBA6F6669BED2DA497BC6</string>
-					<string>D0D6A66BEBA820EA1D396889</string>
-					<string>C085A33340AB0C1DB647AC2F</string>
-					<string>04C339FF9ADCF05DF2DA62A3</string>
-					<string>0A42C807BEF3A18E8E105A3B</string>
+					<string>C2BBB5BA515C82003E0EEB5E</string>
+					<string>771877A40D55CB5D6C1969C4</string>
+					<string>0795F21A2022A202F628BE94</string>
+					<string>B7B623A02730497FBCEA4FF2</string>
+					<string>B11DB438E2A6EBD360F8BA50</string>
+					<string>698855D874920D7A53525854</string>
+					<string>A13853A1B21F20177F44EE37</string>
+					<string>92007C97134ED347908EA736</string>
+					<string>11021811865108C49AED9E1E</string>
+					<string>149298D896FDA631EE81BEB9</string>
+					<string>29030CD02944F06F1DAC3E49</string>
+					<string>3F15C4313830F7C3C28E1FAE</string>
+					<string>A7B61DF7F41316374CEEE8CA</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -522,16 +522,16 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>E9B32C117486580389FAFF01</key>
+			<key>FE3CA1F8648010DBA2401722</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>947FCD1248D8B0A16B53C1AA</string>
-					<string>8870759BC9CAEA1E4E9EA3A8</string>
-					<string>69146F0BA46E48E576618E5E</string>
-					<string>26490D7CC31EF7D6ED5F925A</string>
-					<string>9705D66270ED89ECA6E6FECE</string>
-					<string>911FE1C75E520EE70A7B4830</string>
+					<string>1D570521A53950659A74DE26</string>
+					<string>EB0606B779510751DDA16A81</string>
+					<string>49829C6AAEB884DF8A116E1D</string>
+					<string>DD8F81F7AAB5BA396231DD4C</string>
+					<string>4D832D586223B608C5420D29</string>
+					<string>D9757BE1A5DFAE64198FF989</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -540,20 +540,20 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>D8DD1043C333F6F63C8685E6</key>
+			<key>E99400E5E21DFD21A45E2E82</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>E9B32C117486580389FAFF01</string>
+					<string>FE3CA1F8648010DBA2401722</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
 				<key>name</key>
-				<string>ofxDatGui</string>
+				<string>ofxDatGui_PM</string>
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>902724601B82C6AD81BBCD71</key>
+			<key>C2BBB5BA515C82003E0EEB5E</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -564,7 +564,7 @@
 				<key>name</key>
 				<string>ofxDatGui2dPad.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDatGui/src/components/ofxDatGui2dPad.h</string>
+				<string>../../../addons/ofxDatGui_PM/src/components/ofxDatGui2dPad.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -1603,7 +1603,7 @@ IFS=$SAVED_IFS
 				<key>children</key>
 				<array>
 					<string>862A697AEFFD1E4C5648A079</string>
-					<string>D8DD1043C333F6F63C8685E6</string>
+					<string>E99400E5E21DFD21A45E2E82</string>
 					<string>7652B9B7014C8450639DA55C</string>
 				</array>
 				<key>isa</key>
@@ -1769,12 +1769,12 @@ IFS=$SAVED_IFS
 						<string>../../../addons/ofxArtNet_PM/libs/artnet/include</string>
 						<string>../../../addons/ofxArtNet_PM/libs/artnet/src</string>
 						<string>../../../addons/ofxArtNet_PM/src</string>
-						<string>../../../addons/ofxDatGui/src</string>
-						<string>../../../addons/ofxDatGui/src/components</string>
-						<string>../../../addons/ofxDatGui/src/core</string>
-						<string>../../../addons/ofxDatGui/src/libs</string>
-						<string>../../../addons/ofxDatGui/src/libs/ofxSmartFont</string>
-						<string>../../../addons/ofxDatGui/src/themes</string>
+						<string>../../../addons/ofxDatGui_PM/src</string>
+						<string>../../../addons/ofxDatGui_PM/src/components</string>
+						<string>../../../addons/ofxDatGui_PM/src/core</string>
+						<string>../../../addons/ofxDatGui_PM/src/libs</string>
+						<string>../../../addons/ofxDatGui_PM/src/libs/ofxSmartFont</string>
+						<string>../../../addons/ofxDatGui_PM/src/themes</string>
 						<string>../../../addons/ofxVideoRecorder/src</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
@@ -1844,12 +1844,12 @@ IFS=$SAVED_IFS
 						<string>../../../addons/ofxArtNet_PM/libs/artnet/include</string>
 						<string>../../../addons/ofxArtNet_PM/libs/artnet/src</string>
 						<string>../../../addons/ofxArtNet_PM/src</string>
-						<string>../../../addons/ofxDatGui/src</string>
-						<string>../../../addons/ofxDatGui/src/components</string>
-						<string>../../../addons/ofxDatGui/src/core</string>
-						<string>../../../addons/ofxDatGui/src/libs</string>
-						<string>../../../addons/ofxDatGui/src/libs/ofxSmartFont</string>
-						<string>../../../addons/ofxDatGui/src/themes</string>
+						<string>../../../addons/ofxDatGui_PM/src</string>
+						<string>../../../addons/ofxDatGui_PM/src/components</string>
+						<string>../../../addons/ofxDatGui_PM/src/core</string>
+						<string>../../../addons/ofxDatGui_PM/src/libs</string>
+						<string>../../../addons/ofxDatGui_PM/src/libs/ofxSmartFont</string>
+						<string>../../../addons/ofxDatGui_PM/src/themes</string>
 						<string>../../../addons/ofxVideoRecorder/src</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
@@ -1926,9 +1926,9 @@ IFS=$SAVED_IFS
 					<string>5F7B2A57AA22B794398838C9</string>
 					<string>73A331658DDC9C473AB11C44</string>
 					<string>132D31C24E365A26120C42B1</string>
-					<string>D3C1C48E59CAA2D68C0DD477</string>
-					<string>9CF4130A7E6DA19A3DC42B9A</string>
-					<string>C9466C434D1CF8AB968D298D</string>
+					<string>4A277DA746402C76CE307770</string>
+					<string>646DF4D56CE728133610A7F6</string>
+					<string>BE7DAF3CB982C2BD0FE44648</string>
 					<string>D50B3D9655F08D2B232C1C4D</string>
 				</array>
 				<key>isa</key>
@@ -2025,12 +2025,12 @@ IFS=$SAVED_IFS
 						<string>../../../addons/ofxArtNet_PM/libs/artnet/include</string>
 						<string>../../../addons/ofxArtNet_PM/libs/artnet/src</string>
 						<string>../../../addons/ofxArtNet_PM/src</string>
-						<string>../../../addons/ofxDatGui/src</string>
-						<string>../../../addons/ofxDatGui/src/components</string>
-						<string>../../../addons/ofxDatGui/src/core</string>
-						<string>../../../addons/ofxDatGui/src/libs</string>
-						<string>../../../addons/ofxDatGui/src/libs/ofxSmartFont</string>
-						<string>../../../addons/ofxDatGui/src/themes</string>
+						<string>../../../addons/ofxDatGui_PM/src</string>
+						<string>../../../addons/ofxDatGui_PM/src/components</string>
+						<string>../../../addons/ofxDatGui_PM/src/core</string>
+						<string>../../../addons/ofxDatGui_PM/src/libs</string>
+						<string>../../../addons/ofxDatGui_PM/src/libs/ofxSmartFont</string>
+						<string>../../../addons/ofxDatGui_PM/src/themes</string>
 						<string>../../../addons/ofxVideoRecorder/src</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>
@@ -2090,12 +2090,12 @@ IFS=$SAVED_IFS
 						<string>../../../addons/ofxArtNet_PM/libs/artnet/include</string>
 						<string>../../../addons/ofxArtNet_PM/libs/artnet/src</string>
 						<string>../../../addons/ofxArtNet_PM/src</string>
-						<string>../../../addons/ofxDatGui/src</string>
-						<string>../../../addons/ofxDatGui/src/components</string>
-						<string>../../../addons/ofxDatGui/src/core</string>
-						<string>../../../addons/ofxDatGui/src/libs</string>
-						<string>../../../addons/ofxDatGui/src/libs/ofxSmartFont</string>
-						<string>../../../addons/ofxDatGui/src/themes</string>
+						<string>../../../addons/ofxDatGui_PM/src</string>
+						<string>../../../addons/ofxDatGui_PM/src/components</string>
+						<string>../../../addons/ofxDatGui_PM/src/core</string>
+						<string>../../../addons/ofxDatGui_PM/src/libs</string>
+						<string>../../../addons/ofxDatGui_PM/src/libs/ofxSmartFont</string>
+						<string>../../../addons/ofxDatGui_PM/src/themes</string>
 						<string>../../../addons/ofxVideoRecorder/src</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>

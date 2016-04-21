@@ -11,10 +11,11 @@
 
 void PMArtNetScreenRenderer::setupBase(){
     ofAddListener(ofEvents().update, this, &PMArtNetScreenRenderer::update);
-    
+    ofxDatGui::setAssetPath("");
     vidImageContainer.set(0,0,ofGetWidth()/2, ofGetHeight()/2);
     ofAddListener(artnet.receivedNode, this, &PMArtNetScreenRenderer::fillNodeIps);
-    buildMachineIpPanel(); 
+    buildMachineIpPanel();
+    
     
     
     font.load("LucidaGrande.ttc", 20);
