@@ -30,7 +30,7 @@ public:
     void audioIn(float *input, int bufferSize, int nChannels);
     
     void buildUniversesSelector();
-    void setUniverses();
+    void setUniverses(ofxDatGuiButtonEvent e);
     
 private:
     ofxVideoRecorder vidRecorder;
@@ -38,8 +38,6 @@ private:
     ofSoundStream soundStream;
     PMBaseCustomButton recordButton, stopButton;
     
-//    ofxPanel universesSelector;
-//    ofxIntSlider universesSlider;
-//    ofxButton universesTrigger;
+    ofxDatGui* universesSelector;
 };
 #endif /* PMArtNetRecorder_h */

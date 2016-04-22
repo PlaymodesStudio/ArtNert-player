@@ -80,30 +80,20 @@ void PMArtNetRecorder::stop(){
 }
 
 void PMArtNetRecorder::buildUniversesSelector(){
-//    string UNIVERSESSELECTOR_SETTINGS_FILENAME = "NumUniversesSettings.xml";
-//    universesSelector.setup("MACHINE IP", UNIVERSESSELECTOR_SETTINGS_FILENAME);
-//    universesSelector.setPosition(vidImageContainer.getRight()+10, 0);
-//    universesSelector.setHeaderBackgroundColor(ofGetBackgroundColor());
-//    
-//    universesTrigger.addListener(this, &PMArtNetRecorder::setUniverses);
-//    universesSelector.add(universesSlider.setup("Num Universes", 1, 1, 16));
-//    universesSelector.add(universesTrigger.setup("Set Num Universes"));
-//    
-//    //ofFile file(MACHINEIP_SETTINGS_FILENAME);
-//    //if (file.exists()) file.remove();
-//    
-//    universesSelector.loadFromFile(UNIVERSESSELECTOR_SETTINGS_FILENAME);
-//    
-//    universesSelector.setSize(300 , 300);
-//    universesSelector.setWidthElements(300);
+    universesSelector = new ofxDatGui(vidImageContainer.getLeft()+10, vidImageContainer.getBottom()+10);
+    auto slider = universesSelector->addSlider("Num lines to record (Univ)", 1, 256, 1);
+    slider->setPrecision(0);
+    universesSelector->addButton("Set Lines");
+    universesSelector->onButtonEvent(this, &PMArtNetRecorder::setUniverses);
+    
 
 }
 
-void PMArtNetRecorder::setUniverses(){
-//    buildNodesPanel(universesSlider);
-//    artnet.setUniverses(universesSlider);
-//    n_universes = universesSlider;
-//    frame.allocate(171,universesSlider,OF_IMAGE_COLOR);
+void PMArtNetRecorder::setUniverses(ofxDatGuiButtonEvent e){
+    n_universes = universesSelector->getSlider("Num lines to record (Univ)")->getValue();
+    buildNodesPanel(n_universes);
+    artnet.setUniverses(n_universes);
+    frame.allocate(171,n_universes,OF_IMAGE_COLOR);
 }
 
 void PMArtNetRecorder::mousePressed(int x, int y, int button){
