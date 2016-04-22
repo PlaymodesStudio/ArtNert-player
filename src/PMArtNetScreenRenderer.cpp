@@ -99,28 +99,34 @@ void PMArtNetScreenRenderer::buildMachineIpPanel(){
 }
 
 void PMArtNetScreenRenderer::buildNodesPanel(int universes){
-    guiLabels = new ofxDatGui();
+    this->n_universes = universes;
+    
+    if(guiLabels == nullptr) guiLabels = new ofxDatGui();
+    else guiLabels->clear();
     guiLabels->setPosition(vidImageContainer.getRight()+10, vidImageContainer.getTop());
     guiLabels->setWidth(30);
     
-    guiNodes = new ofxDatGui();
+    if(guiNodes == nullptr) guiNodes = new ofxDatGui();
+    else guiNodes->clear();
     guiNodes->setPosition(guiLabels->getPosition().x + guiLabels->getWidth()+5, guiLabels->getPosition().y);
     guiNodes->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);;
     guiNodes->setWidth(200);
     
-    guiNodesSubNet = new ofxDatGui();
+    if(guiNodesSubNet == nullptr) guiNodesSubNet = new ofxDatGui();
+    else guiNodesSubNet->clear();
     guiNodesSubNet->setPosition(guiNodes->getPosition().x + guiNodes->getWidth()+5, guiNodes->getHeight());
     guiNodesSubNet->onDropdownEvent(this, &::PMArtNetScreenRenderer::nodeSubnetSelectorListener);
     guiNodesSubNet->setWidth(150);
     
-    guiNodesUniverse = new ofxDatGui();
+    if(guiNodesUniverse == nullptr) guiNodesUniverse = new ofxDatGui();
+    else guiNodesUniverse->clear();
     guiNodesUniverse->setPosition(guiNodesSubNet->getPosition().x + guiNodesSubNet->getWidth()+5, guiNodesSubNet->getHeight());
     guiNodesUniverse->onDropdownEvent(this, &::PMArtNetScreenRenderer::nodeUniverseSelectorListener);
     guiNodesUniverse->setWidth(150);
     
     vector<string> universeSubnetNumbers;
     for (int i=0; i<16; i++) universeSubnetNumbers.push_back(ofToString(i));
-    this->n_universes = universes;
+    
     int posX = vidImageContainer.getRight()+10;
     int posY = vidImageContainer.getTop();
     for(int i=0 ; i<n_universes; i++){
@@ -139,12 +145,10 @@ void PMArtNetScreenRenderer::fillNodeIps(string &ip){
     nodesIpsString.push_back(ip);
     if(guiNodes != nullptr){//Gui Nodes is created
         ofPoint guiPos = guiNodes->getPosition();
-        guiNodes = new ofxDatGui();
-        guiNodes->setPosition(guiPos.x, guiPos.y);
-        guiNodes->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);;
-        for(int i=0 ; i<n_universes; i++){
-            auto dropDownNode = guiNodes->addDropdown("Ip for line "+ofToString(i+1), nodesIpsString);
-            dropDownNode->onDropdownEvent(this, &PMArtNetScreenRenderer::nodeIpSelectorListener);
+        guiNodes->clear();
+        guiNodes->setWidth(200);
+        for(int i=0 ; i<n_universes ; i++){
+            auto dropDownNode = guiNodes->addDropdown("Ip for line "+ofToString(i), nodesIpsString);
         }
     }
 }
@@ -160,6 +164,7 @@ void PMArtNetScreenRenderer::nodeIpSelectorListener(ofxDatGuiDropdownEvent e){
 }
 
 void PMArtNetScreenRenderer::nodeSubnetSelectorListener(ofxDatGuiDropdownEvent e){
+    cout<<"Selected line"<<endl;
     int line = ofToInt(&e.target->getName()[e.target->getName().length()-1]);
     artnet.setTargetSubNet(e.child, line);
 }
